@@ -1,4 +1,6 @@
-from utils.find_element import get_element, get_element_by_xpath
+from time import sleep
+
+from utils.find_element import get_element, get_element_by_xpath, get_elements
 from typing import NoReturn
 from appium.webdriver.common.touch_action import TouchAction
 from utils.locator_info import *
@@ -12,8 +14,8 @@ class Actions:
     def tap_login(self) -> NoReturn:
         get_element(self.driver, login).click()
 
-    def input_email(self) -> NoReturn:
-        get_element(self.driver, email).send_keys('joy009@fanatics.live')
+    def input_email(self, test_account) -> NoReturn:
+        get_element(self.driver, email).send_keys(test_account.email)
 
     def clear_email(self) -> NoReturn:
         get_element(self.driver, email).clear()
@@ -21,8 +23,8 @@ class Actions:
     def tap_next(self) -> NoReturn:
         get_element(self.driver, login_next).click()
 
-    def input_password(self) -> NoReturn:
-        get_element(self.driver, password).send_keys('Joytest159753?')
+    def input_password(self, test_account) -> NoReturn:
+        get_element(self.driver, password).send_keys(test_account.password)
 
     def tap_fanatics_id(self) -> NoReturn:
         get_element(self.driver, fanaticsID).click()
@@ -54,8 +56,15 @@ class Actions:
         except Exception as e:
             raise e
 
+    def assert_elements(self, locator, message) -> NoReturn:
+        try:
+            assert get_elements(self.driver, locator)
+            print(message)
+        except Exception as e:
+            raise e
+
     def tap_join(self) -> NoReturn:
-        get_element(self.driver,join).click()
+        get_element(self.driver, join).click()
 
     def tap_complete(self) -> NoReturn:
         get_element(self.driver, complete).click()
@@ -118,7 +127,7 @@ class Actions:
         get_element(self.driver, complete_profile).click()
 
     def tap_close_complete_profile(self) -> NoReturn:
-        get_element(self.driver,close_complete_profile).click()
+        get_element(self.driver, close_complete_profile).click()
 
     def tap_view_all(self) -> NoReturn:
         get_element(self.driver, view_all).click()
@@ -135,9 +144,41 @@ class Actions:
     def input_cvc(self, cvc_number) -> NoReturn:
         get_element(self.driver, cvc).send_keys(cvc_number)
 
+    def search_country(self, icon_chevron_down) -> NoReturn:
+        get_element_by_xpath(self.driver, icon_chevron_down).click()
+
+    def swipe_up_country(self):
+        actions = TouchAction(self.driver)
+        actions.press(x=215, y=815).wait(200).move_to(x=215, y=778)
+        actions.release().perform()
+
+    def swipe_down_country(self):
+        actions = TouchAction(self.driver)
+        actions.press(x=215, y=815).wait(200).move_to(x=215, y=845)
+        actions.release().perform()
+
     # United States default, don't need to select others
-    def select_country(self) -> NoReturn:
-        get_element(self.driver, country_done).click()
+    def select_country(self, country) -> NoReturn:
+        self.search_country(country_list)
+        is_sequential_search = True
+        while True:
+            try:
+                value = get_element(self.driver, state_value).get_attribute('value')
+                if country in value:
+                    get_element(self.driver, state_done).click()
+                    break
+                if 'Afghanistan' in value:
+                    print('Not find Country')
+                    break
+                if is_sequential_search:
+                    self.swipe_up_country()
+                    value = get_element(self.driver, state_value).get_attribute('value')
+                    if 'Zimbabwe' in value:
+                        is_sequential_search = False
+                else:
+                    self.swipe_down_country()
+            except Exception:
+                raise
 
     def input_zip(self, number) -> NoReturn:
         get_element(self.driver, zip_number).send_keys(number)
@@ -146,18 +187,18 @@ class Actions:
         get_element(self.driver, set_up).click()
 
     def add_card_flow(self, card_info) -> NoReturn:
-        self.input_card(card_info['card'])
-        self.input_expiration_date(card_info['date'])
-        self.input_cvc(card_info['cvc'])
-        self.select_country()
-        self.input_zip(card_info['zip_number'])
+        self.input_card(card_info.card)
+        self.input_expiration_date(card_info.date)
+        self.input_cvc(card_info.cvc)
+        self.select_country(card_info.country)
+        self.input_zip(card_info.zip_number)
         self.set_up()
 
     def input_firstname(self, first_name) -> NoReturn:
         get_element_by_xpath(self.driver, firstname).clear().send_keys(first_name)
 
     def input_lastname(self, last_name) -> NoReturn:
-        get_element_by_xpath(self.driver, last_name).clear().send_keys(last_name)
+        get_element_by_xpath(self.driver, lastname).clear().send_keys(last_name)
 
     def input_address(self, address_text) -> NoReturn:
         get_element_by_xpath(self.driver, address).clear().send_keys(address_text)
@@ -180,7 +221,7 @@ class Actions:
         while is_find is not True:
             try:
                 actions = TouchAction(self.driver)
-                actions.press(x=217, y=815).wait(1000).move_to(x=216, y=778)
+                actions.press(x=217, y=815).wait(200).move_to(x=216, y=778)
                 actions.release().perform()
                 value = get_element(self.driver, state_value).get_attribute('value')
                 if value == state_text:
@@ -193,10 +234,38 @@ class Actions:
         get_element(self.driver, save_address).click()
 
     def add_address_flow(self, address_info) -> NoReturn:
-        self.input_firstname(address_info['firstname'])
-        self.input_lastname(address_info['lastname'])
-        self.input_address(address_info['address'])
-        self.input_zip_code(address_info['code'])
-        self.input_city(address_info['city'])
-        self.input_state(state_text=address_info['state'])
+        self.cancel_add_address()
+        self.input_firstname(address_info.firstname)
+        self.input_lastname(address_info.lastname)
+        self.input_address(address_info.address)
+        self.input_zip_code(address_info.code)
+        self.input_city(address_info.city)
+        self.input_state(state_text=address_info.state)
         self.save_address()
+
+    def tap_my_address(self) -> NoReturn:
+        get_element(self.driver, my_address).click()
+
+    def tap_add_shipping(self) -> NoReturn:
+        get_element(self.driver, add_address).click()
+
+    def find_address_items(self):
+        items = self.driver.find_elements(by='xpath', value="//XCUIElementTypeSwitch")
+        address_list = []
+        for i in items:
+            address_label = i.get_attribute('label')
+            if address_label is not None:
+                address_list.append(address_label)
+        return address_list
+
+    def cancel_add_address(self) -> NoReturn:
+        get_element_by_xpath(self.driver, cancel_add_address)
+
+    def delete_address(self) -> NoReturn:
+        get_element_by_xpath(self.driver, delete_address).click()
+
+    def confirm_delete_address(self) -> NoReturn:
+        get_element(self.driver, confirm_delete_address).click()
+
+    def cancel_delete_address(self) -> NoReturn:
+        get_element(self.driver,cancel_delete_address).click()

@@ -1,5 +1,4 @@
 import unittest
-from testcase.login_logout.test_login_logout import TestExistedAccount
 from testdebug import Test_debugs
 
 if __name__ == '__main__':
