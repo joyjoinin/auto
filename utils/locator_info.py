@@ -47,53 +47,53 @@ country_done = LocatorInfo('accessibility id', 'Done')
 zip_number = LocatorInfo('accessibility id', 'ZIP')
 set_up = LocatorInfo('accessibility id', 'Set up')
 firstname = LocatorInfo(locator='//XCUIElementTypeApplication[@name="Fanatics Live '
-                                          'Development"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther['
-                                          '2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther'
-                                          '/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther'
-                                          '/XCUIElementTypeOther/XCUIElementTypeScrollView/XCUIElementTypeOther'
-                                          '/XCUIElementTypeTextField[1]')
+                                'Development"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther['
+                                '2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther'
+                                '/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther'
+                                '/XCUIElementTypeOther/XCUIElementTypeScrollView/XCUIElementTypeOther'
+                                '/XCUIElementTypeTextField[1]')
 lastname = LocatorInfo(locator='//XCUIElementTypeApplication[@name="Fanatics Live '
-                                          'Development"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther['
-                                          '2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther'
-                                          '/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther'
-                                          '/XCUIElementTypeOther/XCUIElementTypeScrollView/XCUIElementTypeOther'
-                                          '/XCUIElementTypeTextField[2]')
+                               'Development"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther['
+                               '2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther'
+                               '/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther'
+                               '/XCUIElementTypeOther/XCUIElementTypeScrollView/XCUIElementTypeOther'
+                               '/XCUIElementTypeTextField[2]')
 address = LocatorInfo(locator='//XCUIElementTypeApplication[@name="Fanatics Live '
-                                          'Development"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther['
-                                          '2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther'
-                                          '/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther'
-                                          '/XCUIElementTypeOther/XCUIElementTypeScrollView/XCUIElementTypeOther'
-                                          '/XCUIElementTypeTextField[3]')
+                              'Development"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther['
+                              '2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther'
+                              '/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther'
+                              '/XCUIElementTypeOther/XCUIElementTypeScrollView/XCUIElementTypeOther'
+                              '/XCUIElementTypeTextField[3]')
 apartment = LocatorInfo(locator='//XCUIElementTypeApplication[@name="Fanatics Live '
-                                          'Development"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther['
-                                          '2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther'
-                                          '/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther'
-                                          '/XCUIElementTypeOther/XCUIElementTypeScrollView/XCUIElementTypeOther'
-                                          '/XCUIElementTypeTextField[4]')
+                                'Development"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther['
+                                '2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther'
+                                '/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther'
+                                '/XCUIElementTypeOther/XCUIElementTypeScrollView/XCUIElementTypeOther'
+                                '/XCUIElementTypeTextField[4]')
 zip_code = LocatorInfo(locator='//XCUIElementTypeApplication[@name="Fanatics Live '
-                                          'Development"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther['
-                                          '2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther'
-                                          '/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther'
-                                          '/XCUIElementTypeOther/XCUIElementTypeScrollView/XCUIElementTypeOther'
-                                          '/XCUIElementTypeTextField[5]')
+                               'Development"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther['
+                               '2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther'
+                               '/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther'
+                               '/XCUIElementTypeOther/XCUIElementTypeScrollView/XCUIElementTypeOther'
+                               '/XCUIElementTypeTextField[5]')
 city = LocatorInfo(locator='//XCUIElementTypeApplication[@name="Fanatics Live '
-                                          'Development"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther['
-                                          '2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther'
-                                          '/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther'
-                                          '/XCUIElementTypeOther/XCUIElementTypeScrollView/XCUIElementTypeOther'
-                                          '/XCUIElementTypeTextField[6]')
+                           'Development"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther['
+                           '2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther'
+                           '/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther'
+                           '/XCUIElementTypeOther/XCUIElementTypeScrollView/XCUIElementTypeOther'
+                           '/XCUIElementTypeTextField[6]')
 state = LocatorInfo(locator='//XCUIElementTypeApplication[@name="Fanatics Live '
-                                          'Development"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther['
-                                          '2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther'
-                                          '/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther'
-                                          '/XCUIElementTypeOther/XCUIElementTypeScrollView/XCUIElementTypeOther'
-                                          '/XCUIElementTypeTextField[7]')
+                            'Development"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther['
+                            '2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther'
+                            '/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther'
+                            '/XCUIElementTypeOther/XCUIElementTypeScrollView/XCUIElementTypeOther'
+                            '/XCUIElementTypeTextField[7]')
 phone = LocatorInfo(locator='//XCUIElementTypeApplication[@name="Fanatics Live '
-                                          'Development"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther['
-                                          '2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther'
-                                          '/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther'
-                                          '/XCUIElementTypeOther/XCUIElementTypeScrollView/XCUIElementTypeOther'
-                                          '/XCUIElementTypeTextField[9]')
+                            'Development"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther['
+                            '2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther'
+                            '/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther'
+                            '/XCUIElementTypeOther/XCUIElementTypeScrollView/XCUIElementTypeOther'
+                            '/XCUIElementTypeTextField[9]')
 state_value = LocatorInfo('class name', 'XCUIElementTypePickerWheel')
 state_done = LocatorInfo('accessibility id', 'Done')
 save_address = LocatorInfo('name', 'Save address')
@@ -101,7 +101,21 @@ my_address = LocatorInfo('accessibility id', 'My Addresses')
 my_wallet = LocatorInfo(locator='//XCUIElementTypeStaticText[@name="My Wallet"]')
 add_address = LocatorInfo('accessibility id', 'Add shipping address')
 cancel_add_address = LocatorInfo(locator='//XCUIElementTypeButton[@name="Cancel"]')
-address_item = LocatorInfo('type', 'XCUIElementTypeSwitch')
+address_item = LocatorInfo(locator='//XCUIElementTypeSwitch')
 delete_address = LocatorInfo(locator='(//XCUIElementTypeButton[@name="Delete"])[2]')  # delete 2rd as default
 confirm_delete_address = LocatorInfo('accessibility id', 'Delete address')
 cancel_delete_address = LocatorInfo('accessibility id', 'No cancel')
+back_to_setting = LocatorInfo('accessibility id', 'Settings')
+back = LocatorInfo('accessibility id', 'Back')
+add_wallet = LocatorInfo(locator='//XCUIElementTypeButton[@name="+ Add"]')
+wallet_list = LocatorInfo(locator='//XCUIElementTypeApplication[@name="Fanatics Live '
+                                  'Development"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther['
+                                  '2]/XCUIElementTypeOther[2]/XCUIElementTypeScrollView/XCUIElementTypeOther['
+                                  '1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther['
+                                  '1]/XCUIElementTypeOther/XCUIElementTypeCollectionView/XCUIElementTypeCell')
+edit_card = LocatorInfo('accessibility id', 'Edit')
+delete_card = LocatorInfo(locator='(//XCUIElementTypeImage[@name="icon_x"])[2]')  # delete 2rd as default
+confirm_delete_card = LocatorInfo(locator='(//XCUIElementTypeButton[@name="Remove"])[3]')
+cancel_delete_card = LocatorInfo(locator='//XCUIElementTypeButton[@name="Cancel"]')
+done_edit_card = LocatorInfo('accessibility id', 'Done')
+card_set_up = LocatorInfo('accessibility id', 'Set up')

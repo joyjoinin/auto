@@ -15,7 +15,7 @@ def get_element(driver, locator):
 def get_elements(driver, locator):
     try:
         elements = WebDriverWait(driver, 5).until(
-            lambda x: x.find_element(by=locator.type, value=locator.locator)
+            lambda x: x.find_elements(by=locator.type, value=locator.locator)
         )
         return elements
 
@@ -37,7 +37,7 @@ def get_element_by_xpath(driver, locator):
 def get_elements_by_xpath(driver, locator):
     try:
         elements = WebDriverWait(driver, 5).until(
-            lambda x: x.find_element(by='xpath', value=locator.locator)
+            lambda x: x.find_elements(by='xpath', value=locator.locator)
         )
         return elements
 
