@@ -1,11 +1,11 @@
 import unittest
-from config.test_setup import get_driver
-from data.test_params import test_account, app_name
+from config.setup import get_driver
+from data.params import test_account, app_name
 from utils.locator_info import home, login
 from utils.user_actions import Actions
 
 
-class TestExistedAccount(unittest.TestCase):
+class TestLoginLogout(unittest.TestCase):
 
     def setUp(self) -> None:
         self.driver = get_driver()
@@ -17,16 +17,9 @@ class TestExistedAccount(unittest.TestCase):
         self.driver.quit()
 
     def test1_loginUserExisted(self) -> None:
-        do.tap_login()
-        do.input_email(test_account)
-        do.tap_next()
-        do.input_password(test_account)
-        do.tap_fanatics_id()
+        do.login_flow()
         do.assert_element(home, 'login success')
 
     def test2_LogOutUserExisted(self) -> None:
-        do.tap_profile()
-        do.tap_setting()
-        do.tap_logout()
-        do.confirm_logout()
+        do.logout_flow()
         do.assert_element(login, 'Log out success')

@@ -1,4 +1,5 @@
-
+import pytest
+from data.params import level_params, test_account, app_name
 from utils.find_element import get_element, get_element_by_xpath, get_elements, get_elements_by_xpath
 from typing import NoReturn
 from appium.webdriver.common.touch_action import TouchAction
@@ -9,6 +10,12 @@ class Actions:
 
     def __init__(self, driver) -> None:
         self.driver = driver
+
+    def open_app(self) -> NoReturn:
+        self.driver.activate_app(app_name)
+
+    def close_app(self) -> NoReturn:
+        self.driver.terminate_app(app_name)
 
     def tap_login(self) -> NoReturn:
         get_element(self.driver, login).click()
@@ -71,8 +78,9 @@ class Actions:
     def tap_complete(self) -> NoReturn:
         get_element(self.driver, complete).click()
 
-    def input_username(self) -> NoReturn:
-        get_element(self.driver, username).send_keys('joy100')
+    def input_username(self, name) -> NoReturn:
+        get_element(self.driver, username).clear()
+        get_element(self.driver, username).send_keys(name)
 
     def tap_continue(self) -> NoReturn:
         get_element(self.driver, join_continue).click()
@@ -113,17 +121,16 @@ class Actions:
         get_element(self.driver, logo).click()
 
     def tap_follow(self, index) -> NoReturn:
-        if index:
-            for i in index:
-                get_element_by_xpath(self, follow % i).click()
+        for i in range(1, index+1):
+            get_element_by_xpath(self.driver, follow).click()
 
     def tap_unfollow(self, index) -> NoReturn:
-        if index:
-            for i in index:
-                get_element_by_xpath(self, unfollow % i).click()
+        for i in range(1, index+1):
+            get_element_by_xpath(self, unfollow).click()
 
     def select_level(self, index) -> NoReturn:
-        get_element_by_xpath(self, level % index).click()
+        level.locator = level_params[index-1]
+        get_element(self.driver, level).click()
 
     def tap_complete_profile(self) -> NoReturn:
         get_element(self.driver, complete_profile).click()
@@ -309,4 +316,23 @@ class Actions:
 
     def tap_card_set_up(self) -> NoReturn:
         get_element(self.driver, card_set_up).click()
+
+    def logout_flow(self) -> NoReturn:
+        self.tap_profile()
+        self.tap_setting()
+        self.tap_logout()
+        self.confirm_logout()
+
+    def login_flow(self) -> NoReturn:
+        self.tap_login()
+        self.input_email(test_account)
+        self.tap_next()
+        self.input_password(test_account)
+        self.tap_fanatics_id()
+        try:
+            self.tape_track_with_allow()
+        except Exception:
+            raise
+        finally:
+            pass
 

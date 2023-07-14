@@ -1,6 +1,7 @@
 import unittest
-from testdebug import Test_debugs
+
+from testcase.profile.test_card import TestCard
 
 if __name__ == '__main__':
-    suite = unittest.TestLoader().loadTestsFromTestCase(Test_debugs)
+    suite = unittest.TestLoader().loadTestsFromTestCase(TestCard)
     unittest.TextTestRunner(verbosity=2).run(suite)

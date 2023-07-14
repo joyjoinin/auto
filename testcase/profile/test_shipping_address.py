@@ -1,8 +1,8 @@
 import unittest
 from time import sleep
 
-from config.test_setup import get_driver
-from data.test_params import address_info
+from config.setup import get_driver
+from data.params import address_info
 from utils.user_actions import Actions
 
 
@@ -12,17 +12,14 @@ class TestShippingAddress(unittest.TestCase):
         self.driver = get_driver()
         global do
         do = Actions(self.driver)
+
+    def tearDown(self):
+        self.driver.quit()
+    def test1_add_address(self) -> None:
         do.tap_profile()
         do.tap_setting()
         do.tap_my_address()
-
-    def tearDown(self):
-        do.back_to_setting()
-        do.tap_back()
-        do.tap_home()
-        self.driver.quit()
-    def test1_add_address(self) -> None:
-        address_before_add = do.find_address_items()
+        address_before_add = do.find_address_items
         do.tap_add_shipping()
         do.add_address_flow(address_info)
         sleep(5)
