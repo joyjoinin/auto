@@ -24,4 +24,4 @@ class Test_debugs(unittest.TestCase):
     #     self.driver.terminate_app(app_name)
 
     def test1_loginUserExisted(self) -> None:
-        do.tap_continue()
+        do.close_app()

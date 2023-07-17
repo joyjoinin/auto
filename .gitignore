@@ -16,3 +16,9 @@
 .idea
 
 .DS_Store
+
+.pytest_cache
+
+./report/report_html/
+
+./report/report_results/

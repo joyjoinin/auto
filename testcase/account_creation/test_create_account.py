@@ -3,21 +3,24 @@ from time import sleep
 from config.setup import get_driver
 from data.params import new_account
 from utils.user_actions import Actions
+import allure
 
 
+@allure.feature("Account Creation")
 class TestAccountCreation(unittest.TestCase):
 
     def setUp(self) -> None:
         self.driver = get_driver()
         global do
         do = Actions(self.driver)
+        do.open_app()
 
     def tearDown(self):
         do.logout_flow()
         self.driver.quit()
 
-    def test1_create_new_account(self) -> None:
-        do.open_app()
+    @allure.story("Create new account")
+    def test_create_new_account(self) -> None:
         do.tap_join()
         sleep(3)
         do.input_email(new_account)

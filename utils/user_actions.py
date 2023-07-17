@@ -37,11 +37,13 @@ class Actions:
 
     def tape_track_with_allow(self) -> NoReturn:
         try:
-            get_element(self.driver, track)
+            get_element(self.driver, track).click()
             get_element(self.driver, track_continue).click()
             get_element(self.driver, track_allow).click()
         except Exception as e:
             raise e
+        finally:
+            self.tap_home()
 
     def tap_home(self) -> NoReturn:
         get_element(self.driver, home).click()
@@ -329,10 +331,3 @@ class Actions:
         self.tap_next()
         self.input_password(test_account)
         self.tap_fanatics_id()
-        try:
-            self.tape_track_with_allow()
-        except Exception:
-            raise
-        finally:
-            pass
-
