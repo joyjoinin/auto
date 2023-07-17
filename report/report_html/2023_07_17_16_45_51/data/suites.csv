@@ -1,3 +1,0 @@
-"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"broken","Mon Jul 17 16:46:16 CST 2023","Mon Jul 17 16:46:23 CST 2023","6775","testcase.login_logout","test_login_logout","TestLoginLogout","","","test2_LogOutUserExisted",""
-"broken","Mon Jul 17 16:45:55 CST 2023","Mon Jul 17 16:45:57 CST 2023","1311","testcase.login_logout","test_login_logout","TestLoginLogout","","","test1_loginUserExisted",""
