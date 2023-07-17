@@ -1,4 +1,5 @@
 import pytest
+import allure
 from data.params import level_params, test_account, app_name
 from utils.find_element import get_element, get_element_by_xpath, get_elements, get_elements_by_xpath
 from typing import NoReturn
@@ -21,7 +22,7 @@ class Actions:
         get_element(self.driver, login).click()
 
     def input_email(self, account) -> NoReturn:
-        get_element(self.driver, email).send_keys(account.email)
+        get_element(self.driver, email).clear().send_keys(account.email)
 
     def clear_email(self) -> NoReturn:
         get_element(self.driver, email).clear()
@@ -30,7 +31,7 @@ class Actions:
         get_element(self.driver, login_next).click()
 
     def input_password(self, account) -> NoReturn:
-        get_element(self.driver, password).send_keys(account.password)
+        get_element(self.driver, password).clear().send_keys(account.password)
 
     def tap_fanatics_id(self) -> NoReturn:
         get_element(self.driver, fanaticsID).click()

@@ -1,6 +1,7 @@
 import unittest
 import allure
 from config.setup import get_driver
+from data.params import app_name
 from utils.locator_info import home, login
 from utils.user_actions import Actions
 
@@ -16,7 +17,7 @@ class TestLoginLogout(unittest.TestCase):
         self.driver.quit()
 
     @allure.story("Login")
-    def test1_loginUserExisted(self) -> None:
+    def test1_loginUserExisted(self):
         do.login_flow()
         do.assert_element(home, 'Login success')
     @allure.story("Log out")

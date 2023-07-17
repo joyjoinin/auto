@@ -25,6 +25,7 @@ def get_driver():
     caps.set_capability("appium:includeSafariInWebviews", True)
     caps.set_capability("appium:newCommandTimeout", 3600)
     caps.set_capability("appium:connectHardwareKeyboard", True)
+    caps.set_capability("appium:enablePerformanceLogging", True)
     driver = webdriver.Remote(
         command_executor='http://127.0.0.1:4723',
         options=caps
@@ -73,6 +74,7 @@ def get_device_info(app):
                    'appium:includeSafariInWebviews': True,
                    'appium:connectHardwareKeyboard': True,
                    'appium:newCommandTimeout': 3600,
+                   'appium:enablePerformanceLogging': True,
                    'app': app}
 
     return device_info

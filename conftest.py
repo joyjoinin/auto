@@ -1,7 +1,5 @@
 import pytest
 import subprocess
-import os
-
 from main import report_summary_folder, html_summary_folder
 
 
@@ -16,6 +14,6 @@ def pytest_sessionfinish():
     generate_report(result_dir, report_dir)
 
 
-def generate_report(result_dir,report_dir):
-    cmd = ["/usr/local/bin/allure", "generate", result_dir, "-o", report_dir,'--clean']
+def generate_report(result_dir, report_dir):
+    cmd = ["/usr/local/bin/allure", "generate", result_dir, "-o", report_dir, '--clean']
     subprocess.run(cmd, check=True)
