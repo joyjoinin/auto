@@ -4,11 +4,30 @@ class LocatorInfo:
         self.locator = locator
 
 
+''' App Home '''
 login = LocatorInfo('accessibility id', 'Log in')
+join = LocatorInfo('accessibility id', 'Join')
+
+''' Log in page'''
 email = LocatorInfo('class name', 'XCUIElementTypeTextField')
 login_next = LocatorInfo('accessibility id', 'Next')
 password = LocatorInfo('class name', 'XCUIElementTypeSecureTextField')
+password_after_input = LocatorInfo(locator='//XCUIElementTypeApplication[@name="Fanatics Live Development"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTextField[2]')
+failed_login_message = LocatorInfo('accessibility id', 'Invalid email or password')
+check_your_email = LocatorInfo('accessibility id', 'Check your email')
 fanaticsID = LocatorInfo('accessibility id', 'Log in with Fanatics ID')
+not_you = LocatorInfo('accessibility id', 'NOT YOU?')
+show_password = LocatorInfo('accessibility id', 'SHOW')
+hide_password = LocatorInfo('accessibility id', 'HIDE')
+forget_password = LocatorInfo('accessibility id', 'Forgot password?')
+terms_of_use = LocatorInfo('accessibility id', 'By tapping log in, you agree to our Terms of Use and acknowledge our Privacy Policy')
+create_one_now = LocatorInfo('accessibility id', "Don't have an account? Create one now!")
+create_page = LocatorInfo('accessibility id','Create your Fanatics ID')
+
+
+
+
+
 track = LocatorInfo('accessibility id', 'Want an even more personalized experience?')
 track_continue = LocatorInfo('accessibility id', 'Continue')
 track_allow = LocatorInfo('accessibility id', 'Allow')
@@ -17,7 +36,6 @@ profile = LocatorInfo('accessibility id', 'Profile')
 setting = LocatorInfo('name', 'gear')
 logout = LocatorInfo('accessibility id', 'Log out')
 logout_confirm = LocatorInfo('accessibility id', 'Yes, log out')
-join = LocatorInfo('accessibility id', 'Join')
 complete = LocatorInfo('accessibility id', 'Complete Fanatics ID registration')
 username = LocatorInfo('class name', 'XCUIElementTypeTextField')
 join_continue = LocatorInfo('accessibility id', 'Continue')
@@ -35,6 +53,8 @@ logo = LocatorInfo('accessibility id')
 follow = LocatorInfo(locator='(//XCUIElementTypeButton[@name="Follow"][1])')
 unfollow = LocatorInfo(locator='(//XCUIElementTypeButton[@name="Following"])[1]')
 level = LocatorInfo('accessibility id')
+
+
 complete_profile = LocatorInfo('accessibility id', 'Complete your profile')
 close_complete_profile = LocatorInfo('accessibility id', 'Close')
 view_all = LocatorInfo('accessibility id', 'View all')

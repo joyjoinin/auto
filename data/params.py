@@ -61,3 +61,6 @@ level_params = ["I'm a Rookie", "I'm a Collector", "I'm a Seasoned Pro"]
 new_account = Account(email='joy' + str(random.randint(200,10000)) + '@fanatics.live',
                       password='Joytest159753?',
                       username='joy' + str(random.randint(200,10000)))
+nonexistent_account = TestAccount('test@error.com','test123456?')
+
+error_password_account = TestAccount('joy009@fanatics.live','Joytest159753')

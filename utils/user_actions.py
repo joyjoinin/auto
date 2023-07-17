@@ -18,8 +18,15 @@ class Actions:
     def close_app(self) -> NoReturn:
         self.driver.terminate_app(app_name)
 
+    '''App Home'''
+
     def tap_login(self) -> NoReturn:
         get_element(self.driver, login).click()
+
+    def tap_join(self) -> NoReturn:
+        get_element(self.driver, join).click()
+
+    '''Login page'''
 
     def input_email(self, account) -> NoReturn:
         get_element(self.driver, email).clear().send_keys(account.email)
@@ -36,6 +43,26 @@ class Actions:
     def tap_fanatics_id(self) -> NoReturn:
         get_element(self.driver, fanaticsID).click()
 
+    def tap_not_you(self) -> NoReturn:
+        get_element(self.driver, not_you).click()
+
+    def tap_show_password(self) -> NoReturn:
+        get_element(self.driver, show_password).click()
+
+    def tap_hide_password(self) -> NoReturn:
+        get_element(self.driver, hide_password).click()
+    def tap_forget_password(self) -> NoReturn:
+        get_element(self.driver, forget_password).click()
+
+
+    def tap_privacy_policy(self) -> NoReturn:
+        get_element(self.driver, terms_of_use).click()
+
+    def tap_create_new_one(self) -> NoReturn:
+        get_element(self.driver, create_one_now).click()
+
+
+    '''  Next'''
     def tape_track_with_allow(self) -> NoReturn:
         try:
             get_element(self.driver, track).click()
@@ -74,9 +101,6 @@ class Actions:
             print(message)
         except Exception as e:
             raise e
-
-    def tap_join(self) -> NoReturn:
-        get_element(self.driver, join).click()
 
     def tap_complete(self) -> NoReturn:
         get_element(self.driver, complete).click()
@@ -124,15 +148,15 @@ class Actions:
         get_element(self.driver, logo).click()
 
     def tap_follow(self, index) -> NoReturn:
-        for i in range(1, index+1):
+        for i in range(1, index + 1):
             get_element_by_xpath(self.driver, follow).click()
 
     def tap_unfollow(self, index) -> NoReturn:
-        for i in range(1, index+1):
+        for i in range(1, index + 1):
             get_element_by_xpath(self, unfollow).click()
 
     def select_level(self, index) -> NoReturn:
-        level.locator = level_params[index-1]
+        level.locator = level_params[index - 1]
         get_element(self.driver, level).click()
 
     def tap_complete_profile(self) -> NoReturn:

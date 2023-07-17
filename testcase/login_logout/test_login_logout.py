@@ -13,6 +13,7 @@ class TestLoginLogout(unittest.TestCase):
         self.driver = get_driver()
         global do
         do = Actions(self.driver)
+
     def tearDown(self):
         self.driver.quit()
 
@@ -20,6 +21,7 @@ class TestLoginLogout(unittest.TestCase):
     def test1_loginUserExisted(self):
         do.login_flow()
         do.assert_element(home, 'Login success')
+
     @allure.story("Log out")
     def test2_LogOutUserExisted(self) -> None:
         do.logout_flow()
