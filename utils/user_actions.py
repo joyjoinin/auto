@@ -1,7 +1,4 @@
 import random
-
-import pytest
-import allure
 from data.params import level_params, test_account, app_name, Logos
 from utils.find_element import get_element, get_element_by_xpath, get_elements, get_elements_by_xpath
 from typing import NoReturn
@@ -13,6 +10,8 @@ class Actions:
 
     def __init__(self, driver) -> None:
         self.driver = driver
+
+    '''App activity'''
 
     def open_app(self) -> NoReturn:
         self.driver.activate_app(app_name)
@@ -53,9 +52,9 @@ class Actions:
 
     def tap_hide_password(self) -> NoReturn:
         get_element(self.driver, hide_password).click()
+
     def tap_forget_password(self) -> NoReturn:
         get_element(self.driver, forget_password).click()
-
 
     def tap_privacy_policy(self) -> NoReturn:
         get_element(self.driver, terms_of_use).click()
@@ -63,8 +62,28 @@ class Actions:
     def tap_create_new_one(self) -> NoReturn:
         get_element(self.driver, create_one_now).click()
 
+    def tap_complete(self) -> NoReturn:
+        get_element(self.driver, complete).click()
 
-    '''  Next'''
+    '''Access code page'''
+
+    def input_code(self, code) -> NoReturn:
+        get_element(self.driver, access_code_input).send_keys(code)
+
+    def tap_submit(self) -> NoReturn:
+        get_element(self.driver, submit).click()
+
+    '''Username page'''
+
+    def input_username(self, name) -> NoReturn:
+        get_element(self.driver, username).clear()
+        get_element(self.driver, username).send_keys(name)
+
+    def tap_continue(self) -> NoReturn:
+        get_element(self.driver, join_continue).click()
+
+    '''Track page'''
+
     def tape_track_with_allow(self) -> NoReturn:
         try:
             get_element(self.driver, track).click()
@@ -75,52 +94,7 @@ class Actions:
         finally:
             self.tap_home()
 
-    def tap_home(self) -> NoReturn:
-        get_element(self.driver, home).click()
-
-    def tap_profile(self) -> NoReturn:
-        get_element(self.driver, profile).click()
-
-    def tap_setting(self) -> NoReturn:
-        get_element(self.driver, setting).click()
-
-    def tap_logout(self) -> NoReturn:
-        get_element(self.driver, logout).click()
-
-    def confirm_logout(self) -> NoReturn:
-        get_element(self.driver, logout_confirm).click()
-
-    '''assert action'''
-    def assert_element(self, locator, message) -> NoReturn:
-        try:
-            assert get_element(self.driver, locator)
-            print(message)
-        except Exception as e:
-            raise e
-
-    def assert_elements(self, locator, message) -> NoReturn:
-        try:
-            assert get_elements(self.driver, locator)
-            print(message)
-        except Exception as e:
-            raise e
-
-    def assert_element_by_attr(self, locator, attr,expected, message) -> NoReturn:
-        try:
-            assert get_element(self.driver, locator).get_attribute(attr) == expected
-            print(message)
-        except Exception as e:
-            raise e
-
-    def tap_complete(self) -> NoReturn:
-        get_element(self.driver, complete).click()
-
-    def input_username(self, name) -> NoReturn:
-        get_element(self.driver, username).clear()
-        get_element(self.driver, username).send_keys(name)
-
-    def tap_continue(self) -> NoReturn:
-        get_element(self.driver, join_continue).click()
+    '''Notification page'''
 
     def set_notification(self) -> NoReturn:
         get_element(self.driver, notification).click()
@@ -133,6 +107,8 @@ class Actions:
 
     def not_allow_notification(self) -> NoReturn:
         get_element(self.driver, notification_no_allow).click()
+
+    '''Invite page'''
 
     def tap_invite_your_friends(self) -> NoReturn:
         get_element(self.driver, invite).click()
@@ -147,20 +123,18 @@ class Actions:
         avatar.locator = initial
         get_element(self.driver, avatar).click()
 
-    def input_code(self, code) -> NoReturn:
-        get_element(self.driver, access_code_input).send_keys(code)
-
-    def tap_submit(self) -> NoReturn:
-        get_element(self.driver, submit).click()
+    '''Collect page'''
 
     def tap_logos(self, logo_selected) -> NoReturn:
         i = 0
         logo_list = Logos
         while i < logo_selected:
-            logo.locator = logo_list[random.randint(0,len(logo_list)-1)]
+            logo.locator = logo_list[random.randint(0, len(logo_list) - 1)]
             get_element(self.driver, logo).click()
             logo_list.remove(logo.locator)
             i = i + 1
+
+    '''Follow page'''
 
     def tap_follow(self, index) -> NoReturn:
         for i in range(1, index + 1):
@@ -170,9 +144,19 @@ class Actions:
         for i in range(1, index + 1):
             get_element_by_xpath(self, unfollow).click()
 
+    '''Select level page '''
+
     def select_level(self, index) -> NoReturn:
         level.locator = level_params[index - 1]
         get_element(self.driver, level).click()
+
+    '''Home page'''
+
+    def tap_home(self) -> NoReturn:
+        get_element(self.driver, home).click()
+
+    def tap_profile(self) -> NoReturn:
+        get_element(self.driver, profile).click()
 
     def tap_complete_profile(self) -> NoReturn:
         get_element(self.driver, complete_profile).click()
@@ -182,6 +166,30 @@ class Actions:
 
     def tap_view_all(self) -> NoReturn:
         get_element(self.driver, view_all).click()
+
+    '''Profile page'''
+
+    def tap_setting(self) -> NoReturn:
+        get_element(self.driver, setting).click()
+
+    '''Setting page'''
+
+    def tap_logout(self) -> NoReturn:
+        get_element(self.driver, logout).click()
+
+    def confirm_logout(self) -> NoReturn:
+        get_element(self.driver, logout_confirm).click()
+
+    def tap_my_wallet(self) -> NoReturn:
+        get_element_by_xpath(self.driver, my_wallet).click()
+
+    def tap_my_address(self) -> NoReturn:
+        get_element(self.driver, my_address).click()
+
+    def tap_back(self) -> NoReturn:
+        get_element(self.driver, back).click()
+
+    '''Wallet page'''
 
     def exit_add_payment(self) -> NoReturn:
         get_element(self.driver, exit_add_payment).click()
@@ -245,6 +253,40 @@ class Actions:
         self.input_zip(card_info.zip_number)
         self.set_up()
 
+    '''Wallet list'''
+
+    def tap_add_card(self) -> NoReturn:
+        get_element_by_xpath(self.driver, add_wallet).click()
+
+    def get_wallet_list(self):
+        items = get_elements_by_xpath(self.driver, wallet_list)
+        wallet_items = []
+        for i in items:
+            item = i.get_attribute('UID')
+            if item is not None:
+                wallet_items.append(item)
+        return wallet_items
+
+    def edit_card_list(self) -> NoReturn:
+        get_element(self.driver, edit_card).click()
+
+    def delete_card(self) -> NoReturn:
+        get_element_by_xpath(self.driver, delete_card).click()
+
+    def confirm_delete_card(self) -> NoReturn:
+        get_element_by_xpath(self.driver, confirm_delete_card).click()
+
+    def cancel_delete_card(self) -> NoReturn:
+        get_element(self.driver, cancel_delete_card).click()
+
+    def tap_done_edit_card(self) -> NoReturn:
+        get_element(self.driver, done_edit_card).click()
+
+    def tap_card_set_up(self) -> NoReturn:
+        get_element(self.driver, card_set_up).click()
+
+    '''Addresses page'''
+
     def input_firstname(self, first_name) -> NoReturn:
         get_element_by_xpath(self.driver, firstname).clear().send_keys(first_name)
 
@@ -293,8 +335,7 @@ class Actions:
         self.input_state(state_text=address_info.state)
         self.save_address()
 
-    def tap_my_address(self) -> NoReturn:
-        get_element(self.driver, my_address).click()
+    '''address list page'''
 
     def tap_add_shipping(self) -> NoReturn:
         get_element(self.driver, add_address).click()
@@ -323,41 +364,7 @@ class Actions:
     def back_to_setting(self) -> NoReturn:
         get_element(self.driver, back_to_setting).click()
 
-    def tap_back(self) -> NoReturn:
-        get_element(self.driver, back).click()
-
-    def tap_my_wallet(self) -> NoReturn:
-        get_element_by_xpath(self.driver, my_wallet).click()
-
-    def tap_add_card(self) -> NoReturn:
-        get_element_by_xpath(self.driver, add_wallet).click()
-
-    def get_wallet_list(self):
-        items = get_elements_by_xpath(self.driver, wallet_list)
-        wallet_items = []
-        for i in items:
-            item = i.get_attribute('UID')
-            if item is not None:
-                wallet_items.append(item)
-        return wallet_items
-
-    def edit_card_list(self) -> NoReturn:
-        get_element(self.driver, edit_card).click()
-
-    def delete_card(self) -> NoReturn:
-        get_element_by_xpath(self.driver, delete_card).click()
-
-    def confirm_delete_card(self) -> NoReturn:
-        get_element_by_xpath(self.driver, confirm_delete_card).click()
-
-    def cancel_delete_card(self) -> NoReturn:
-        get_element(self.driver, cancel_delete_card).click()
-
-    def tap_done_edit_card(self) -> NoReturn:
-        get_element(self.driver, done_edit_card).click()
-
-    def tap_card_set_up(self) -> NoReturn:
-        get_element(self.driver, card_set_up).click()
+    '''Flows'''
 
     def logout_flow(self) -> NoReturn:
         self.tap_profile()
@@ -372,4 +379,25 @@ class Actions:
         self.input_password(test_account.password)
         self.tap_fanatics_id()
 
+    '''assert action'''
 
+    def assert_element(self, locator, message) -> NoReturn:
+        try:
+            assert get_element(self.driver, locator)
+            print(message)
+        except Exception as e:
+            raise e
+
+    def assert_elements(self, locator, message) -> NoReturn:
+        try:
+            assert get_elements(self.driver, locator)
+            print(message)
+        except Exception as e:
+            raise e
+
+    def assert_element_by_attr(self, locator, attr, expected, message) -> NoReturn:
+        try:
+            assert get_element(self.driver, locator).get_attribute(attr) == expected
+            print(message)
+        except Exception as e:
+            raise e

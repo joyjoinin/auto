@@ -6,8 +6,8 @@ testcase_file = {
     './testcase/login_logout/test_login_logout.py': True,
     './testcase/login_logout/test_login_page_functions.py': True,
     './testcase/login_logout/test_login_with_wrong_info.py': True,
-    './testcase/profile/test_card.py': False,
-    './testcase/profile/test_shipping_address.py': False
+    './testcase/wallet_addresses/test_card.py': False,
+    './testcase/wallet_addresses/test_shipping_address.py': False
 }
 
 now = datetime.now()

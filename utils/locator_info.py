@@ -38,39 +38,57 @@ username = LocatorInfo('class name', 'XCUIElementTypeTextField')
 invalid_username = LocatorInfo('accessibility id', 'This username is invalid.')
 already_took_username = LocatorInfo('accessibility id', 'Someone already took that one.')
 
-'''collect page'''
+'''Collect page'''
 logo_page = LocatorInfo('accessibility id', 'Select what you collect')
 logo = LocatorInfo('accessibility id')
 
-
-
+'''Track page'''
 track = LocatorInfo('accessibility id', 'Want an even more personalized experience?')
 track_continue = LocatorInfo('accessibility id', 'Continue')
 track_allow = LocatorInfo('accessibility id', 'Allow')
-home = LocatorInfo('accessibility id', 'Home')
-profile = LocatorInfo('accessibility id', 'Profile')
-setting = LocatorInfo('name', 'gear')
-logout = LocatorInfo('accessibility id', 'Log out')
-logout_confirm = LocatorInfo('accessibility id', 'Yes, log out')
+
+'''Notification page'''
 notification = LocatorInfo('accessibility id', 'Stay up to date')
 notification_allow = LocatorInfo('accessibility id', 'Allow')
 notification_later = LocatorInfo('accessibility id', 'Ehhh, maybe later')
 notification_no_allow = LocatorInfo('accessibility id', 'Don’t Allow')
+
+'''Invite page'''
 invite = LocatorInfo('accessibility id', 'Invite your friends')
 access_code = LocatorInfo('accessibility id', 'Enter access code')
 play_button = LocatorInfo('accessibility id', 'waitlistPlayButton')
 avatar = LocatorInfo('accessibility id')
+
+'''Access code page'''
 access_code_input = LocatorInfo('class name', 'XCUIElementTypeTextField')
 submit = LocatorInfo('accessibility id', 'Submit')
+
+'''Follow page'''
 follow = LocatorInfo(locator='(//XCUIElementTypeButton[@name="Follow"][1])')
 unfollow = LocatorInfo(locator='(//XCUIElementTypeButton[@name="Following"])[1]')
+
+'''Select level page'''
 level = LocatorInfo('accessibility id')
 
-
-
-complete_profile = LocatorInfo('accessibility id', 'Complete your profile')
+'''Home page'''
+home = LocatorInfo('accessibility id', 'Home')
+profile = LocatorInfo('accessibility id', 'Profile')
+complete_profile = LocatorInfo('accessibility id', 'Complete your wallet_addresses')
 close_complete_profile = LocatorInfo('accessibility id', 'Close')
 view_all = LocatorInfo('accessibility id', 'View all')
+complete_and_ready = LocatorInfo()
+
+'''Profile page'''
+setting = LocatorInfo('name', 'gear')
+
+'''Setting page'''
+logout = LocatorInfo('accessibility id', 'Log out')
+logout_confirm = LocatorInfo('accessibility id', 'Yes, log out')
+my_address = LocatorInfo('accessibility id', 'My Addresses')
+my_wallet = LocatorInfo(locator='//XCUIElementTypeStaticText[@name="My Wallet"]')
+back = LocatorInfo('accessibility id', 'Back')
+
+'''wallet '''
 exit_add_payment = LocatorInfo('accessibility id', 'UIButton.Close')
 card_number = LocatorInfo('accessibility id', 'Card number')
 expiration_date = LocatorInfo('accessibility id', 'expiration date')
@@ -79,6 +97,8 @@ country_list = LocatorInfo(locator='//XCUIElementTypeImage[@name="icon_chevron_d
 country_done = LocatorInfo('accessibility id', 'Done')
 zip_number = LocatorInfo('accessibility id', 'ZIP')
 set_up = LocatorInfo('accessibility id', 'Set up')
+
+'''address page'''
 firstname = LocatorInfo(locator='//XCUIElementTypeApplication[@name="Fanatics Live '
                                 'Development"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther['
                                 '2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther'
@@ -130,8 +150,8 @@ phone = LocatorInfo(locator='//XCUIElementTypeApplication[@name="Fanatics Live '
 state_value = LocatorInfo('class name', 'XCUIElementTypePickerWheel')
 state_done = LocatorInfo('accessibility id', 'Done')
 save_address = LocatorInfo('name', 'Save address')
-my_address = LocatorInfo('accessibility id', 'My Addresses')
-my_wallet = LocatorInfo(locator='//XCUIElementTypeStaticText[@name="My Wallet"]')
+
+'''address list'''
 add_address = LocatorInfo('accessibility id', 'Add shipping address')
 cancel_add_address = LocatorInfo(locator='//XCUIElementTypeButton[@name="Cancel"]')
 address_item = LocatorInfo(locator='//XCUIElementTypeSwitch')
@@ -139,7 +159,8 @@ delete_address = LocatorInfo(locator='(//XCUIElementTypeButton[@name="Delete"])[
 confirm_delete_address = LocatorInfo('accessibility id', 'Delete address')
 cancel_delete_address = LocatorInfo('accessibility id', 'No cancel')
 back_to_setting = LocatorInfo('accessibility id', 'Settings')
-back = LocatorInfo('accessibility id', 'Back')
+
+'''wallet list'''
 add_wallet = LocatorInfo(locator='//XCUIElementTypeButton[@name="+ Add"]')
 wallet_list = LocatorInfo(locator='//XCUIElementTypeApplication[@name="Fanatics Live '
                                   'Development"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther['

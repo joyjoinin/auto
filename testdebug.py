@@ -29,4 +29,5 @@ class Test_debugs(unittest.TestCase):
     #     self.driver.terminate_app(app_name)
 
     def test1_loginUserExisted(self) -> None:
-        save_data(test_account.email,test_account.password)
+        do.close_app()
+        do.open_app()
