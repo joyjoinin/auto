@@ -13,25 +13,25 @@ class TestErrorLogin(unittest.TestCase):
         self.driver = get_driver()
         global do
         do = Actions(self.driver)
+        do.open_app()
+        do.tap_login()
 
     def tearDown(self):
-        do.tap_back()
+        do.close_app()
         self.driver.quit()
 
     @allure.story("login with nonexistent account")
     def test1_login_with_nonexistent_account(self) -> None:
-        do.tap_login()
         do.input_email(nonexistent_account)
         do.tap_next()
-        do.input_password(nonexistent_account)
+        do.input_password(nonexistent_account.password)
         do.tap_fanatics_id()
         do.assert_element(failed_login_message, 'Failed log in')
 
     @allure.story("login with error password")
     def test2_login_with_error_password(self) -> None:
-        do.tap_login()
         do.input_email(error_password_account)
         do.tap_next()
-        do.input_password(error_password_account)
+        do.input_password(error_password_account.password)
         do.tap_fanatics_id()
         do.assert_element(failed_login_message, 'Failed log in')

@@ -3,7 +3,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 
 def get_element(driver, locator):
     try:
-        element = WebDriverWait(driver, 5).until(
+        element = WebDriverWait(driver, 10).until(
             lambda x: x.find_element(by=locator.type, value=locator.locator)
         )
         return element
@@ -14,7 +14,7 @@ def get_element(driver, locator):
 
 def get_elements(driver, locator):
     try:
-        elements = WebDriverWait(driver, 5).until(
+        elements = WebDriverWait(driver, 10).until(
             lambda x: x.find_elements(by=locator.type, value=locator.locator)
         )
         return elements
@@ -25,7 +25,7 @@ def get_elements(driver, locator):
 
 def get_element_by_xpath(driver, locator):
     try:
-        element = WebDriverWait(driver, 5).until(
+        element = WebDriverWait(driver, 10).until(
             lambda x: x.find_element(by='xpath', value=locator.locator)
         )
         return element
@@ -36,7 +36,7 @@ def get_element_by_xpath(driver, locator):
 
 def get_elements_by_xpath(driver, locator):
     try:
-        elements = WebDriverWait(driver, 5).until(
+        elements = WebDriverWait(driver, 10).until(
             lambda x: x.find_elements(by='xpath', value=locator.locator)
         )
         return elements

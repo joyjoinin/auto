@@ -2,10 +2,10 @@ import unittest
 from time import sleep
 import allure
 from config.setup import get_driver
-from data.params import nonexistent_account, error_password_account, test_account
+from data.params import error_password_account, test_account
 from utils.find_element import get_element_by_xpath, get_element
-from utils.locator_info import failed_login_message, login_next, password, password_after_input, check_your_email, \
-    terms_of_use, create_page, create_one_now
+from utils.locator_info import login_next, password, password_after_input, check_your_email, \
+    terms_of_use, create_page, create_one_now, privacy_page, terms_of_use_page
 from utils.user_actions import Actions
 from appium.webdriver.common.touch_action import TouchAction
 
@@ -35,7 +35,7 @@ class TestCheckFunctions(unittest.TestCase):
     def test2_check_show_password(self) -> None:
         do.input_email(test_account)
         do.tap_next()
-        do.input_password(test_account)
+        do.input_password(test_account.password)
         do.tap_show_password()
         assert get_element_by_xpath(self.driver, password_after_input).get_attribute('value') == test_account.password
         print('Show password success')
@@ -53,24 +53,44 @@ class TestCheckFunctions(unittest.TestCase):
 
     @allure.story("check terms of use")
     def test4_check_terms_of_use(self) -> None:
-        pass
-        # ele = get_element(self.driver,terms_of_use)
-        # action = TouchAction(self.driver)
-        # action.move_to(ele,ele.text.find('Terms of Use'),ele.text.find('Terms of Use') + 12)
-        # action.tap(ele,ele.text.find('Terms of Use'),ele.text.find('Terms of Use') + 12).perform()
+        sleep(3)
+        target_element = get_element(self.driver, terms_of_use)
+        target_text_start = target_element.text.index('Terms of Use')
+        line_len = len('By tapping log in, you agree to our Terms of Use and acknowledge')
+        text_location = target_element.location
+        text_size = target_element.size
+        target_y = text_location['y'] + text_size['height'] / 4
+        target_x = text_location['x'] + text_size['width'] * (target_text_start + len('Terms of Use') / 2) / line_len
+        touch_action = TouchAction(self.driver)
+        touch_action.tap(x=target_x, y=target_y).perform()
+        do.assert_element(terms_of_use_page, 'get terms of use success')
 
     @allure.story("check privacy policy")
     def test5_check_privacy_policy(self) -> None:
-        pass
+        sleep(3)
+        target_element = get_element(self.driver, terms_of_use)
+        text_location = target_element.location
+        text_size = target_element.size
+        target_y = text_location['y'] + text_size['height'] * 3 / 4
+        target_x = text_location['x'] + text_size['width'] / 2
+        touch_action = TouchAction(self.driver)
+        touch_action.tap(x=target_x, y=target_y).perform()
+        do.assert_element(privacy_page, 'get privacy success')
 
     @allure.story("check create one now")
     def test6_check_create_one_now(self) -> None:
-        pass
-        # do.input_email(error_password_account)
-        # do.tap_next()
-        # do.input_password(error_password_account)
-        # do.tap_fanatics_id()
-        # do.tap_create_new_one()
-        # get_element(self.driver,create_one_now).click()
-        # assert get_element(self.driver,create_page)
-        # print('Turn to creat page success')
+        do.input_email(error_password_account)
+        do.tap_next()
+        do.input_password(error_password_account.password)
+        do.tap_fanatics_id()
+        sleep(2)
+        target_element = get_element(self.driver, create_one_now)
+        target_text_start = target_element.text.index('Create one now')
+        line_len = len("Don't have an account? Create one now!")
+        text_location = target_element.location
+        text_size = target_element.size
+        target_y = text_location['y'] + text_size['height'] / 2
+        target_x = text_location['x'] + text_size['width'] * (target_text_start + len('Create one now') / 2) / line_len
+        touch_action = TouchAction(self.driver)
+        touch_action.tap(x=target_x, y=target_y).perform()
+        do.assert_element(create_page, 'Turn to create page success')

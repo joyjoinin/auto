@@ -1,6 +1,8 @@
+import random
+
 import pytest
 import allure
-from data.params import level_params, test_account, app_name
+from data.params import level_params, test_account, app_name, Logos
 from utils.find_element import get_element, get_element_by_xpath, get_elements, get_elements_by_xpath
 from typing import NoReturn
 from appium.webdriver.common.touch_action import TouchAction
@@ -37,8 +39,8 @@ class Actions:
     def tap_next(self) -> NoReturn:
         get_element(self.driver, login_next).click()
 
-    def input_password(self, account) -> NoReturn:
-        get_element(self.driver, password).clear().send_keys(account.password)
+    def input_password(self, password_type) -> NoReturn:
+        get_element(self.driver, password).clear().send_keys(password_type)
 
     def tap_fanatics_id(self) -> NoReturn:
         get_element(self.driver, fanaticsID).click()
@@ -88,6 +90,7 @@ class Actions:
     def confirm_logout(self) -> NoReturn:
         get_element(self.driver, logout_confirm).click()
 
+    '''assert action'''
     def assert_element(self, locator, message) -> NoReturn:
         try:
             assert get_element(self.driver, locator)
@@ -98,6 +101,13 @@ class Actions:
     def assert_elements(self, locator, message) -> NoReturn:
         try:
             assert get_elements(self.driver, locator)
+            print(message)
+        except Exception as e:
+            raise e
+
+    def assert_element_by_attr(self, locator, attr,expected, message) -> NoReturn:
+        try:
+            assert get_element(self.driver, locator).get_attribute(attr) == expected
             print(message)
         except Exception as e:
             raise e
@@ -144,8 +154,13 @@ class Actions:
         get_element(self.driver, submit).click()
 
     def tap_logos(self, logo_selected) -> NoReturn:
-        logo.locator = logo_selected
-        get_element(self.driver, logo).click()
+        i = 0
+        logo_list = Logos
+        while i < logo_selected:
+            logo.locator = logo_list[random.randint(0,len(logo_list)-1)]
+            get_element(self.driver, logo).click()
+            logo_list.remove(logo.locator)
+            i = i + 1
 
     def tap_follow(self, index) -> NoReturn:
         for i in range(1, index + 1):
@@ -354,5 +369,7 @@ class Actions:
         self.tap_login()
         self.input_email(test_account)
         self.tap_next()
-        self.input_password(test_account)
+        self.input_password(test_account.password)
         self.tap_fanatics_id()
+
+

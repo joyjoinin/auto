@@ -2,7 +2,10 @@ import pytest
 from datetime import datetime
 testcase_file = {
     './testcase/account_creation/test_create_account.py': False,
+    './testcase/account_creation/test_username_creation.py': False,
     './testcase/login_logout/test_login_logout.py': True,
+    './testcase/login_logout/test_login_page_functions.py': True,
+    './testcase/login_logout/test_login_with_wrong_info.py': True,
     './testcase/profile/test_card.py': False,
     './testcase/profile/test_shipping_address.py': False
 }

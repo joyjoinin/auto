@@ -23,8 +23,24 @@ forget_password = LocatorInfo('accessibility id', 'Forgot password?')
 terms_of_use = LocatorInfo('accessibility id', 'By tapping log in, you agree to our Terms of Use and acknowledge our Privacy Policy')
 create_one_now = LocatorInfo('accessibility id', "Don't have an account? Create one now!")
 create_page = LocatorInfo('accessibility id','Create your Fanatics ID')
+privacy_page = LocatorInfo('accessibility id','Vertical scroll bar, 31 pages')
+terms_of_use_page = LocatorInfo('accessibility id','Vertical scroll bar, 41 pages')
+complete = LocatorInfo('accessibility id', 'Complete Fanatics ID registration')
+weak_prompt = LocatorInfo('accessibility id', 'Consider some special characters and/or numbers.')
+weak = LocatorInfo('accessibility id', 'Weak')
+fair = LocatorInfo('accessibility id', 'Fair')
+good = LocatorInfo('accessibility id', 'Good')
+Strong = LocatorInfo('accessibility id', 'Strong')
 
+'''Input username page'''
+join_continue = LocatorInfo('accessibility id', 'Continue')
+username = LocatorInfo('class name', 'XCUIElementTypeTextField')
+invalid_username = LocatorInfo('accessibility id', 'This username is invalid.')
+already_took_username = LocatorInfo('accessibility id', 'Someone already took that one.')
 
+'''collect page'''
+logo_page = LocatorInfo('accessibility id', 'Select what you collect')
+logo = LocatorInfo('accessibility id')
 
 
 
@@ -36,9 +52,6 @@ profile = LocatorInfo('accessibility id', 'Profile')
 setting = LocatorInfo('name', 'gear')
 logout = LocatorInfo('accessibility id', 'Log out')
 logout_confirm = LocatorInfo('accessibility id', 'Yes, log out')
-complete = LocatorInfo('accessibility id', 'Complete Fanatics ID registration')
-username = LocatorInfo('class name', 'XCUIElementTypeTextField')
-join_continue = LocatorInfo('accessibility id', 'Continue')
 notification = LocatorInfo('accessibility id', 'Stay up to date')
 notification_allow = LocatorInfo('accessibility id', 'Allow')
 notification_later = LocatorInfo('accessibility id', 'Ehhh, maybe later')
@@ -49,10 +62,10 @@ play_button = LocatorInfo('accessibility id', 'waitlistPlayButton')
 avatar = LocatorInfo('accessibility id')
 access_code_input = LocatorInfo('class name', 'XCUIElementTypeTextField')
 submit = LocatorInfo('accessibility id', 'Submit')
-logo = LocatorInfo('accessibility id')
 follow = LocatorInfo(locator='(//XCUIElementTypeButton[@name="Follow"][1])')
 unfollow = LocatorInfo(locator='(//XCUIElementTypeButton[@name="Following"])[1]')
 level = LocatorInfo('accessibility id')
+
 
 
 complete_profile = LocatorInfo('accessibility id', 'Complete your profile')
