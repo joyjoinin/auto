@@ -1,0 +1,21 @@
+import unittest
+import allure
+from config.setup import get_driver
+from utils.user_actions import Actions
+
+
+@allure.feature("FAQs")
+class TestPurchases(unittest.TestCase):
+
+    def setUp(self) -> None:
+        self.driver = get_driver()
+        global do
+        do = Actions(self.driver)
+
+    def tearDown(self):
+        do.back_to_setting()
+        self.driver.quit()
+
+    @allure.story("FAQs")
+    def test1_FAQs(self):
+        do.tap_FAQs()

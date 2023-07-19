@@ -2,7 +2,7 @@ import unittest
 import allure
 from time import sleep
 from config.setup import get_driver
-from data.params import card_info
+from data.params import card_info, test_account
 from utils.user_actions import Actions
 
 
@@ -19,7 +19,7 @@ class TestCard(unittest.TestCase):
 
     @allure.story("Add card")
     def test1_add_card(self) -> None:
-        do.login_flow()
+        do.login_flow(test_account)
         do.tap_profile()
         do.tap_setting()
         sleep(2)
@@ -51,3 +51,4 @@ class TestCard(unittest.TestCase):
             print('Delete card success')
         except Exception:
             raise
+        do.logout_flow()

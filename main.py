@@ -1,13 +1,22 @@
 import pytest
 from datetime import datetime
 testcase_file = {
-    './testcase/account_creation/test_create_account.py': False,
-    './testcase/account_creation/test_username_creation.py': False,
+    './testcase/account_creation/test_create_account.py': True,
+    './testcase/account_creation/test_username_creation.py': True,
     './testcase/login_logout/test_login_logout.py': True,
     './testcase/login_logout/test_login_page_functions.py': True,
     './testcase/login_logout/test_login_with_wrong_info.py': True,
-    './testcase/wallet_addresses/test_card.py': False,
-    './testcase/wallet_addresses/test_shipping_address.py': False
+    './testcase/profile/test_edit_profile.py': True,
+    './testcase/profile/test_favorite_shops.py': False,
+    './testcase/profile/test_follow.py': True,
+    './testcase/profile/test_invite_friends.py': True,
+    './testcase/settings/test_contact_us.py': True,
+    './testcase/settings/test_faqs.py': True,
+    './testcase/settings/test_notification.py': True,
+    './testcase/settings/test_privacy_policy.py': True,
+    './testcase/settings/test_purchases.py': True,
+    './testcase/wallet_addresses/test_card.py': True,
+    './testcase/wallet_addresses/test_shipping_address.py': True
 }
 
 now = datetime.now()

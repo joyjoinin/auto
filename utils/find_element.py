@@ -1,9 +1,9 @@
 from selenium.webdriver.support.ui import WebDriverWait
 
 
-def get_element(driver, locator):
+def get_element(driver, locator, wait_time=10):
     try:
-        element = WebDriverWait(driver, 10).until(
+        element = WebDriverWait(driver, wait_time).until(
             lambda x: x.find_element(by=locator.type, value=locator.locator)
         )
         return element
@@ -12,9 +12,9 @@ def get_element(driver, locator):
         raise e
 
 
-def get_elements(driver, locator):
+def get_elements(driver, locator, wait_time=10):
     try:
-        elements = WebDriverWait(driver, 10).until(
+        elements = WebDriverWait(driver, wait_time).until(
             lambda x: x.find_elements(by=locator.type, value=locator.locator)
         )
         return elements
@@ -23,9 +23,9 @@ def get_elements(driver, locator):
         raise e
 
 
-def get_element_by_xpath(driver, locator):
+def get_element_by_xpath(driver, locator, wait_time=10):
     try:
-        element = WebDriverWait(driver, 10).until(
+        element = WebDriverWait(driver, wait_time).until(
             lambda x: x.find_element(by='xpath', value=locator.locator)
         )
         return element
@@ -34,9 +34,9 @@ def get_element_by_xpath(driver, locator):
         raise e
 
 
-def get_elements_by_xpath(driver, locator):
+def get_elements_by_xpath(driver, locator, wait_time=10):
     try:
-        elements = WebDriverWait(driver, 10).until(
+        elements = WebDriverWait(driver, wait_time).until(
             lambda x: x.find_elements(by='xpath', value=locator.locator)
         )
         return elements

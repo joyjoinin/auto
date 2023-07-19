@@ -12,7 +12,8 @@ join = LocatorInfo('accessibility id', 'Join')
 email = LocatorInfo('class name', 'XCUIElementTypeTextField')
 login_next = LocatorInfo('accessibility id', 'Next')
 password = LocatorInfo('class name', 'XCUIElementTypeSecureTextField')
-password_after_input = LocatorInfo(locator='//XCUIElementTypeApplication[@name="Fanatics Live Development"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTextField[2]')
+password_after_input = LocatorInfo(
+    locator='//XCUIElementTypeApplication[@name="Fanatics Live Development"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTextField[2]')
 failed_login_message = LocatorInfo('accessibility id', 'Invalid email or password')
 check_your_email = LocatorInfo('accessibility id', 'Check your email')
 fanaticsID = LocatorInfo('accessibility id', 'Log in with Fanatics ID')
@@ -20,17 +21,31 @@ not_you = LocatorInfo('accessibility id', 'NOT YOU?')
 show_password = LocatorInfo('accessibility id', 'SHOW')
 hide_password = LocatorInfo('accessibility id', 'HIDE')
 forget_password = LocatorInfo('accessibility id', 'Forgot password?')
-terms_of_use = LocatorInfo('accessibility id', 'By tapping log in, you agree to our Terms of Use and acknowledge our Privacy Policy')
+terms_of_use = LocatorInfo('accessibility id',
+                           'By tapping log in, you agree to our Terms of Use and acknowledge our Privacy Policy')
 create_one_now = LocatorInfo('accessibility id', "Don't have an account? Create one now!")
-create_page = LocatorInfo('accessibility id','Create your Fanatics ID')
-privacy_page = LocatorInfo('accessibility id','Vertical scroll bar, 31 pages')
-terms_of_use_page = LocatorInfo('accessibility id','Vertical scroll bar, 41 pages')
+create_page = LocatorInfo('accessibility id', 'Create your Fanatics ID')
+# privacy_page = LocatorInfo('accessibility id', 'Vertical scroll bar, 31 pages')
+# terms_of_use_page = LocatorInfo('accessibility id', 'Vertical scroll bar, 41 pages')
+terms_of_use_page = LocatorInfo(locator='//XCUIElementTypeApplication[@name="Fanatics Live '
+                                        'Development"]/XCUIElementTypeWindow['
+                                        '1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther'
+                                        '/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther'
+                                        '/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther'
+                                        '/XCUIElementTypeWebView/XCUIElementTypeWebView/XCUIElementTypeWebView')
+privacy_page = LocatorInfo(locator='//XCUIElementTypeApplication[@name="Fanatics Live '
+                                   'Development"]/XCUIElementTypeWindow['
+                                   '1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther'
+                                   '/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther'
+                                   '/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther'
+                                   '/XCUIElementTypeWebView/XCUIElementTypeWebView/XCUIElementTypeWebView')
 complete = LocatorInfo('accessibility id', 'Complete Fanatics ID registration')
 weak_prompt = LocatorInfo('accessibility id', 'Consider some special characters and/or numbers.')
 weak = LocatorInfo('accessibility id', 'Weak')
 fair = LocatorInfo('accessibility id', 'Fair')
 good = LocatorInfo('accessibility id', 'Good')
 Strong = LocatorInfo('accessibility id', 'Strong')
+already_in_use = LocatorInfo('accessibility id', 'That email is already in use')
 
 '''Input username page'''
 join_continue = LocatorInfo('accessibility id', 'Continue')
@@ -73,20 +88,74 @@ level = LocatorInfo('accessibility id')
 '''Home page'''
 home = LocatorInfo('accessibility id', 'Home')
 profile = LocatorInfo('accessibility id', 'Profile')
-complete_profile = LocatorInfo('accessibility id', 'Complete your wallet_addresses')
+complete_profile = LocatorInfo('accessibility id', 'Complete your profile')
 close_complete_profile = LocatorInfo('accessibility id', 'Close')
 view_all = LocatorInfo('accessibility id', 'View all')
 complete_and_ready = LocatorInfo()
 
 '''Profile page'''
 setting = LocatorInfo('name', 'gear')
+edit_profile = LocatorInfo('accessibility id', 'Edit Profile')
+invite_friends = LocatorInfo('accessibility id', 'Invite friends')
+profile_followers = LocatorInfo('accessibility id', 'Followers')
+profile_following = LocatorInfo('accessibility id', 'Following')
+favorite_shops = LocatorInfo('accessibility id', 'sectionheaderFavoriteShops')
+
+'''Edit profile page'''
+edit_avatar = LocatorInfo(locator='//XCUIElementTypeImage[@name="pencil"]')
+edit_username = LocatorInfo(locator='(//XCUIElementTypeButton[@name="pencil"])[1]')
+profile_username = LocatorInfo(locator='//XCUIElementTypeStaticText['
+                                       '@name="Username"]/following-sibling::XCUIElementTypeStaticText')
+edit_self_intro = LocatorInfo(locator='(//XCUIElementTypeButton[@name="pencil"])[2]')
+profile_self_intro = LocatorInfo(locator='//XCUIElementTypeStaticText['
+                                         '@name="Biography"]/following-sibling::XCUIElementTypeStaticText')
+add_interests = LocatorInfo('accessibility id', 'plus')
+all_interests = LocatorInfo(
+    locator='//XCUIElementTypeStaticText[@name="My Interests"]/following-sibling::XCUIElementTypeOther/XCUIElementTypeStaticText')
+
+'''Avatar page'''
+camera_add = LocatorInfo('accessibility id', 'cameraAdd')
+add_media_image = LocatorInfo('accessibility id', 'addMediaImage')
+avatar_colorful = LocatorInfo(locator='//XCUIElementTypeButton[@name="addMediaImage"]/following-sibling::XCUIElementTypeOther/XCUIElementTypeButton')
+save_avatar = LocatorInfo(locator='//XCUIElementTypeButton[@name="Save"]')
+
+'''Add interests page'''
+back_to_edit_page = LocatorInfo('accessibility id', 'Edit Profile')
+
+'''Edit username page'''
+username_input_box = LocatorInfo('class name', 'XCUIElementTypeTextField')
+save_username = LocatorInfo(locator='//XCUIElementTypeButton[@name="Save"]')
+
+'''Edit intro page'''
+intro_text_field = LocatorInfo('class name', 'XCUIElementTypeTextView')
+save_intro = LocatorInfo(locator='//XCUIElementTypeButton[@name="Save"]')
+
+'''Invite friends'''
+invite_frame = LocatorInfo('accessibility id', 'Gift your friends VIP access')
+send_invite = LocatorInfo('accessibility id', 'Send invite')
+cancel_invite = LocatorInfo('accessibility id', 'No, cancel')
+invite_pop = LocatorInfo('accessibility id', 'ActivityListView')
+close_invite_pop = LocatorInfo('accessibility id', 'Close')
+
+'''follow list page'''
+search_glass = LocatorInfo('accessibility id', 'magnifyingGlass')
+following_list_title = LocatorInfo(locator='//XCUIElementTypeStaticText[@name="Following"]')
+followers_list_title = LocatorInfo(locator='//XCUIElementTypeStaticText[@name="Followers"]')
+empty_following_list = LocatorInfo('accessibility id', 'Hello darkness...')
+empty_followers_list = LocatorInfo('accessibility id', 'Who needs followers?')
 
 '''Setting page'''
-logout = LocatorInfo('accessibility id', 'Log out')
 logout_confirm = LocatorInfo('accessibility id', 'Yes, log out')
 my_address = LocatorInfo('accessibility id', 'My Addresses')
 my_wallet = LocatorInfo(locator='//XCUIElementTypeStaticText[@name="My Wallet"]')
 back = LocatorInfo('accessibility id', 'Back')
+purchases = LocatorInfo('accessibility id', 'Purchases')
+notifications = LocatorInfo('accessibility id', 'Notifications')
+become_a_seller = LocatorInfo('accessibility id', 'Become a seller')
+contact_us = LocatorInfo('accessibility id', 'Contact us')
+FAQs = LocatorInfo('accessibility id', 'FAQs')
+privacy_policy = LocatorInfo('accessibility id', 'Privacy Policy')
+logout = LocatorInfo('accessibility id', 'Log out')
 
 '''wallet '''
 exit_add_payment = LocatorInfo('accessibility id', 'UIButton.Close')
@@ -173,3 +242,17 @@ confirm_delete_card = LocatorInfo(locator='(//XCUIElementTypeButton[@name="Remov
 cancel_delete_card = LocatorInfo(locator='//XCUIElementTypeButton[@name="Cancel"]')
 done_edit_card = LocatorInfo('accessibility id', 'Done')
 card_set_up = LocatorInfo('accessibility id', 'Set up')
+
+'''Purchases page'''
+purchases_navigation_bar = LocatorInfo('class name', 'XCUIElementTypeNavigationBar')
+empty_purchases_list = LocatorInfo('accessibility id', 'Ready to rip?')
+
+'''Privacy policy page'''
+text_container = LocatorInfo(locator='//XCUIElementTypeApplication[@name="Fanatics Live '
+                                     'Development"]/XCUIElementTypeWindow['
+                                     '1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther'
+                                     '/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther'
+                                     '/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther'
+                                     '/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther'
+                                     '/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeWebView'
+                                     '/XCUIElementTypeWebView/XCUIElementTypeWebView')

@@ -63,7 +63,7 @@ class TestCheckFunctions(unittest.TestCase):
         target_x = text_location['x'] + text_size['width'] * (target_text_start + len('Terms of Use') / 2) / line_len
         touch_action = TouchAction(self.driver)
         touch_action.tap(x=target_x, y=target_y).perform()
-        do.assert_element(terms_of_use_page, 'get terms of use success')
+        do.assert_element_by_xpath(terms_of_use_page, 'get terms of use success')
 
     @allure.story("check privacy policy")
     def test5_check_privacy_policy(self) -> None:
@@ -75,7 +75,7 @@ class TestCheckFunctions(unittest.TestCase):
         target_x = text_location['x'] + text_size['width'] / 2
         touch_action = TouchAction(self.driver)
         touch_action.tap(x=target_x, y=target_y).perform()
-        do.assert_element(privacy_page, 'get privacy success')
+        do.assert_element_by_xpath(privacy_page, 'get privacy success')
 
     @allure.story("check create one now")
     def test6_check_create_one_now(self) -> None:

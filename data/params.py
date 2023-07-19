@@ -1,6 +1,5 @@
 import random
 
-
 class TestAccount:
     def __init__(self, email=None, password=None):
         self.email = email
@@ -36,12 +35,12 @@ class Account:
                  password=None,
                  weak_password='joytest',
                  fair_password='Joytest1',
-                 good_password='Joytest159',
+                 good_password='Joytest159753',
                  username=None,
                  invalid_name='?test',
                  already_took_username='joy001',
                  access_code='test',
-                 logo_select= random.randint(1,12),
+                 logo_select=random.randint(1,12),
                  follow_count=1,
                  level_index=random.randint(1,3)):
         self.email = email
@@ -68,13 +67,8 @@ test_account = TestAccount('joy999@fanatics.live', 'Joytest159753?')
 
 level_params = ["I'm a Rookie", "I'm a Collector", "I'm a Seasoned Pro"]
 
-new_account = Account(email='joy' + str(random.randint(200, 10000)) + '@fanatics.live',
-                      password='Joytest159753?',
-                      username='joy' + str(random.randint(200, 10000)))
-
 nonexistent_account = TestAccount('test@error.com', 'test123456?')
 
 error_password_account = TestAccount('joy009@fanatics.live', 'Joytest159753')
 
 Logos = ['NFL','NBA','MLB','NHL','FIFA','MLS','WNBA','NCAA','Formula 1','NASCAR','WWE','UFC']
-
