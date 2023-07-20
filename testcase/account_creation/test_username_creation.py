@@ -3,9 +3,8 @@ import allure
 from time import sleep
 from config.setup import get_driver
 from utils.find_element import get_element
-from utils.locator_info import join_continue, invalid_username, already_took_username, logo_page, notification, login, \
-    already_in_use
-from utils.help_function import get_new_account
+from utils.locator_info import join_continue, invalid_username, already_took_username, logo_page, notification, login
+from utils.help_function import get_new_account, save_data
 from utils.user_actions import Actions
 
 
@@ -18,6 +17,7 @@ class TestAccountCreation(unittest.TestCase):
         global do
         do = Actions(self.driver)
         do.open_app()
+        sleep(2)
 
     def tearDown(self):
         # do.close_app()
@@ -30,13 +30,8 @@ class TestAccountCreation(unittest.TestCase):
         sleep(3)
         do.input_email(new_account)
         do.input_password(new_account.password)
-        # try:
-        #     do.assert_element(already_in_use, 'email already in use , try another one')
-        #     new_account.email = 'test' + str(random.randint(200, 10000)) + '@fanatics.live'
-        #     do.input_password(new_account)
-        # except Exception:
-        #     pass
         do.tap_complete()
+        sleep(10)
         do.clear_username()
         do.tap_continue()
         # save_data(new_account.email, new_account.password)
@@ -75,6 +70,7 @@ class TestAccountCreation(unittest.TestCase):
             do.set_notification_later()
         except Exception:
             print('already set notification')
+        sleep(3)
         do.tap_enter_access_code()
         sleep(3)
         do.input_code(new_account.access_code)

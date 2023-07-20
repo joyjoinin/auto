@@ -1,6 +1,7 @@
 import unittest
 import allure
 from config.setup import get_driver
+from utils.locator_info import livestreams, marketing_rewards, community
 from utils.user_actions import Actions
 
 
@@ -13,6 +14,7 @@ class TestPurchases(unittest.TestCase):
         global do
         do = Actions(self.driver)
 
+
     def tearDown(self):
         do.back_to_setting()
         self.driver.quit()
@@ -20,3 +22,6 @@ class TestPurchases(unittest.TestCase):
     @allure.story("notifications")
     def test1_notifications(self):
         do.tap_notifications()
+        do.assert_element(livestreams,'find livestreams')
+        do.assert_element(marketing_rewards,'find marketing rewards')
+        do.assert_element(community,'find community')

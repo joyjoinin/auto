@@ -14,6 +14,8 @@ class TestFollow(unittest.TestCase):
         self.driver = get_driver()
         global do
         do = Actions(self.driver)
+        do.open_app()
+        do.tap_profile()
 
     def tearDown(self):
         do.tap_back()

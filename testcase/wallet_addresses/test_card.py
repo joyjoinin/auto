@@ -14,8 +14,10 @@ class TestCard(unittest.TestCase):
         self.driver = get_driver()
         global do
         do = Actions(self.driver)
+        do.open_app()
 
     def tearDown(self):
+        do.close_app()
         self.driver.quit()
 
     @allure.story("Add card")
@@ -39,6 +41,10 @@ class TestCard(unittest.TestCase):
 
     @allure.story("Delete card")
     def test2_delete_card(self) -> None:
+        do.tap_profile()
+        do.tap_setting()
+        sleep(2)
+        do.tap_my_wallet()
         cards_before_delete = do.get_wallet_list()
         do.edit_card_list()
         do.delete_card()

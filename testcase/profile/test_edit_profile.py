@@ -20,12 +20,15 @@ class TestEditProfile(unittest.TestCase):
         do = Actions(self.driver)
         do.open_app()
 
+
     def tearDown(self):
+        do.close_app()
         self.driver.quit()
 
     @allure.story("change avatar")
     def test1_change_avatar(self):
         do.login_flow(test_account)
+        sleep(1)
         do.tap_profile()
         do.tap_edit_profile()
         do.tap_edit_avatar()
@@ -35,6 +38,8 @@ class TestEditProfile(unittest.TestCase):
 
     @allure.story("change username")
     def test2_change_username(self):
+        do.tap_profile()
+        do.tap_edit_profile()
         do.tap_edit_username()
         new_username = get_random_username()
         do.input_new_username(new_username)
@@ -47,6 +52,8 @@ class TestEditProfile(unittest.TestCase):
 
     @allure.story("edit self intro")
     def test3_change_self_intro(self):
+        do.tap_profile()
+        do.tap_edit_profile()
         do.tap_edit_self_intro()
         intro_text = get_random_text()
         do.input_new_intro(intro_text)
@@ -55,6 +62,8 @@ class TestEditProfile(unittest.TestCase):
 
     @allure.story("change interests")
     def test4_change_interests(self):
+        do.tap_profile()
+        do.tap_edit_profile()
         origin_interests = do.get_all_interests()
         do.tap_add_interests()
         change_interests = do.tap_logos(random.randint(1, 12))

@@ -70,20 +70,23 @@ class Actions:
     '''Access code page'''
 
     def input_code(self, code) -> NoReturn:
+        sleep(3)
         get_element(self.driver, access_code_input).send_keys(code)
 
     def tap_submit(self) -> NoReturn:
+        sleep(3)
         get_element(self.driver, submit).click()
 
     '''Username page'''
 
     def input_username(self, name) -> NoReturn:
-        get_element(self.driver, username).send_keys(name)
+        get_element(self.driver, username).clear().send_keys(name)
 
     def clear_username(self) -> NoReturn:
         get_element(self.driver, username).clear()
 
     def tap_continue(self) -> NoReturn:
+        sleep(3)
         get_element(self.driver, join_continue).click()
 
     '''Track page'''
@@ -130,6 +133,7 @@ class Actions:
     '''Collect page'''
 
     def tap_logos(self, logo_selected):
+        sleep(3)
         i = 0
         logo_list = Logos
         tap_list = []
@@ -519,7 +523,7 @@ class Actions:
     '''Flows'''
 
     def logout_flow(self) -> NoReturn:
-        sleep(1)
+        sleep(5)
         self.tap_profile()
         self.tap_setting()
         self.tap_logout()
@@ -531,6 +535,29 @@ class Actions:
         self.tap_next()
         self.input_password(account.password)
         self.tap_fanatics_id()
+
+    def retry_for_failed_in_creation(self, new_account):
+        self.input_username(new_account.username)
+        sleep(10)
+        self.tap_continue()
+        try:
+            get_element(self.driver, notification)
+            self.set_notification_later()
+        except Exception:
+            print('already set notification')
+        sleep(3)
+        self.tap_enter_access_code()
+        sleep(3)
+        self.input_code(new_account.access_code)
+        self.tap_submit()
+        self.tap_logos(new_account.logo_select)
+        self.tap_continue()
+        self.tap_follow(new_account.follow_count)
+        self.tap_continue()
+        self.select_level(new_account.level_index)
+        self.tap_continue()
+        self.logout_flow()
+        self.assert_element(login, 'success logout')
 
     '''assert action'''
 

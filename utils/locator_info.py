@@ -48,6 +48,7 @@ Strong = LocatorInfo('accessibility id', 'Strong')
 already_in_use = LocatorInfo('accessibility id', 'That email is already in use')
 
 '''Input username page'''
+username_page = LocatorInfo('accessibility id', "It's name time")
 join_continue = LocatorInfo('accessibility id', 'Continue')
 username = LocatorInfo('class name', 'XCUIElementTypeTextField')
 invalid_username = LocatorInfo('accessibility id', 'This username is invalid.')
@@ -256,3 +257,20 @@ text_container = LocatorInfo(locator='//XCUIElementTypeApplication[@name="Fanati
                                      '/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther'
                                      '/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeWebView'
                                      '/XCUIElementTypeWebView/XCUIElementTypeWebView')
+
+'''Become a seller'''
+become_a_seller_page = LocatorInfo(locator='//XCUIElementTypeStaticText[@name="Get in first. Want to sell with '
+                                           'Fanatics Live, let us know!"]')
+apply = LocatorInfo('accessibility id', 'Apply')
+
+'''FQAs'''
+FAQs_page = LocatorInfo(locator='//XCUIElementTypeOther[@name="How can we help you?"]')
+
+'''Contact us'''
+contact_us_page = LocatorInfo('accessibility id', "Thank you for using Fanatics Live. What's your email address?")
+
+'''Notifications'''
+livestreams = LocatorInfo('accessibility id', 'Livestreams')
+marketing_rewards = LocatorInfo('accessibility id', 'Marketing & rewards')
+community = LocatorInfo('accessibility id', 'Community')
+

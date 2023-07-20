@@ -39,3 +39,4 @@ class TestInviteFriends(unittest.TestCase):
             get_element(self.driver, invite_frame, 2)
         except Exception:
             print('cancel success')
+        do.close_app()

@@ -1,6 +1,7 @@
 import unittest
 import allure
 from config.setup import get_driver
+from utils.locator_info import FAQs_page
 from utils.user_actions import Actions
 
 
@@ -20,3 +21,4 @@ class TestPurchases(unittest.TestCase):
     @allure.story("FAQs")
     def test1_FAQs(self):
         do.tap_FAQs()
+        do.assert_element_by_xpath(FAQs_page,'Show FAQs success')
