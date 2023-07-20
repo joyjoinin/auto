@@ -1,11 +1,12 @@
 import unittest
 import allure
 from config.setup import get_driver
-from data.params import  test_account
+from data.params import test_account
 from utils.locator_info import home, login
 from utils.user_actions import Actions
 
 
+@allure.severity(allure.severity_level.CRITICAL)
 @allure.feature("Login && Log out")
 class TestLoginLogout(unittest.TestCase):
 

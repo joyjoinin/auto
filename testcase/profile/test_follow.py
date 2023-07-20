@@ -6,6 +6,7 @@ from utils.locator_info import following_list_title, followers_list_title, \
 from utils.user_actions import Actions
 
 
+@allure.severity(allure.severity_level.CRITICAL)
 @allure.feature("Follow")
 class TestFollow(unittest.TestCase):
 

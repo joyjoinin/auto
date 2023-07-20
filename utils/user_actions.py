@@ -78,9 +78,10 @@ class Actions:
     '''Username page'''
 
     def input_username(self, name) -> NoReturn:
-        sleep(10)
-        get_element(self.driver, username).clear()
         get_element(self.driver, username).send_keys(name)
+
+    def clear_username(self) -> NoReturn:
+        get_element(self.driver, username).clear()
 
     def tap_continue(self) -> NoReturn:
         get_element(self.driver, join_continue).click()

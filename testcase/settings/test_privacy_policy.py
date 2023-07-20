@@ -5,6 +5,7 @@ from utils.locator_info import text_container
 from utils.user_actions import Actions
 
 
+@allure.severity(allure.severity_level.CRITICAL)
 @allure.feature("Privacy policy")
 class TestPurchases(unittest.TestCase):
 
@@ -20,4 +21,4 @@ class TestPurchases(unittest.TestCase):
     @allure.story("privacy policy")
     def test1_privacy_policy(self):
         do.tap_setting_privacy_policy()
-        do.assert_element_by_xpath(text_container,'go privacy policy success')
+        do.assert_element_by_xpath(text_container, 'go privacy policy success')

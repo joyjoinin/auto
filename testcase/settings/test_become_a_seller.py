@@ -1,9 +1,11 @@
 import unittest
 import allure
+from time import sleep
 from config.setup import get_driver
 from utils.user_actions import Actions
 
 
+@allure.severity(allure.severity_level.CRITICAL)
 @allure.feature("Become a seller")
 class TestPurchases(unittest.TestCase):
 
@@ -18,5 +20,6 @@ class TestPurchases(unittest.TestCase):
 
     @allure.story("become a seller")
     def test1_become_a_seller(self):
+        sleep(3)
         do.tap_setting()
         do.tap_become_a_seller()

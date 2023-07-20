@@ -1,6 +1,6 @@
 import unittest
-from time import sleep
 import allure
+from time import sleep
 from config.setup import get_driver
 from data.params import error_password_account, test_account
 from utils.find_element import get_element_by_xpath, get_element
@@ -10,6 +10,7 @@ from utils.user_actions import Actions
 from appium.webdriver.common.touch_action import TouchAction
 
 
+@allure.severity(allure.severity_level.CRITICAL)
 @allure.feature("Login page's functions")
 class TestCheckFunctions(unittest.TestCase):
 

@@ -4,6 +4,7 @@ from config.setup import get_driver
 from utils.user_actions import Actions
 
 
+@allure.severity(allure.severity_level.CRITICAL)
 @allure.feature("Contact us")
 class TestPurchases(unittest.TestCase):
 

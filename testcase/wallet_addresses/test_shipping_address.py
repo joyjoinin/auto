@@ -6,6 +6,7 @@ from data.params import address_info
 from utils.user_actions import Actions
 
 
+@allure.severity(allure.severity_level.CRITICAL)
 @allure.feature("Shipping address")
 class TestShippingAddress(unittest.TestCase):
 

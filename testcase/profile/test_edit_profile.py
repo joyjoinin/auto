@@ -1,8 +1,7 @@
 import random
 import unittest
-from time import sleep
-
 import allure
+from time import sleep
 from config.setup import get_driver
 from data.params import test_account
 from utils.find_element import get_element_by_xpath
@@ -11,6 +10,7 @@ from utils.locator_info import save_username, profile_username, profile_self_int
 from utils.user_actions import Actions
 
 
+@allure.severity(allure.severity_level.CRITICAL)
 @allure.feature("Edit Profile")
 class TestEditProfile(unittest.TestCase):
 
@@ -32,7 +32,6 @@ class TestEditProfile(unittest.TestCase):
         do.tap_avatar_colorful()
         do.tap_save_avatar()
         '''need assert color'''
-
 
     @allure.story("change username")
     def test2_change_username(self):
@@ -59,13 +58,9 @@ class TestEditProfile(unittest.TestCase):
         origin_interests = do.get_all_interests()
         do.tap_add_interests()
         change_interests = do.tap_logos(random.randint(1, 12))
-        expected_interest_list = get_expected_interests(origin_interests,change_interests)
+        expected_interest_list = get_expected_interests(origin_interests, change_interests)
         do.tap_back_to_edit_page()
         sleep(3)
         current_interests = do.get_all_interests()
         assert set(expected_interest_list) == set(current_interests)
         print('Change interests success')
-
-
-
-

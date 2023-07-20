@@ -6,6 +6,7 @@ from utils.locator_info import failed_login_message
 from utils.user_actions import Actions
 
 
+@allure.severity(allure.severity_level.MINOR)
 @allure.feature("Login error")
 class TestErrorLogin(unittest.TestCase):
 

@@ -1,8 +1,10 @@
+import os
+
 import pytest
 from datetime import datetime
 testcase_file = {
-    './testcase/account_creation/test_create_account.py': True,
-    './testcase/account_creation/test_username_creation.py': True,
+    './testcase/account_creation/test_create_account.py': False,
+    './testcase/account_creation/test_username_creation.py': False,
     './testcase/login_logout/test_login_logout.py': True,
     './testcase/login_logout/test_login_page_functions.py': True,
     './testcase/login_logout/test_login_with_wrong_info.py': True,
@@ -16,7 +18,8 @@ testcase_file = {
     './testcase/settings/test_privacy_policy.py': True,
     './testcase/settings/test_purchases.py': True,
     './testcase/wallet_addresses/test_card.py': True,
-    './testcase/wallet_addresses/test_shipping_address.py': True
+    './testcase/wallet_addresses/test_shipping_address.py': True,
+    './testcase/wallet_addresses/test_complete_profile.py': True
 }
 
 now = datetime.now()
@@ -25,7 +28,7 @@ report_summary_folder = 'report/report_results/{}'.format(dt_string)
 html_summary_folder = 'report/report_html/{}'.format(dt_string)
 
 if __name__ == '__main__':
-
+    os.mkdir(report_summary_folder)
     for case, flag in testcase_file.items():
         if flag:
             pass

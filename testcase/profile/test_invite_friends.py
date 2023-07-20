@@ -1,11 +1,13 @@
 import unittest
 import allure
+from time import sleep
 from config.setup import get_driver
 from utils.find_element import get_element
 from utils.locator_info import invite_frame, invite_pop
 from utils.user_actions import Actions
 
 
+@allure.severity(allure.severity_level.CRITICAL)
 @allure.feature("Invite friends")
 class TestInviteFriends(unittest.TestCase):
 
@@ -31,6 +33,7 @@ class TestInviteFriends(unittest.TestCase):
 
     @allure.story("cancel invite")
     def test2_cancel_invite(self):
+        sleep(2)
         do.tap_cancel_invite()
         try:
             get_element(self.driver, invite_frame, 2)

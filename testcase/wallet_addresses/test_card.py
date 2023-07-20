@@ -6,6 +6,7 @@ from data.params import card_info, test_account
 from utils.user_actions import Actions
 
 
+@allure.severity(allure.severity_level.CRITICAL)
 @allure.feature("Bank Card")
 class TestCard(unittest.TestCase):
 
@@ -45,10 +46,8 @@ class TestCard(unittest.TestCase):
         do.tap_done_edit_card()
         cards_after_delete = do.get_wallet_list()
         do.exit_add_payment()
-        do.tap_back()
         try:
             assert (len(cards_after_delete) == len(cards_before_delete) - 1)
             print('Delete card success')
         except Exception:
             raise
-        do.logout_flow()
