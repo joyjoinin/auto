@@ -7,12 +7,13 @@ from utils.user_actions import Actions
 
 @allure.severity(allure.severity_level.CRITICAL)
 @allure.feature("Contact us")
-class TestPurchases(unittest.TestCase):
+class TestContactUs(unittest.TestCase):
 
     def setUp(self) -> None:
         self.driver = get_driver()
         global do
         do = Actions(self.driver)
+
 
     def tearDown(self):
         do.back_to_setting()

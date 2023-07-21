@@ -8,7 +8,7 @@ from utils.user_actions import Actions
 
 @allure.severity(allure.severity_level.CRITICAL)
 @allure.feature("Become a seller")
-class TestPurchases(unittest.TestCase):
+class TestBecomeASeller(unittest.TestCase):
 
     def setUp(self) -> None:
         self.driver = get_driver()

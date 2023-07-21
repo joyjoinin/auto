@@ -1,5 +1,6 @@
 import os
 import pytest
+import subprocess
 from datetime import datetime
 
 
@@ -12,7 +13,9 @@ testcase_file = {
     './testcase/profile/test_edit_profile.py': True,
     './testcase/profile/test_favorite_shops.py': False,
     './testcase/profile/test_follow.py': True,
-    './testcase/profile/test_invite_friends.py': True,
+    './testcase/profile/test_invite_friends.py': False,
+    './testcase/profile/test_share_profile.py': True,
+    './testcase/settings/test_become_a_seller.py': True,
     './testcase/settings/test_contact_us.py': True,
     './testcase/settings/test_faqs.py': True,
     './testcase/settings/test_notification.py': True,
@@ -30,6 +33,7 @@ html_summary_folder = 'report/report_html/{}'.format(dt_string)
 
 if __name__ == '__main__':
     os.mkdir(report_summary_folder)
+
     for case, flag in testcase_file.items():
         if flag:
             pass

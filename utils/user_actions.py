@@ -189,6 +189,9 @@ class Actions:
     def tap_invite_friends(self) -> NoReturn:
         get_element(self.driver, invite_friends).click()
 
+    def tap_share_profile(self) -> NoReturn:
+        get_element(self.driver, share_profile).click()
+
     def tap_profile_followers(self) -> NoReturn:
         get_element(self.driver, profile_followers).click()
 
@@ -279,6 +282,11 @@ class Actions:
     def tap_close_invite(self) -> NoReturn:
         get_element(self.driver, close_invite_pop).click()
 
+    '''Share page'''
+    def tap_close_share(self) -> NoReturn:
+        get_element(self.driver, close_share_frame).click()
+
+
     '''Follow page'''
 
     def tap_following_in_profile(self) -> NoReturn:
@@ -328,6 +336,9 @@ class Actions:
 
     def tap_setting_privacy_policy(self) -> NoReturn:
         get_element(self.driver,privacy_policy).click()
+
+    def tap_setting_terms_of_use(self) -> NoReturn:
+        get_element(self.driver,terms_of_use_on_setting).click()
 
     '''Wallet page'''
 
@@ -515,6 +526,22 @@ class Actions:
     '''Purchase page'''
 
 
+    '''Notifications page'''
+
+    def tap_notification_type(self, type):
+        get_element(self.driver,  type).click()
+
+    def tap_switch_button(self, buttons):
+        for i in buttons:
+            try:
+                get_element_by_xpath(self.driver, i).click()
+            except Exception as e:
+                raise e
+
+    def tap_back_to_notifications(self):
+        get_element(self.driver,back_to_notifications).click()
+
+
 
     '''Privacy Policy'''
 
@@ -559,6 +586,18 @@ class Actions:
         self.logout_flow()
         self.assert_element(login, 'success logout')
 
+
+    def tap_notifications_flow(self, notification_type,buttons,expected,message):
+        self.tap_notification_type(notification_type)
+        self.tap_switch_button(
+            buttons)
+        self.tap_back_to_notifications()
+        self.tap_notification_type(notification_type)
+        self.assert_switch_buttons(
+            buttons, expected)
+        print(message)
+        self.tap_back_to_notifications()
+
     '''assert action'''
 
     def assert_element(self, locator, message) -> NoReturn:
@@ -595,3 +634,11 @@ class Actions:
             print(message)
         except Exception as e:
             raise e
+
+    def assert_switch_buttons(self, buttons,expected) -> NoReturn:
+        for i in buttons:
+            try:
+                assert get_element_by_xpath(self.driver,i,2).get_attribute('value') == expected
+                print('switch button success')
+            except Exception as e:
+                raise e

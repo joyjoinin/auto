@@ -22,7 +22,7 @@ show_password = LocatorInfo('accessibility id', 'SHOW')
 hide_password = LocatorInfo('accessibility id', 'HIDE')
 forget_password = LocatorInfo('accessibility id', 'Forgot password?')
 terms_of_use = LocatorInfo('accessibility id',
-                           'By tapping log in, you agree to our Terms of Use and acknowledge our Privacy Policy')
+                           'By tapping log in, you agree to our Terms of Use and acknowledge our Privacy policy')
 create_one_now = LocatorInfo('accessibility id', "Don't have an account? Create one now!")
 create_page = LocatorInfo('accessibility id', 'Create your Fanatics ID')
 # privacy_page = LocatorInfo('accessibility id', 'Vertical scroll bar, 31 pages')
@@ -98,6 +98,7 @@ complete_and_ready = LocatorInfo()
 setting = LocatorInfo('name', 'gear')
 edit_profile = LocatorInfo('accessibility id', 'Edit Profile')
 invite_friends = LocatorInfo('accessibility id', 'Invite friends')
+share_profile = LocatorInfo('accessibility id', 'Share Profile')
 profile_followers = LocatorInfo('accessibility id', 'Followers')
 profile_following = LocatorInfo('accessibility id', 'Following')
 favorite_shops = LocatorInfo('accessibility id', 'sectionheaderFavoriteShops')
@@ -117,7 +118,8 @@ all_interests = LocatorInfo(
 '''Avatar page'''
 camera_add = LocatorInfo('accessibility id', 'cameraAdd')
 add_media_image = LocatorInfo('accessibility id', 'addMediaImage')
-avatar_colorful = LocatorInfo(locator='//XCUIElementTypeButton[@name="addMediaImage"]/following-sibling::XCUIElementTypeOther/XCUIElementTypeButton')
+avatar_colorful = LocatorInfo(
+    locator='//XCUIElementTypeButton[@name="addMediaImage"]/following-sibling::XCUIElementTypeOther/XCUIElementTypeButton')
 save_avatar = LocatorInfo(locator='//XCUIElementTypeButton[@name="Save"]')
 
 '''Add interests page'''
@@ -138,6 +140,10 @@ cancel_invite = LocatorInfo('accessibility id', 'No, cancel')
 invite_pop = LocatorInfo('accessibility id', 'ActivityListView')
 close_invite_pop = LocatorInfo('accessibility id', 'Close')
 
+'''Share profile'''
+share_frame = LocatorInfo('accessibility id', 'ActivityListView')
+close_share_frame = LocatorInfo('accessibility id', 'Close')
+
 '''follow list page'''
 search_glass = LocatorInfo('accessibility id', 'magnifyingGlass')
 following_list_title = LocatorInfo(locator='//XCUIElementTypeStaticText[@name="Following"]')
@@ -155,7 +161,8 @@ notifications = LocatorInfo('accessibility id', 'Notifications')
 become_a_seller = LocatorInfo('accessibility id', 'Become a seller')
 contact_us = LocatorInfo('accessibility id', 'Contact us')
 FAQs = LocatorInfo('accessibility id', 'FAQs')
-privacy_policy = LocatorInfo('accessibility id', 'Privacy Policy')
+privacy_policy = LocatorInfo('accessibility id', 'Privacy policy')
+terms_of_use_on_setting = LocatorInfo('accessibility id', 'Terms of use')
 logout = LocatorInfo('accessibility id', 'Log out')
 
 '''wallet '''
@@ -273,4 +280,36 @@ contact_us_page = LocatorInfo('accessibility id', "Thank you for using Fanatics 
 livestreams = LocatorInfo('accessibility id', 'Livestreams')
 marketing_rewards = LocatorInfo('accessibility id', 'Marketing & rewards')
 community = LocatorInfo('accessibility id', 'Community')
+turn_on_notification = LocatorInfo('accessibility id', 'Turn on notifications')
+alert_notifications = LocatorInfo(locator='//XCUIElementTypeAlert[@name="“Fanatics Live Development” Would Like to '
+                                          'Send You Notifications"]')
+allow_notifications = LocatorInfo('accessibility id', 'Allow')
+do_not_allow_notification = LocatorInfo('accessibility id', 'Don’t Allow')
 
+# Livestreams
+button_new_stream_added = LocatorInfo(locator='//XCUIElementTypeSwitch[@name="New stream added, Your favorite channel '
+                                              'scheduled something new"]/XCUIElementTypeSwitch')
+button_stream_going_live = LocatorInfo(
+    locator='//XCUIElementTypeSwitch[@name="Stream going live, A stream is starting now"]/XCUIElementTypeSwitch')
+button_giveaways = LocatorInfo(
+    locator='//XCUIElementTypeSwitch[@name="Giveaways, Your chance at something great — for free!"]/XCUIElementTypeSwitch')
+button_suggested_streams = LocatorInfo(
+    locator='//XCUIElementTypeSwitch[@name="Suggested streams, We found something we think you’ll like"]/XCUIElementTypeSwitch')
+button_push_notifications = LocatorInfo(
+    locator='//XCUIElementTypeSwitch[@name="Push Notifications"]/XCUIElementTypeSwitch')
+button_email = LocatorInfo(locator='//XCUIElementTypeSwitch[@name="Email"]/XCUIElementTypeSwitch')
+back_to_notifications = LocatorInfo('accessibility id', 'Notifications')
+
+# Marketing & rewards
+button_breaking_news = LocatorInfo(
+    locator='//XCUIElementTypeSwitch[@name="Breaking news, You\'re gonna want to hear this"]/XCUIElementTypeSwitch')
+button_offers_rewards = LocatorInfo(
+    locator='//XCUIElementTypeSwitch[@name="Offers & rewards, A chance to win FanCash and more"]/XCUIElementTypeSwitch')
+button_events = LocatorInfo(
+    locator='//XCUIElementTypeSwitch[@name="Events, Your ticket to a special event"]/XCUIElementTypeSwitch')
+
+# Community
+button_direct_messages = LocatorInfo(
+    locator='//XCUIElementTypeSwitch[@name="Direct Messages, Someone has sent you a message"]/XCUIElementTypeSwitch')
+button_new_followers = LocatorInfo(
+    locator='//XCUIElementTypeSwitch[@name="New followers, Someone new is following you"]/XCUIElementTypeSwitch')
