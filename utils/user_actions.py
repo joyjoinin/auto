@@ -1,7 +1,6 @@
 import random
 from time import sleep
-
-from data.params import level_params, test_account, app_name, Logos
+from data.params import level_params, app_name, Logos
 from utils.find_element import get_element, get_element_by_xpath, get_elements, get_elements_by_xpath
 from typing import NoReturn
 from appium.webdriver.common.touch_action import TouchAction
@@ -178,6 +177,39 @@ class Actions:
     def tap_view_all(self) -> NoReturn:
         get_element(self.driver, view_all).click()
 
+    def swipe_left_card(self) -> NoReturn:
+        actions = TouchAction(self.driver)
+        actions.press(x=216, y=416).wait(200).move_to(x=60, y=416)
+        actions.release().perform()
+
+    def swipe_right_card(self) -> NoReturn:
+        actions = TouchAction(self.driver)
+        actions.press(x=216, y=416).wait(200).move_to(x=363, y=416)
+        actions.release().perform()
+
+    def tap_home_search(self) -> NoReturn:
+        get_element_by_xpath(self.driver,search_on_homepage).click()
+
+    def tap_chart_on_homepage(self) -> NoReturn:
+        get_element_by_xpath(self.driver,chat_on_homepage).click()
+
+    '''Search page'''
+    def close_search_page(self) -> NoReturn:
+        get_element_by_xpath(self.driver,close_search_page).click()
+
+    '''DMs page'''
+    def tap_add_chat(self) -> NoReturn:
+        get_element_by_xpath(self.driver, add_chat).click()
+
+    def cancel_add_message(self) -> NoReturn:
+        get_element(self.driver,cancel_add_message).click()
+
+    def clear_message_search_bar(self) -> NoReturn:
+        get_element_by_xpath(self.driver,clear_message_search_bar).click()
+
+    def input_on_message_search_bar(self, search_item) -> NoReturn:
+        get_element(self.driver,message_search_bar).clear().send_keys(search_item)
+
     '''Profile page'''
 
     def tap_setting(self) -> NoReturn:
@@ -206,7 +238,6 @@ class Actions:
     def tap_edit_avatar(self) -> NoReturn:
         get_element_by_xpath(self.driver, edit_avatar).click()
 
-
     def tap_edit_username(self) -> NoReturn:
         get_element_by_xpath(self.driver, edit_username).click()
 
@@ -229,6 +260,7 @@ class Actions:
         return names
 
     '''Avatar page'''
+
     def tap_camera_add(self) -> NoReturn:
         get_element(self.driver, camera_add).click()
 
@@ -237,36 +269,34 @@ class Actions:
 
     def tap_avatar_colorful(self) -> NoReturn:
         all_avatar = get_elements_by_xpath(self.driver, avatar_colorful)
-        select_index = random.randint(0, len(all_avatar)-1)
+        select_index = random.randint(0, len(all_avatar) - 1)
         all_avatar[select_index].click()
+
     def tap_save_avatar(self) -> NoReturn:
         get_element_by_xpath(self.driver, save_avatar).click()
 
-
     '''Edit username page'''
 
-    def input_new_username(self,new_username) -> NoReturn:
+    def input_new_username(self, new_username) -> NoReturn:
         sleep(1)
-        get_element(self.driver,username_input_box).clear().send_keys(new_username)
+        get_element(self.driver, username_input_box).clear().send_keys(new_username)
 
     def tap_save_username(self) -> NoReturn:
-        get_element_by_xpath(self.driver,save_username).click()
+        get_element_by_xpath(self.driver, save_username).click()
 
     '''Edit intro page'''
 
-    def input_new_intro(self,new_intro) -> NoReturn:
+    def input_new_intro(self, new_intro) -> NoReturn:
         sleep(1)
         get_element(self.driver, intro_text_field).clear().send_keys(new_intro)
 
     def tap_save_intro(self) -> NoReturn:
-        get_element_by_xpath(self.driver,save_intro).click()
-
+        get_element_by_xpath(self.driver, save_intro).click()
 
     '''Add interests page'''
 
     def tap_back_to_edit_page(self) -> NoReturn:
-        get_element(self.driver,back_to_edit_page).click()
-
+        get_element(self.driver, back_to_edit_page).click()
 
     '''Invite friends function'''
 
@@ -283,24 +313,23 @@ class Actions:
         get_element(self.driver, close_invite_pop).click()
 
     '''Share page'''
+
     def tap_close_share(self) -> NoReturn:
         get_element(self.driver, close_share_frame).click()
-
 
     '''Follow page'''
 
     def tap_following_in_profile(self) -> NoReturn:
-        get_element(self.driver,profile_following).click()
+        get_element(self.driver, profile_following).click()
 
     def tap_followers_in_profile(self) -> NoReturn:
-        get_element(self.driver,profile_followers).click()
+        get_element(self.driver, profile_followers).click()
 
     def tap_following_list(self) -> NoReturn:
         get_element_by_xpath(self.driver, following_list_title).click()
 
     def tap_followers_list(self) -> NoReturn:
         get_element_by_xpath(self.driver, followers_list_title).click()
-
 
     '''Setting page'''
 
@@ -335,10 +364,10 @@ class Actions:
         get_element(self.driver, FAQs).click()
 
     def tap_setting_privacy_policy(self) -> NoReturn:
-        get_element(self.driver,privacy_policy).click()
+        get_element(self.driver, privacy_policy).click()
 
     def tap_setting_terms_of_use(self) -> NoReturn:
-        get_element(self.driver,terms_of_use_on_setting).click()
+        get_element(self.driver, terms_of_use_on_setting).click()
 
     '''Wallet page'''
 
@@ -474,7 +503,7 @@ class Actions:
                 actions = TouchAction(self.driver)
                 actions.press(x=217, y=815).wait(200).move_to(x=216, y=778)
                 actions.release().perform()
-                value = get_element(self.driver, state_value,5).get_attribute('value')
+                value = get_element(self.driver, state_value, 5).get_attribute('value')
                 if value == state_text:
                     is_find = True
             except Exception as e:
@@ -522,14 +551,12 @@ class Actions:
     def back_to_setting(self) -> NoReturn:
         get_element(self.driver, back_to_setting).click()
 
-
     '''Purchase page'''
-
 
     '''Notifications page'''
 
     def tap_notification_type(self, type):
-        get_element(self.driver,  type).click()
+        get_element(self.driver, type).click()
 
     def tap_switch_button(self, buttons):
         for i in buttons:
@@ -539,13 +566,9 @@ class Actions:
                 raise e
 
     def tap_back_to_notifications(self):
-        get_element(self.driver,back_to_notifications).click()
-
-
+        get_element(self.driver, back_to_notifications).click()
 
     '''Privacy Policy'''
-
-
 
     '''Flows'''
 
@@ -556,7 +579,7 @@ class Actions:
         self.tap_logout()
         self.confirm_logout()
 
-    def login_flow(self,account) -> NoReturn:
+    def login_flow(self, account) -> NoReturn:
         self.tap_login()
         self.input_email(account)
         self.tap_next()
@@ -586,8 +609,7 @@ class Actions:
         self.logout_flow()
         self.assert_element(login, 'success logout')
 
-
-    def tap_notifications_flow(self, notification_type,buttons,expected,message):
+    def tap_notifications_flow(self, notification_type, buttons, expected, message):
         self.tap_notification_type(notification_type)
         self.tap_switch_button(
             buttons)
@@ -600,45 +622,47 @@ class Actions:
 
     '''assert action'''
 
-    def assert_element(self, locator, message) -> NoReturn:
+    def assert_element(self, locator, message, *wait_time) -> NoReturn:
         try:
-            assert get_element(self.driver, locator)
-            print(message)
+            assert get_element(self.driver, locator,wait_time)
+            print('\n{}'.format(message))
         except Exception as e:
             raise e
 
-    def assert_element_by_xpath(self, locator, message) -> NoReturn:
+    def assert_element_by_xpath(self, locator, message,*wait_time) -> NoReturn:
         try:
-            assert get_element_by_xpath(self.driver, locator)
-            print(message)
+            assert get_element_by_xpath(self.driver, locator, wait_time)
+            print('\n{}'.format(message))
         except Exception as e:
             raise e
 
-    def assert_elements(self, locator, message) -> NoReturn:
+    def assert_elements(self, locator, message, *wait_time) -> NoReturn:
         try:
-            assert get_elements(self.driver, locator)
-            print(message)
+            assert get_elements(self.driver, locator,wait_time)
+            print('\n{}'.format(message))
         except Exception as e:
             raise e
 
-    def assert_element_by_attr(self, locator, attr, expected, message) -> NoReturn:
+    def assert_element_by_attr(self, locator, attr, expected, message,*wait_time) -> NoReturn:
         try:
-            assert get_element(self.driver, locator).get_attribute(attr) == expected
-            print(message)
+            assert get_element(self.driver, locator, wait_time).get_attribute(attr) == expected
+            print('\n{}'.format(message))
         except Exception as e:
             raise e
 
-    def assert_element_by_xpath_attr(self, locator, attr, expected, message) -> NoReturn:
+    def assert_element_by_xpath_attr(self, locator, attr, expected, message, *wait_time) -> NoReturn:
         try:
-            assert get_element_by_xpath(self.driver, locator).get_attribute(attr) == expected
-            print(message)
+            assert get_element_by_xpath(self.driver, locator, wait_time).get_attribute(attr) == expected
+            print('\n{}'.format(message))
         except Exception as e:
             raise e
 
-    def assert_switch_buttons(self, buttons,expected) -> NoReturn:
+    def assert_switch_buttons(self, buttons, expected) -> NoReturn:
         for i in buttons:
             try:
-                assert get_element_by_xpath(self.driver,i,2).get_attribute('value') == expected
-                print('switch button success')
+                assert get_element_by_xpath(self.driver, i, 2).get_attribute('value') == expected
+                print('\nswitch button success')
             except Exception as e:
                 raise e
+
+

@@ -93,6 +93,35 @@ complete_profile = LocatorInfo('accessibility id', 'Complete your profile')
 close_complete_profile = LocatorInfo('accessibility id', 'Close')
 view_all = LocatorInfo('accessibility id', 'View all')
 complete_and_ready = LocatorInfo()
+search_on_homepage = LocatorInfo(locator='//XCUIElementTypeOther[@name="magnifyingGlass"]')
+chat_on_homepage = LocatorInfo(locator='//XCUIElementTypeOther[@name="chatBubbleEmpty"]')
+hero_card_position = LocatorInfo(locator='')
+
+'''Search page'''
+search_field = LocatorInfo(locator='//XCUIElementTypeApplication[@name="Fanatics Live '
+                                   'Development"]/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther'
+                                   '/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther'
+                                   '/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther'
+                                   '/XCUIElementTypeOther/XCUIElementTypeOther['
+                                   '3]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther'
+                                   '/XCUIElementTypeOther/XCUIElementTypeTextField')
+popular_streams_title = LocatorInfo('accessibility id','sectionheaderPopularStreams')
+close_search_page = LocatorInfo(locator='//XCUIElementTypeButton[@name="Close"]')
+
+'''Chat page'''
+message_title = LocatorInfo('accessibility id', 'Messages')
+add_chat = LocatorInfo(locator='//XCUIElementTypeButton[@name="chatAdd"]')
+empty_chat_page = LocatorInfo(locator='(//XCUIElementTypeStaticText[@name="ChatChannelListView"])[1]')
+
+# new message
+cancel_add_message = LocatorInfo('accessibility id', 'Cancel')
+new_message_title = LocatorInfo('accessibility id', 'New Message')
+message_search_bar = LocatorInfo('class name', 'XCUIElementTypeTextField')
+clear_message_search_bar = LocatorInfo(locator='//XCUIElementTypeButton[@name="SearchBar"]')
+message_welcome = LocatorInfo('accessibility id','Helloooooo?')
+
+'''Popular live breaks page'''
+popular_page_title = LocatorInfo(locator='//XCUIElementTypeStaticText[@name="Popular Live Breaks"]')
 
 '''Profile page'''
 setting = LocatorInfo('name', 'gear')
@@ -124,6 +153,7 @@ save_avatar = LocatorInfo(locator='//XCUIElementTypeButton[@name="Save"]')
 
 '''Add interests page'''
 back_to_edit_page = LocatorInfo('accessibility id', 'Edit Profile')
+
 
 '''Edit username page'''
 username_input_box = LocatorInfo('class name', 'XCUIElementTypeTextField')
