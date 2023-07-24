@@ -77,7 +77,7 @@ class TestAccountCreation(unittest.TestCase):
         do.tap_join()
         do.input_email(new_account)
         do.input_password(new_account.fair_password)
-        do.assert_element(fair, 'This is weak password')
+        do.assert_element(fair, 'This is fair password')
         do.assert_element(weak_prompt, 'Show prompt success')
         do.assert_element_by_attr(complete, 'enabled', 'false', "Can't complete with fair password")
 

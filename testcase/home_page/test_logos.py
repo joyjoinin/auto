@@ -2,6 +2,10 @@ import unittest
 import allure
 from config.setup import get_driver
 from data.params import test_account
+from appium.webdriver.common.touch_action import TouchAction
+
+from utils.find_element import get_element
+from utils.locator_info import logo_item, logo_title
 from utils.user_actions import Actions
 
 
@@ -20,15 +24,21 @@ class TestHomeLogos(unittest.TestCase):
 
     @allure.story("Swipe logo")
     def test1_swipe_logo(self):
-        # do.login_flow(test_account)
-        pass
+        i = 1
+        swipe_times = len(do.get_all_logo()) / 2
+        while i < swipe_times:
+            do.log_scroll_left()
+            i += 1
+        print(f'\nswipe left logo {swipe_times - 1}')
+        while i > 0:
+            do.log_scroll_right()
+            i -= 1
+        print(f'\nswipe right logo {swipe_times - 1}')
 
-    @allure.story("tap first logo")
-    def test2_tap_first_logo(self):
-        # do.login_flow(test_account)
-        pass
-
-    @allure.story("tap first logo")
-    def test3_tap_last_logo(self):
-        # do.login_flow(test_account)
-        pass
+    @allure.story("tap all logo")
+    def test2_tap_all_logo(self):
+        logo_list = do.get_all_logo()
+        for logo in logo_list:
+            do.tap_logo(logo)
+            do.assert_element_by_attr(logo_title, 'name', logo, f'tap {logo} success', 2)
+        do.tap_back()

@@ -72,3 +72,7 @@ nonexistent_account = TestAccount('test@error.com', 'test123456?')
 error_password_account = TestAccount('joy009@fanatics.live', 'Joytest159753')
 
 Logos = ['NFL','NBA','MLB','NHL','FIFA','MLS','WNBA','NCAA','Formula 1','NASCAR','WWE','UFC']
+
+app_environment = 'Dev'  # QA / Pro
+
+device_type = 'Simulator'  # 'Simulator'
