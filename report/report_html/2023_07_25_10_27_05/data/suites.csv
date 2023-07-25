@@ -1,5 +1,0 @@
-"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"broken","Tue Jul 25 10:27:15 CST 2023","Tue Jul 25 10:27:27 CST 2023","12045","testcase.login_logout","test_login_page_functions","TestCheckFunctions","","","test1_check_not_you",""
-"passed","Tue Jul 25 10:27:27 CST 2023","Tue Jul 25 10:27:36 CST 2023","8778","","","","","","test1_check_not_you",""
-"broken","Tue Jul 25 10:27:06 CST 2023","Tue Jul 25 10:27:06 CST 2023","2","testcase.login_logout","test_login_logout","TestLoginLogout","","","test2_LogOutUserExisted",""
-"broken","Tue Jul 25 10:27:06 CST 2023","Tue Jul 25 10:27:06 CST 2023","2","testcase.login_logout","test_login_logout","TestLoginLogout","","","test1_loginUserExisted",""

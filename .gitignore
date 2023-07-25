@@ -19,6 +19,4 @@
 
 .pytest_cache
 
-.report_html
-
-.report_results
+.report/

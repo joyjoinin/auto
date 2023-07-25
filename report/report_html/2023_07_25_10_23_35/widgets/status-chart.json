@@ -1,1 +1,0 @@
-[{"uid":"2d1bffc4ae7b23ea","name":"test2_LogOutUserExisted","time":{"start":1690251817554,"stop":1690251817557,"duration":3},"status":"broken","severity":"critical"},{"uid":"11b478eabeb71201","name":"test1_loginUserExisted","time":{"start":1690251816831,"stop":1690251816834,"duration":3},"status":"broken","severity":"critical"}]
