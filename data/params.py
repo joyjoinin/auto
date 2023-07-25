@@ -75,4 +75,6 @@ Logos = ['NFL','NBA','MLB','NHL','FIFA','MLS','WNBA','NCAA','Formula 1','NASCAR'
 
 app_environment = 'Dev'  # QA / Pro
 
-device_type = 'Simulator'  # 'Simulator'
+device_type = 'Simulator'   # 'Real'
+
+simulator_device_udid = '93C67BC8-E00B-42DA-B10C-D6C7418E5547'

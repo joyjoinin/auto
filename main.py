@@ -1,8 +1,11 @@
 import os
-import pytest
 import subprocess
+import time
+
+import pytest
 from datetime import datetime
 
+from utils.help_function import get_file_direction
 
 testcase_file = {
     './testcase/account_creation/test_create_account.py': False,
@@ -30,13 +33,15 @@ now = datetime.now()
 dt_string = now.strftime("%Y_%m_%d_%H_%M_%S")
 report_summary_folder = 'report/report_results/{}'.format(dt_string)
 html_summary_folder = 'report/report_html/{}'.format(dt_string)
-
+appium_process = subprocess.Popen([get_file_direction('appium')])
+time.sleep(20)
 if __name__ == '__main__':
     os.mkdir(report_summary_folder)
-
     for case, flag in testcase_file.items():
         if flag:
             pass
             pytest.main([case, '--capture=sys', '-q', '--alluredir', report_summary_folder, '--reruns=3'])
         else:
             print('skip test for {}'.format(case))
+    appium_process.terminate()
+

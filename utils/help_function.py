@@ -1,6 +1,6 @@
 import random
 import string
-
+import subprocess
 from data.params import Account
 
 
@@ -51,3 +51,12 @@ def get_new_account():
                           password='Joytest159753?',
                           username=get_random_username())
     return new_account
+
+
+def get_file_direction(name):
+    result = subprocess.run(['which', name], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    if result.returncode == 0:
+        return result.stdout.decode('utf-8').strip()
+    else:
+        return f"can't find {name}"
+

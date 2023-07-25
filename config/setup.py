@@ -1,8 +1,8 @@
-import re
 import subprocess
 import plistlib
 from appium import webdriver
-from data.params import app_environment, device_type
+from data.params import app_environment, device_type, simulator_device_udid
+from utils.help_function import get_file_direction
 
 
 def get_driver_on_real_device():
@@ -24,7 +24,7 @@ def get_device_on_simulator():
     caps.set_capability("platformName", "iOS")
     caps.set_capability("appium:automationName", "XCUITest")
     caps.set_capability("appium:noReset", True)
-    caps.set_capability("appium:udid", "93C67BC8-E00B-42DA-B10C-D6C7418E5547")  # change device udid
+    caps.set_capability("appium:udid", simulator_device_udid)  # change device udid
     caps.set_capability("appium:includeSafariInWebviews", True)
     caps.set_capability("appium:newCommandTimeout", 3600)
     caps.set_capability("appium:connectHardwareKeyboard", True)
@@ -44,7 +44,8 @@ def get_driver():
 
 # make sure installed unique app version
 def get_app_name(app_type):
-    command = ['/usr/local/bin/ideviceinstaller', '-l', '-o', 'list_user']
+    file_direction = get_file_direction('ideviceinstaller')
+    command = [file_direction, '-l', '-o', 'list_user']
     output = subprocess.check_output(command, universal_newlines=True)
     app_list = []
     lines = output.strip().split('\n')
@@ -71,7 +72,8 @@ def get_simulator_devices():
 
 
 def get_plist_data():
-    command = ['/usr/local/bin/ideviceinfo', '-x']
+    file_direction = get_file_direction('ideviceinfo')
+    command = [file_direction,'-x']
     output = subprocess.check_output(command)
     plist_data = plistlib.loads(output)
     return plist_data
@@ -101,3 +103,7 @@ def start_wda():
     subprocess.Popen(cmd, shell=True)
 
 
+def run_appium():
+    file_direction = get_file_direction('ideviceinfo')
+    command = [file_direction,'-x']
+    output = subprocess.check_output(command)

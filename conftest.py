@@ -1,6 +1,7 @@
 import pytest
 import subprocess
 from main import report_summary_folder, html_summary_folder
+from utils.help_function import get_file_direction
 
 
 @pytest.fixture(scope="session")
@@ -15,5 +16,8 @@ def pytest_sessionfinish():
 
 
 def generate_report(result_dir, report_dir):
-    cmd = ["/usr/local/bin/allure", "generate", result_dir, "-o", report_dir, '--clean']
+    file_direction = get_file_direction('allure')
+    cmd = [file_direction, "generate", result_dir, "-o", report_dir, '--clean']
     subprocess.run(cmd, check=True)
+
+
