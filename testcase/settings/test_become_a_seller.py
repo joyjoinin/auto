@@ -2,6 +2,7 @@ import unittest
 import allure
 from time import sleep
 from config.setup import get_driver
+from data.params import test_account
 from utils.locator_info import become_a_seller_page
 from utils.user_actions import Actions
 
@@ -14,12 +15,9 @@ class TestBecomeASeller(unittest.TestCase):
         self.driver = get_driver()
         global do
         do = Actions(self.driver)
-        do.open_app()
-        do.tap_profile()
-        do.tap_setting()
+        do.get_to_settings()
 
     def tearDown(self):
-        do.back_to_setting()
         self.driver.quit()
 
     @allure.story("become a seller")

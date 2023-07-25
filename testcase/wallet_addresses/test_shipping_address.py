@@ -15,16 +15,13 @@ class TestShippingAddress(unittest.TestCase):
         self.driver = get_driver()
         global do
         do = Actions(self.driver)
-        do.open_app()
+        do.get_to_settings()
 
     def tearDown(self):
-        do.close_app()
         self.driver.quit()
 
     @allure.story("Add shipping address")
     def test1_add_address(self) -> None:
-        do.tap_profile()
-        do.tap_setting()
         sleep(2)
         do.tap_my_address()
         address_before_add = do.find_address_items()
@@ -40,8 +37,6 @@ class TestShippingAddress(unittest.TestCase):
 
     @allure.story("Delete shipping address")
     def test2_delete_address(self) -> None:
-        do.tap_profile()
-        do.tap_setting()
         sleep(2)
         do.tap_my_address()
         address_before_delete = do.find_address_items()

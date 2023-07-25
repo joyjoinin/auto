@@ -14,11 +14,9 @@ class TestErrorLogin(unittest.TestCase):
         self.driver = get_driver()
         global do
         do = Actions(self.driver)
-        do.open_app()
         do.tap_login()
 
     def tearDown(self):
-        do.close_app()
         self.driver.quit()
 
     @allure.story("login with nonexistent account")

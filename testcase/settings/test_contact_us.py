@@ -1,6 +1,7 @@
 import unittest
 import allure
 from config.setup import get_driver
+from data.params import test_account
 from utils.locator_info import contact_us_page
 from utils.user_actions import Actions
 
@@ -13,10 +14,9 @@ class TestContactUs(unittest.TestCase):
         self.driver = get_driver()
         global do
         do = Actions(self.driver)
-
+        do.get_to_settings()
 
     def tearDown(self):
-        do.back_to_setting()
         self.driver.quit()
 
     @allure.story("contact us")

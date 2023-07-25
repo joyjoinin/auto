@@ -1,6 +1,7 @@
 import unittest
 import allure
 from config.setup import get_driver
+from data.params import test_account
 from utils.locator_info import following_list_title, followers_list_title, \
     empty_followers_list, empty_following_list
 from utils.user_actions import Actions
@@ -14,11 +15,10 @@ class TestFollow(unittest.TestCase):
         self.driver = get_driver()
         global do
         do = Actions(self.driver)
-        do.open_app()
+        do.login_flow(test_account)
         do.tap_profile()
 
     def tearDown(self):
-        do.tap_back()
         self.driver.quit()
 
     @allure.story("followers")

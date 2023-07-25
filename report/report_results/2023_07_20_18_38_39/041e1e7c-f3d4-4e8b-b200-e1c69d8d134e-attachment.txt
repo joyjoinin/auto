@@ -1,2 +1,0 @@
-get to purchases page success
-empty purchases list

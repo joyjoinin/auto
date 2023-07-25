@@ -1,3 +1,0 @@
-get in list success
-empty followers list
-empty following list

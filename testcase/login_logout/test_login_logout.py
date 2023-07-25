@@ -14,10 +14,7 @@ class TestLoginLogout(unittest.TestCase):
         self.driver = get_driver()
         global do
         do = Actions(self.driver)
-        do.open_app()
-
     def tearDown(self):
-        do.close_app()
         self.driver.quit()
 
     @allure.story("Login")

@@ -1,12 +1,11 @@
 import subprocess
 import plistlib
 from appium import webdriver
-from data.params import app_environment, device_type, simulator_device_udid
+from data.params import app_environment, device_type, simulator_device_udid, app_name
 from utils.help_function import get_file_direction
 
 
 def get_driver_on_real_device():
-    # start_wda()
     caps = webdriver.webdriver.AppiumOptions()
     device_info = get_device_info(get_app_name(app_environment))
     for i in device_info.keys():
@@ -19,11 +18,12 @@ def get_driver_on_real_device():
 
 
 def get_device_on_simulator():
-    # start_wda()
     caps = webdriver.webdriver.AppiumOptions()
     caps.set_capability("platformName", "iOS")
     caps.set_capability("appium:automationName", "XCUITest")
-    caps.set_capability("appium:noReset", True)
+    caps.set_capability('app', app_name)
+    caps.set_capability("appium:noReset", False)
+    # caps.set_capability("appium:resetStrategy", "appium")
     caps.set_capability("appium:udid", simulator_device_udid)  # change device udid
     caps.set_capability("appium:includeSafariInWebviews", True)
     caps.set_capability("appium:newCommandTimeout", 3600)
@@ -54,8 +54,8 @@ def get_app_name(app_type):
             app_list.append(line.split(',')[0])
     for app in app_list:
         if app_type in app:
-            app_name = app
-            return app_name
+            get_app = app
+            return get_app
 
 
 def get_simulator_devices():
@@ -79,7 +79,7 @@ def get_plist_data():
     return plist_data
 
 
-def get_device_info(app_name):
+def get_device_info(app):
     data = get_plist_data()
     device_info = {'appium:platformVersion': data.get('ProductVersion'),
                    'appium:deviceName': data.get('ProductType'),
@@ -91,7 +91,7 @@ def get_device_info(app_name):
                    'appium:connectHardwareKeyboard': True,
                    'appium:newCommandTimeout': 3600,
                    'appium:enablePerformanceLogging': True,
-                   'app': app_name}
+                   'app': app}
 
     return device_info
 

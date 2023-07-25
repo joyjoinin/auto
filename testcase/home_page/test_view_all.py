@@ -14,7 +14,7 @@ class TestViewAll(unittest.TestCase):
         self.driver = get_driver()
         global do
         do = Actions(self.driver)
-        do.open_app()
+        do.login_flow(test_account)
 
     def tearDown(self):
         self.driver.quit()

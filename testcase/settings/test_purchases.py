@@ -13,10 +13,9 @@ class TestPurchases(unittest.TestCase):
         self.driver = get_driver()
         global do
         do = Actions(self.driver)
+        do.get_to_settings()
 
     def tearDown(self):
-        do.back_to_setting()
-        do.logout_flow()
         self.driver.quit()
 
     @allure.story("empty purchase")

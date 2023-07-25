@@ -60,3 +60,17 @@ def get_file_direction(name):
     else:
         return f"can't find {name}"
 
+
+
+def kill_appium():
+    output = subprocess.check_output(['ps', 'ax']).decode('utf-8')
+    for line in output.splitlines():
+        if 'appium' in line:
+            pid = line.split()[0]
+            name = line.split()[-1]
+            print(f'find process：PID={pid}，name={name}')
+            subprocess.call(['kill', pid])
+            print(f'process {name} is killed')
+
+    if 'appium' not in output:
+        print('no running Appium process')

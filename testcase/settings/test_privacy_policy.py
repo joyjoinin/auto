@@ -13,9 +13,9 @@ class TestPrivacyPolicy(unittest.TestCase):
         self.driver = get_driver()
         global do
         do = Actions(self.driver)
+        do.get_to_settings()
 
     def tearDown(self):
-        do.back_to_setting()
         self.driver.quit()
 
     @allure.story("privacy policy")

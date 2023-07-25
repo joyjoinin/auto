@@ -1,6 +1,7 @@
 import unittest
 import allure
 from config.setup import get_driver
+from data.params import test_account
 from utils.find_element import get_element_by_xpath, get_element
 from utils.locator_info import recommend_location, home_navigation_bar
 from utils.user_actions import Actions
@@ -14,7 +15,7 @@ class TestYouMightAlsoLike(unittest.TestCase):
         self.driver = get_driver()
         global do
         do = Actions(self.driver)
-        do.open_app()
+        do.login_flow(test_account)
 
     def tearDown(self):
         self.driver.quit()

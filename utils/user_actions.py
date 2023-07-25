@@ -1,7 +1,7 @@
 import random
 from time import sleep
 from config.setup import get_app_name
-from data.params import level_params, app_name, Logos, device_type
+from data.params import level_params, app_name, Logos, device_type, test_account
 from utils.find_element import get_element, get_element_by_xpath, get_elements, get_elements_by_xpath
 from typing import NoReturn
 from appium.webdriver.common.touch_action import TouchAction
@@ -144,6 +144,7 @@ class Actions:
         logo_list = Logos
         tap_list = []
         while i < logo_selected:
+            print((len(logo_list)))
             logo.locator = logo_list[random.randint(0, len(logo_list) - 1)]
             get_element(self.driver, logo).click()
             tap_list.append(logo.locator)
@@ -679,6 +680,11 @@ class Actions:
             buttons, expected)
         print(message)
         self.tap_back_to_notifications()
+
+    def get_to_settings(self):
+        self.login_flow(test_account)
+        self.tap_profile()
+        self.tap_setting()
 
     '''assert action'''
 

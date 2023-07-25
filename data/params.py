@@ -1,4 +1,5 @@
 import random
+import subprocess
 
 class TestAccount:
     def __init__(self, email=None, password=None):
@@ -61,7 +62,7 @@ address_info = Address('Joy', 'test', '11061 Wilshire Blvd', '', '90025', 'LA', 
 
 card_info = Card('4242424242424242', '0130', '111', 'United States', '11111')
 
-app_name = 'live.57blocks.fanatics.FanaticsLive-Development'
+app_name = 'live.fanatics.FanaticsLive-Development'
 
 test_account = TestAccount('joy999@fanatics.live', 'Joytest159753?')
 
@@ -78,3 +79,12 @@ app_environment = 'Dev'  # QA / Pro
 device_type = 'Simulator'   # 'Real'
 
 simulator_device_udid = '93C67BC8-E00B-42DA-B10C-D6C7418E5547'
+
+
+def get_file_direction(name):
+    result = subprocess.run(['which', name], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    if result.returncode == 0:
+        return result.stdout.decode('utf-8').strip()
+    else:
+        return f"can't find {name}"
+
