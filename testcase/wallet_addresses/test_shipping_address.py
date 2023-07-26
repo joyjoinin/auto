@@ -41,6 +41,7 @@ class TestShippingAddress(unittest.TestCase):
         do.tap_my_address()
         address_before_delete = do.find_address_items()
         do.delete_address()
+        sleep(2)
         do.confirm_delete_address()
         sleep(10)
         address_after_delete = do.find_address_items()

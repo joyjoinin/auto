@@ -26,6 +26,7 @@ class TestViewAll(unittest.TestCase):
 
     @allure.story("back to Home")
     def test2_back_to_home(self):
+        do.tap_view_all()
         do.tap_back()
         try:
             do.assert_element_by_xpath(popular_page_title, 'get to popular page success',2)

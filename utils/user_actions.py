@@ -639,6 +639,8 @@ class Actions:
         self.tap_setting()
         self.tap_logout()
         self.confirm_logout()
+        self.assert_element(login, 'success log out')
+
 
     def login_flow(self, account) -> NoReturn:
         self.tap_login()
@@ -646,6 +648,7 @@ class Actions:
         self.tap_next()
         self.input_password(account.password)
         self.tap_fanatics_id()
+        self.assert_element(home, 'success login')
 
     def retry_for_failed_in_creation(self, new_account):
         self.input_username(new_account.username)
@@ -671,6 +674,7 @@ class Actions:
         self.assert_element(login, 'success logout')
 
     def tap_notifications_flow(self, notification_type, buttons, expected, message):
+        sleep(5)
         self.tap_notification_type(notification_type)
         self.tap_switch_button(
             buttons)

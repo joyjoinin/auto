@@ -16,13 +16,13 @@ class TestNotifications(unittest.TestCase):
         global do
         do = Actions(self.driver)
         do.get_to_settings()
+        do.tap_notifications()
 
     def tearDown(self):
         self.driver.quit()
 
     @allure.story("notifications")
     def test1_notifications(self):
-        do.tap_notifications()
         do.assert_element(livestreams, 'find livestreams')
         do.assert_element(marketing_rewards, 'find marketing rewards')
         do.assert_element(community, 'find community')

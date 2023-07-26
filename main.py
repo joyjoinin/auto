@@ -6,28 +6,32 @@ from datetime import datetime
 from utils.help_function import get_file_direction, kill_appium
 
 testcase_file = {
-    './testcase/account_creation/test_create_account.py': False,
-    './testcase/account_creation/test_username_creation.py': False,
-    './testcase/login_logout/test_login_logout.py': False,
-    './testcase/login_logout/test_login_page_functions.py': False,
-    './testcase/login_logout/test_login_with_error_info.py': False,
-    './testcase/profile/test_edit_profile.py': False,
+    './testcase/account_creation/test_create_account.py': True,
+    './testcase/account_creation/test_username_creation.py': True,
+    './testcase/login_logout/test_login_logout.py': True,
+    './testcase/login_logout/test_login_page_functions.py': True,
+    './testcase/login_logout/test_login_with_error_info.py': True,
+    './testcase/home_page/test_dm.py': True,
+    './testcase/home_page/test_hero_card.py': True,
+    './testcase/home_page/test_logos.py': True,
+    './testcase/home_page/test_search.py': True,
+    './testcase/home_page/test_view_all.py': True,
+    './testcase/home_page/test_you_might_also_like.py': True,
+    './testcase/profile/test_edit_profile.py': True,
     './testcase/profile/test_favorite_shops.py': False,
-    './testcase/profile/test_follow.py': False,
-    './testcase/profile/test_invite_friends.py': False,
-    './testcase/profile/test_share_profile.py': False,
-    './testcase/settings/test_become_a_seller.py': False,
-    './testcase/settings/test_contact_us.py': False,
-    './testcase/settings/test_faqs.py': False,
-    './testcase/settings/test_notification.py': False,
-    './testcase/settings/test_privacy_policy.py': False,
-    './testcase/settings/test_purchases.py': False,
-    './testcase/wallet_addresses/test_card.py': False,
-    './testcase/wallet_addresses/test_shipping_address.py': False,
-    './testcase/wallet_addresses/test_complete_profile.py': False,
-    './testcase/home_page/test_hero_card.py': True
+    './testcase/profile/test_follow.py': True,
+    './testcase/profile/test_invite_friends.py': False,  # disabled
+    './testcase/profile/test_share_profile.py': True,
+    './testcase/settings/test_become_a_seller.py': True,
+    './testcase/settings/test_contact_us.py': True,
+    './testcase/settings/test_faqs.py': True,
+    './testcase/settings/test_notification.py': True,
+    './testcase/settings/test_privacy_policy.py': True,
+    './testcase/settings/test_purchases.py': True,
+    './testcase/wallet_addresses/test_card.py': True,
+    './testcase/wallet_addresses/test_shipping_address.py': True,
+    './testcase/wallet_addresses/test_complete_profile.py': True,
 }
-
 now = datetime.now()
 dt_string = now.strftime("%Y_%m_%d_%H_%M_%S")
 report_summary_folder = 'report/report_results/{}'.format(dt_string)
@@ -40,7 +44,7 @@ if __name__ == '__main__':
     os.mkdir(html_summary_folder)
     for case, flag in testcase_file.items():
         if flag:
-            pytest.main([case, '--capture=sys', '-q', '--alluredir', report_summary_folder, '--reruns=1'])
+            pytest.main([case, '--capture=sys', '-q', '--alluredir', report_summary_folder, '--reruns=3'])
         else:
             print('skip test for {}'.format(case))
     result_dir = report_summary_folder
@@ -48,3 +52,5 @@ if __name__ == '__main__':
     file_direction = get_file_direction('allure')
     cmd = [file_direction, "generate", result_dir, "-o", report_dir, '--clean']
     subprocess.run(cmd, check=True)
+    kill_appium()
+

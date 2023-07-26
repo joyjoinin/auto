@@ -24,7 +24,7 @@ class TestAccountCreation(unittest.TestCase):
         do.input_email(new_account)
         do.input_password(new_account.password)
         do.tap_complete()
-        sleep(5)
+        sleep(10)
 
     def tearDown(self):
         self.driver.quit()
@@ -59,7 +59,7 @@ class TestAccountCreation(unittest.TestCase):
     def test04_create_with_username_valid(self) -> None:
         new_account = get_new_account()
         do.clear_username()
-        do.input_username(new_account.already_took_username)
+        do.input_username(new_account.username)
         sleep(3)
         do.tap_continue()
         # do.tap_enter_access_code()

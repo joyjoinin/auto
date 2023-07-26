@@ -99,7 +99,7 @@ close_complete_profile = LocatorInfo('accessibility id', 'Close')
 view_all = LocatorInfo('accessibility id', 'View all')
 complete_and_ready = LocatorInfo()
 search_on_homepage = LocatorInfo(locator='//XCUIElementTypeButton[@name="magnifyingGlass"]')
-chat_on_homepage = LocatorInfo(locator='//XCUIElementTypeOther[@name="chatBubbleEmpty"]')
+chat_on_homepage = LocatorInfo(locator='//XCUIElementTypeButton[@name="chatBubbleEmpty"]')
 hero_card_position = LocatorInfo(locator='')
 you_might_also_like = LocatorInfo('accessibility id', 'sectionheaderYouMightAlsoLike')
 recommend_location = LocatorInfo(locator='//XCUIElementTypeStaticText[@name="sectionheaderYouMightAlsoLike"]/following'

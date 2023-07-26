@@ -4,7 +4,7 @@ from time import sleep
 import allure
 from config.setup import get_driver
 from data.params import test_account, app_name
-from utils.locator_info import empty_chat_page, message_welcome, new_message_title, message_title
+from utils.locator_info import empty_chat_page, message_welcome, new_message_title, message_title, chat_on_homepage
 from utils.user_actions import Actions
 
 
@@ -17,7 +17,7 @@ class TestDMs(unittest.TestCase):
         global do
         do = Actions(self.driver)
         do.login_flow(test_account)
-        sleep(3)
+        sleep(5)
         do.tap_chart_on_homepage()
 
     def tearDown(self):

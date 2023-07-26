@@ -27,6 +27,7 @@ class TestHomeSearch(unittest.TestCase):
 
     @allure.story("exit search page")
     def test2_close_search(self):
+        do.tap_home_search()
         do.close_search_page()
         try:
             do.assert_element_by_xpath(search_field, 'get search field')
