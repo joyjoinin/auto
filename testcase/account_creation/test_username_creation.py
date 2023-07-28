@@ -6,7 +6,7 @@ from data.params import test_account
 from utils.find_element import get_element
 from utils.locator_info import join_continue, invalid_username, already_took_username, logo_page, notification, login, \
     track, home
-from utils.help_function import get_new_account, save_data
+from utils.common_functions import get_new_account, save_data
 from utils.user_actions import Actions
 
 

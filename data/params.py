@@ -62,6 +62,8 @@ address_info = Address('Joy', 'test', '11061 Wilshire Blvd', '', '90025', 'LA', 
 
 card_info = Card('4242424242424242', '0130', '111', 'United States', '11111')
 
+test_live_name = 'joy test 28/7'
+
 app_name = 'live.fanatics.FanaticsLive-Development'
 
 test_account = Account('joy999@fanatics.live', 'Joytest159753?')

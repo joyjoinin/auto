@@ -221,10 +221,10 @@ class Actions:
         touch_action.release().perform()
 
     def swipe_up(self) -> NoReturn:
-        self.common_swipe_vertical(get_element(self.driver,home_window), -80)
+        self.common_swipe_vertical(get_element(self.driver, home_window), -80)
 
     def swipe_down(self) -> NoReturn:
-        self.common_swipe_vertical(get_element(self.driver,home_window), 80)
+        self.common_swipe_vertical(get_element(self.driver, home_window), 80)
 
     '''Log scroll'''
 
@@ -245,13 +245,14 @@ class Actions:
 
     def tap_logo(self, logo_name) -> NoReturn:
         logo_item.locator = logo_name
-        get_element(self.driver,logo_item).click()
+        get_element(self.driver, logo_item).click()
 
     def get_recommend_follow_buttons(self):
         return get_elements_by_xpath(self.driver, recommend_shops_to_follow)
 
     def get_recommend_following_buttons(self):
         return get_elements_by_xpath(self.driver, recommend_shops_already_following)
+
     '''Search page'''
 
     def close_search_page(self) -> NoReturn:
@@ -270,6 +271,26 @@ class Actions:
 
     def input_on_message_search_bar(self, search_item) -> NoReturn:
         get_element(self.driver, message_search_bar).clear().send_keys(search_item)
+
+    '''Live'''
+
+    def tap_live(self) -> NoReturn:
+        get_element_by_xpath(self.driver, first_card_location).click()
+
+    def try_find_live(self, live_name) -> NoReturn:
+        live = live_name_location
+        live.locator = live_name
+        i = 0
+        while i < 10:
+            try:
+                target_x = get_element(self.driver, live, 1).location['x']
+                if target_x != 50:
+                    self.swipe_left_card()
+                    i += 1
+                else:
+                    break
+            except Exception:
+                print("can't find live")
 
     '''Profile page'''
 
@@ -640,7 +661,6 @@ class Actions:
         self.tap_logout()
         self.confirm_logout()
         self.assert_element(login, 'success log out')
-
 
     def login_flow(self, account) -> NoReturn:
         self.tap_login()

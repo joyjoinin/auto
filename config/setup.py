@@ -2,7 +2,7 @@ import subprocess
 import plistlib
 from appium import webdriver
 from data.params import app_environment, device_type, simulator_device_udid, app_name
-from utils.help_function import get_file_direction
+from utils.common_functions import get_file_direction
 
 
 def get_driver_on_real_device():
@@ -22,7 +22,7 @@ def get_device_on_simulator():
     caps.set_capability("platformName", "iOS")
     caps.set_capability("appium:automationName", "XCUITest")
     caps.set_capability('app', app_name)
-    caps.set_capability("appium:noReset", False)
+    caps.set_capability("appium:noReset", True)
     # caps.set_capability("appium:resetStrategy", "appium")
     caps.set_capability("appium:udid", simulator_device_udid)  # change device udid
     caps.set_capability("appium:includeSafariInWebviews", True)

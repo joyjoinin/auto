@@ -5,7 +5,7 @@ from config.setup import get_driver
 from data.params import test_account
 from utils.find_element import get_element
 from utils.locator_info import weak, weak_prompt, complete, fair, good, notification, login, already_in_use, track, home
-from utils.help_function import save_data, get_new_account
+from utils.common_functions import save_data, get_new_account
 from utils.user_actions import Actions
 
 
@@ -24,7 +24,7 @@ class TestAccountCreation(unittest.TestCase):
     @allure.story("Basic create flow")
     def test01_basic_flow_create_account(self) -> None:
         new_account = get_new_account()
-        do.assert_element(login,'start from login page')
+        do.assert_element(login, 'start from login page')
         do.tap_join()
         sleep(3)
         do.input_email(new_account)
@@ -42,7 +42,7 @@ class TestAccountCreation(unittest.TestCase):
         do.tap_follow(new_account.follow_count)
         do.tap_continue()
         try:
-            get_element(self.driver, notification,3)
+            get_element(self.driver, notification, 3)
             do.set_notification_later()
         except Exception:
             print('already set notification')
@@ -126,4 +126,3 @@ class TestAccountCreation(unittest.TestCase):
         do.input_password(new_account.good_password)
         do.tap_complete()
         do.assert_element(already_in_use, 'create failed by email already took')
-

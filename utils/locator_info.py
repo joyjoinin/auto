@@ -97,11 +97,12 @@ profile = LocatorInfo('accessibility id', 'Profile')
 complete_profile = LocatorInfo('accessibility id', 'Complete your profile')
 close_complete_profile = LocatorInfo('accessibility id', 'Close')
 view_all = LocatorInfo('accessibility id', 'View all')
+view_all_xpath = LocatorInfo(locator='//XCUIElementTypeStaticText[@name="View all"]')
 complete_and_ready = LocatorInfo()
 search_on_homepage = LocatorInfo(locator='//XCUIElementTypeButton[@name="magnifyingGlass"]')
 chat_on_homepage = LocatorInfo(locator='//XCUIElementTypeButton[@name="chatBubbleEmpty"]')
-hero_card_position = LocatorInfo(locator='')
 you_might_also_like = LocatorInfo('accessibility id', 'sectionheaderYouMightAlsoLike')
+you_might_also_like_xpath = LocatorInfo(locator='//XCUIElementTypeStaticText[@name="sectionheaderYouMightAlsoLike"]')
 recommend_location = LocatorInfo(locator='//XCUIElementTypeStaticText[@name="sectionheaderYouMightAlsoLike"]/following'
                                          '-sibling::XCUIElementTypeOther')
 recommend_shops_to_follow = LocatorInfo(locator='(//XCUIElementTypeButton[@name="Follow"])')
@@ -375,3 +376,54 @@ button_direct_messages = LocatorInfo(
     locator='//XCUIElementTypeSwitch[@name="Direct Messages, Someone has sent you a message"]/XCUIElementTypeSwitch')
 button_new_followers = LocatorInfo(
     locator='//XCUIElementTypeSwitch[@name="New followers, Someone new is following you"]/XCUIElementTypeSwitch')
+
+'''Live '''
+loading_status = LocatorInfo(locator='(//XCUIElementTypeActivityIndicator[@name="In progress"])[1]')
+close_live = LocatorInfo('accessibility id','cancelShadow')
+signal = LocatorInfo('accessibility id','antennaSignalShadow')
+signal_value = LocatorInfo(locator='//XCUIElementTypeImage[@name="antennaSignalShadow"]/following-sibling::XCUIElementTypeStaticText')
+shop_avatar = LocatorInfo(locator='//XCUIElementTypeApplication[@name="Fanatics Live Development"]/XCUIElementTypeWindow/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeScrollView/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeButton[2]')
+flag = LocatorInfo('accessibility id','flagShadow')
+share = LocatorInfo('accessibility id','shareIosShadow')
+shop_alt = LocatorInfo('accessibility id','shopAlt')
+chat_channel = LocatorInfo('class name', 'XCUIElementTypeTextField')
+send_message = LocatorInfo(locator='(//XCUIElementTypeButton[@name="ChatChannelView"])[1]')
+live_name_location = LocatorInfo('accessibility id')
+first_card_location = LocatorInfo(locator='//XCUIElementTypeApplication[@name="Fanatics Live Development"]/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeScrollView/XCUIElementTypeOther/XCUIElementTypeImage[1]')
+
+
+# pick & set price
+pick_your_favorite_team = LocatorInfo('accessibility id','Pick your favorite team')
+Price = LocatorInfo('accessibility id','Price')
+spots_remain = LocatorInfo(locator='//XCUIElementTypeStaticText[@name="Price"]/following-sibling::XCUIElementTypeStaticText')
+varies_spot = LocatorInfo('accessibility id','Varies / spot')
+pick_your_spot_title = LocatorInfo(locator='(//XCUIElementTypeStaticText[@name="Pick your spot"])[1]')
+info = LocatorInfo(locator='//XCUIElementTypeImage[@name="info"]')
+shipping_tax = LocatorInfo('accessibility id','Shipping + tax')
+pick_your_spot_button = LocatorInfo('accessibility id','Pick Your Spot')
+
+# pick & auction
+auction_type_is_pick = LocatorInfo('accessibility id','Pick your favorite team')
+auction_soon = LocatorInfo('accessibility id','Auction starting soon')
+view_spot = LocatorInfo('accessibility id','View Spots')
+auction_failed = LocatorInfo('accessibility id','False start. The auction will restart shortly.')
+custom_bid = LocatorInfo('accessibility id','Custom bid')
+bid_button = LocatorInfo(locator='//XCUIElementTypeButton[@name="Custom bid"]/following-sibling::*[2]')
+
+# random & set price
+spots_randomly = LocatorInfo('accessibility id','Spots randomly assigned')
+spot_price = LocatorInfo(locator='//XCUIElementTypeStaticText[@name="Price"]/following-sibling::*[2]')
+random_title = LocatorInfo(locator='(//XCUIElementTypeStaticText[@name="Random"])[1]')
+spots_value_button = LocatorInfo('class name', 'XCUIElementTypeStepper')
+buy_spots_button = LocatorInfo(locator='//XCUIElementTypeApplication[@name="Fanatics Live Development"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeScrollView/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeStepper/following-sibling::XCUIElementTypeButton')
+
+# random & auction
+auction_type_is_random = LocatorInfo('accessibility id','Spots randomly assigned')
+spot_assigned = LocatorInfo(locator='//XCUIElementTypeApplication[@name="Fanatics Live Development"]/XCUIElementTypeWindow/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeScrollView/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[4]/following-sibling::*[1]')
+spot_name = LocatorInfo(locator='//XCUIElementTypeApplication[@name="Fanatics Live Development"]/XCUIElementTypeWindow/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeScrollView/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[4]/following-sibling::*[2]')
+win_price = LocatorInfo(locator='//XCUIElementTypeApplication[@name="Fanatics Live Development"]/XCUIElementTypeWindow/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeScrollView/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[4]/following-sibling::*[3]')
+winner = LocatorInfo(locator='//XCUIElementTypeApplication[@name="Fanatics Live Development"]/XCUIElementTypeWindow/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeScrollView/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[4]/following-sibling::*[4]')
+
+
+
+
