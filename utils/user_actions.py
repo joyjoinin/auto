@@ -292,6 +292,57 @@ class Actions:
             except Exception:
                 print("can't find live")
 
+    def pick_your_spot(self):
+        get_element(self.driver, pick_your_spot_button).click()
+
+    '''Spot listing'''
+
+    def pick_a_spot(self, number):
+        item = spot_item
+        item.locator = spot_item.locator + f'[{number}]//XCUIElementTypeButton[last()]'
+        get_element_by_xpath(self.driver, spot_item).click()
+
+    def tap_available(self):
+        get_element(self.driver, available).click()
+
+    def tap_breaking(self):
+        get_element(self.driver, breaking).click()
+
+    '''Order page'''
+    def cancel_pay(self):
+        get_element_by_xpath(self.driver, cancel_order).click()
+
+    def open_summary(self):
+        get_element(self.driver,nav_arrow_down).click()
+
+    def close_summary(self):
+        get_element(self.driver, nav_arrow_up).click()
+
+    def change_method(self):
+        get_element_by_xpath(self.driver, change_card).click()
+
+    def change_address(self):
+        get_element_by_xpath(self.driver, change_address).click()
+
+    def pay_now(self):
+        get_element_by_xpath(self.driver,pay_now).click()
+
+    '''Score page'''
+
+    def tap_return_to_stream(self):
+        get_element(self.driver, return_to_stream).click()
+
+    def tap_view_order_details(self):
+        get_element(self.driver, view_order_details).click()
+
+    '''Order details page'''
+
+    def tap_back_to_score(self):
+        get_element_by_xpath(self.driver, back_to_score).click()
+
+    def tap_contact_fanatics(self):
+        get_element(self.driver, contact_fanatics_live).click()
+
     '''Profile page'''
 
     def tap_setting(self) -> NoReturn:

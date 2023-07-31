@@ -61,7 +61,6 @@ def get_file_direction(name):
         return f"can't find {name}"
 
 
-
 def kill_appium():
     output = subprocess.check_output(['ps', 'ax']).decode('utf-8')
     for line in output.splitlines():

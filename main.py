@@ -32,6 +32,7 @@ testcase_file = {
     './testcase/wallet_addresses/test_shipping_address.py': True,
     './testcase/wallet_addresses/test_complete_profile.py': True,
 }
+os.environ['PATH'] = '/usr/local/bin:' + os.environ['PATH']
 now = datetime.now()
 dt_string = now.strftime("%Y_%m_%d_%H_%M_%S")
 report_summary_folder = 'report/report_results/{}'.format(dt_string)
