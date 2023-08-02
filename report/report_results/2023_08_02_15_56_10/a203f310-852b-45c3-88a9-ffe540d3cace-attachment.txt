@@ -1,0 +1,6 @@
+
+This is fair password
+
+Show prompt success
+
+Can't complete with fair password

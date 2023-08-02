@@ -22,8 +22,8 @@ def get_device_on_simulator():
     caps.set_capability("platformName", "iOS")
     caps.set_capability("appium:automationName", "XCUITest")
     caps.set_capability('app', app_name)
-    caps.set_capability("appium:noReset", True)
-    # caps.set_capability("appium:resetStrategy", "appium")
+    caps.set_capability("appium:noReset", False)
+    caps.set_capability("appium:resetStrategy", "appium")
     caps.set_capability("appium:udid", simulator_device_udid)  # change device udid
     caps.set_capability("appium:includeSafariInWebviews", True)
     caps.set_capability("appium:newCommandTimeout", 3600)

@@ -173,7 +173,7 @@ profile_username = LocatorInfo(locator='//XCUIElementTypeStaticText['
 edit_self_intro = LocatorInfo(locator='(//XCUIElementTypeButton[@name="pencil"])[2]')
 profile_self_intro = LocatorInfo(locator='//XCUIElementTypeStaticText['
                                          '@name="Biography"]/following-sibling::XCUIElementTypeStaticText')
-add_interests = LocatorInfo('accessibility id', 'plus')
+add_interests = LocatorInfo('accessibility id', 'plusClear')
 all_interests = LocatorInfo(
     locator='//XCUIElementTypeStaticText[@name="My '
             'Interests"]/following-sibling::XCUIElementTypeOther/XCUIElementTypeStaticText')
@@ -394,7 +394,7 @@ send_message = LocatorInfo(locator='(//XCUIElementTypeButton[@name="ChatChannelV
 live_name_location = LocatorInfo('accessibility id')
 first_card_location = LocatorInfo(
     locator='//XCUIElementTypeApplication[@name="Fanatics Live Development"]/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeScrollView/XCUIElementTypeOther/XCUIElementTypeImage[1]')
-
+live = LocatorInfo('accessibility id', 'LIVE')
 # pick & set price
 pick_your_favorite_team = LocatorInfo('accessibility id', 'Pick your favorite team')
 Price = LocatorInfo('accessibility id', 'Price')
@@ -438,6 +438,9 @@ winner = LocatorInfo(
 # Spot list
 available = LocatorInfo('accessibility id', 'Available')
 breaking = LocatorInfo('accessibility id', 'Breaking')
+spot_listing = LocatorInfo(locator='//XCUIElementTypeApplication[@name="Fanatics Live Development"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeScrollView/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView/XCUIElementTypeCell/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView')
+spots = LocatorInfo(locator='//XCUIElementTypeApplication[@name="Fanatics Live Development"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeScrollView/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView/XCUIElementTypeCell/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView//XCUIElementTypeCell')
+last_spot = LocatorInfo(locator='//XCUIElementTypeApplication[@name="Fanatics Live Development"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeScrollView/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView/XCUIElementTypeCell/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView//XCUIElementTypeCell[last()]//XCUIElementTypeImage[last()]')
 
 # Order details
 cancel_order = LocatorInfo(locator='//XCUIElementTypeButton[@name="Cancel"]')
@@ -459,6 +462,11 @@ total = LocatorInfo(locator='//XCUIElementTypeStaticText[@name="Total"]/followin
 score_message = LocatorInfo('accessibility id', 'Score!')
 return_to_stream = LocatorInfo('accessibility id', 'Return to the stream')
 view_order_details = LocatorInfo('accessibility id', 'View order details')
+
+# listing sold out
+sold_out = LocatorInfo('accessibility id', 'Sold out')
+next_prompt = LocatorInfo('accessibility id', 'Next listing starting soon')
+view_schedule= LocatorInfo('accessibility id', 'View Schedule')
 
 '''Order details'''
 back_to_score = LocatorInfo(locator='(//XCUIElementTypeButton[@name="Back"])[2]')

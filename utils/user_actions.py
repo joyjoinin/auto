@@ -144,12 +144,11 @@ class Actions:
         logo_list = Logos
         tap_list = []
         while i < logo_selected:
-            print((len(logo_list)))
             logo.locator = logo_list[random.randint(0, len(logo_list) - 1)]
             get_element(self.driver, logo).click()
             tap_list.append(logo.locator)
             logo_list.remove(logo.locator)
-            i = i + 1
+            i += 1
         return tap_list
 
     '''Follow page'''
@@ -220,11 +219,11 @@ class Actions:
         touch_action.press(x=target_x, y=target_y).wait(200).move_to(x=target_x, y=target_y + direction)
         touch_action.release().perform()
 
-    def swipe_up(self) -> NoReturn:
-        self.common_swipe_vertical(get_element(self.driver, home_window), -80)
+    def swipe_up(self, distance=-80) -> NoReturn:
+        self.common_swipe_vertical(get_element(self.driver, home_window), distance)
 
-    def swipe_down(self) -> NoReturn:
-        self.common_swipe_vertical(get_element(self.driver, home_window), 80)
+    def swipe_down(self, distance=80) -> NoReturn:
+        self.common_swipe_vertical(get_element(self.driver, home_window), distance)
 
     '''Log scroll'''
 
@@ -299,8 +298,13 @@ class Actions:
 
     def pick_a_spot(self, number):
         item = spot_item
-        item.locator = spot_item.locator + f'[{number}]//XCUIElementTypeButton[last()]'
-        get_element_by_xpath(self.driver, spot_item).click()
+        item.locator = item.locator + f'[{number}]//XCUIElementTypeButton[last()]'
+        get_element_by_xpath(self.driver, item).click()
+
+    def get_spot_name(self,number):
+        item = spot_item
+        item.locator = item.locator + f'[{number}]//XCUIElementTypeStaticText[last()]'
+        return get_element_by_xpath(self.driver, item).get_attribute('value')
 
     def tap_available(self):
         get_element(self.driver, available).click()

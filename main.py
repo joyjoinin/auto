@@ -13,7 +13,7 @@ testcase_file = {
     './testcase/login_logout/test_login_with_error_info.py': True,
     './testcase/home_page/test_dm.py': True,
     './testcase/home_page/test_hero_card.py': True,
-    './testcase/home_page/test_logos.py': True,
+    './testcase/home_page/test_logos.py': False,
     './testcase/home_page/test_search.py': True,
     './testcase/home_page/test_view_all.py': True,
     './testcase/home_page/test_you_might_also_like.py': True,

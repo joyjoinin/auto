@@ -1,0 +1,5 @@
+
+Can't continue with username already took
+
+This username is already took
+Continue failed with username already took
