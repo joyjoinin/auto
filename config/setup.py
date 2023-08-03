@@ -5,9 +5,9 @@ from data.params import app_environment, device_type, simulator_device_udid, app
 from utils.common_functions import get_file_direction
 
 
-def get_driver_on_real_device():
+def get_driver_on_real_device(no_rest):
     caps = webdriver.webdriver.AppiumOptions()
-    device_info = get_device_info(get_app_name(app_environment))
+    device_info = get_device_info(get_app_name(app_environment), no_rest)
     for i in device_info.keys():
         caps.set_capability(i, device_info[i])
     driver = webdriver.Remote(
@@ -17,13 +17,13 @@ def get_driver_on_real_device():
     return driver
 
 
-def get_device_on_simulator():
+def get_device_on_simulator(no_rest):
     caps = webdriver.webdriver.AppiumOptions()
     caps.set_capability("platformName", "iOS")
     caps.set_capability("appium:automationName", "XCUITest")
     caps.set_capability('app', app_name)
-    caps.set_capability("appium:noReset", False)
-    caps.set_capability("appium:resetStrategy", "appium")
+    caps.set_capability("appium:noReset", no_rest)
+    # caps.set_capability("appium:resetStrategy", "appium")
     caps.set_capability("appium:udid", simulator_device_udid)  # change device udid
     caps.set_capability("appium:includeSafariInWebviews", True)
     caps.set_capability("appium:newCommandTimeout", 3600)
@@ -35,11 +35,12 @@ def get_device_on_simulator():
     )
     return driver
 
-def get_driver():
+
+def get_driver(no_rest=False):
     if device_type == 'Real':
-        return get_driver_on_real_device()
+        return get_driver_on_real_device(no_rest)
     else:
-        return get_device_on_simulator()
+        return get_device_on_simulator(no_rest)
 
 
 # make sure installed unique app version
@@ -73,20 +74,20 @@ def get_simulator_devices():
 
 def get_plist_data():
     file_direction = get_file_direction('ideviceinfo')
-    command = [file_direction,'-x']
+    command = [file_direction, '-x']
     output = subprocess.check_output(command)
     plist_data = plistlib.loads(output)
     return plist_data
 
 
-def get_device_info(app):
+def get_device_info(app, no_rest):
     data = get_plist_data()
     device_info = {'appium:platformVersion': data.get('ProductVersion'),
                    'appium:deviceName': data.get('ProductType'),
                    'appium:udid': data.get('UniqueDeviceID'),
                    'platformName': 'iOS',
                    'appium:automationName': 'XCUITest',
-                   'appium:noReset': True,
+                   'appium:noReset': no_rest,
                    'appium:includeSafariInWebviews': True,
                    'appium:connectHardwareKeyboard': True,
                    'appium:newCommandTimeout': 3600,
@@ -105,5 +106,5 @@ def start_wda():
 
 def run_appium():
     file_direction = get_file_direction('ideviceinfo')
-    command = [file_direction,'-x']
+    command = [file_direction, '-x']
     output = subprocess.check_output(command)

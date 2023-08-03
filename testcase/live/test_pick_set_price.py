@@ -1,8 +1,11 @@
 import unittest
 import allure
 from config.setup import get_driver
-from utils.find_element import get_elements_by_xpath, get_element
-from utils.locator_info import spot_listing, last_spot, live, sold_out
+from data.params import won_message
+from utils.find_element import get_element
+from utils.locator_info import live, sold_out, order_total_price, \
+    subtotal, shipping, tax, total, gift_name, gift_subtotal, first_won, first_won_price, \
+    first_won_name, first_item_button
 from utils.user_actions import Actions
 
 
@@ -11,26 +14,52 @@ from utils.user_actions import Actions
 class TestPickSetPrice(unittest.TestCase):
 
     def setUp(self) -> None:
-        self.driver = get_driver()
+        self.driver = get_driver(no_rest=True)
         global do
         do = Actions(self.driver)
 
-    #
     def tearDown(self):
         self.driver.quit()
+
+    @allure.story("Buy a spot")  # always first spot
+    def test1_buy_a_spot(self) -> None:
+        do.pick_your_spot()
+        do.swipe_down(30)
+        spot_price = do.get_price(first_item_button)
+        spot_name = do.get_first_spot_name()
+        do.tap_first_spot()
+        do.open_summary()
+        order_price = do.get_price(order_total_price)
+        subtotal_price = do.get_price(subtotal)
+        shipping_price = do.get_price(shipping)
+        tax_price = do.get_price(tax)
+        total_price = do.get_price(total)
+        order_spot_name = do.get_attr_xpath(gift_name, 'label')
+        spot_subtotal = do.get_price(gift_subtotal)
+        assert spot_name == order_spot_name
+        assert order_price == total_price
+        assert spot_subtotal == subtotal_price == spot_price
+        assert total_price == shipping_price + subtotal_price + tax_price
+        do.pay_now()
+        do.tap_return_to_stream()
+        do.assert_element_by_xpath(first_won, 'Buy spot success')
+        won_price = do.get_price(first_won_price)
+        won_spot_name = do.get_attr_xpath(first_won_name, 'label')
+        message = do.get_latest_message()
+        assert won_message in message
+        assert won_price == spot_price
+        assert won_spot_name == spot_name
 
     @allure.story("Buy spots")
     def test1_buy_spots(self) -> None:
         listing_sold_out = False
         first_page_sold_out = False
-        all_buttons = spot_listing
-        all_buttons.locator = spot_listing.locator + '//XCUIElementTypeButton'
         do.pick_your_spot()
         while listing_sold_out is False:
             while first_page_sold_out is False:
                 try:
                     do.swipe_down(30)
-                    get_elements_by_xpath(self.driver, spot_listing)[0].click()
+                    do.tap_spot_automated()
                     do.pay_now()
                     do.tap_return_to_stream()
                 except:
@@ -39,11 +68,11 @@ class TestPickSetPrice(unittest.TestCase):
             while first_page_sold_out is True:
                 try:
                     do.swipe_up(-60)
-                    get_elements_by_xpath(self.driver, spot_listing)[0].click()
+                    do.tap_spot_automated()
                     do.pay_now()
                     do.tap_return_to_stream()
                 except Exception as e:
                     listing_sold_out = True
                     break
-        do.common_swipe_vertical(get_element(self.driver, live), 200)
+        do.swap_down_spots_listing()
         do.assert_element(sold_out, 'Sold out success')

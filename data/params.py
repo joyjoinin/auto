@@ -82,11 +82,9 @@ device_type = 'Simulator'   # 'Real'
 
 simulator_device_udid = '93C67BC8-E00B-42DA-B10C-D6C7418E5547'
 
-
-def get_file_direction(name):
-    result = subprocess.run(['which', name], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    if result.returncode == 0:
-        return result.stdout.decode('utf-8').strip()
-    else:
-        return f"can't find {name}"
-
+test_message_on_live = 'this is test message'
+long_message_on_live = 'This is long test message This is long test messageThis is long test messageThis is long test messageThis is long test messageThis is long test messageThis is long test messageThis is long test messageThis is long test messageThis is long test messageThis is long test messageThis is long test messageThis is long test messageThis is long test message'
+system_message_for_long_message = 'The message you are trying to send is larger than 280 characters'
+won_message = 'just bought into the break!'
+return_policy = "To protect the integrity of the auction process, all bids and sales are final. That said, we're not monsters. If there's a problem with your order, please contact the Seller. If you can't reach a resolution, we'll help set it right with our Buyer Protection Promise."
+shipping_taxes = "All orders also include a $4.95 domestic shipping fee for your first purchase in a break, with $0.50 assessments on each additional purchase in the same break. Taxes are calculated based on your location. We strive to keep fees as low as we can so we don't get Boston Tea Partied."

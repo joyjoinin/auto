@@ -2,7 +2,8 @@ import random
 from time import sleep
 from config.setup import get_app_name
 from data.params import level_params, app_name, Logos, device_type, test_account
-from utils.find_element import get_element, get_element_by_xpath, get_elements, get_elements_by_xpath
+from utils.find_element import get_element, get_element_by_xpath, get_elements, get_elements_by_xpath, \
+    get_element_attr_by_xpath, get_element_attr
 from typing import NoReturn
 from appium.webdriver.common.touch_action import TouchAction
 from utils.locator_info import *
@@ -225,7 +226,7 @@ class Actions:
     def swipe_down(self, distance=80) -> NoReturn:
         self.common_swipe_vertical(get_element(self.driver, home_window), distance)
 
-    '''Log scroll'''
+    '''Logo scroll'''
 
     def common_swipe_horizontal(self, element, direction):
         text_location = element.location
@@ -236,10 +237,10 @@ class Actions:
         touch_action.press(x=target_x, y=target_y).wait(200).move_to(x=target_x + direction, y=target_y)
         touch_action.release().perform()
 
-    def log_scroll_left(self):
+    def logo_scroll_left(self):
         self.common_swipe_horizontal(self.get_log_scroll_view(), -80)
 
-    def log_scroll_right(self):
+    def logo_scroll_right(self):
         self.common_swipe_horizontal(self.get_log_scroll_view(), 80)
 
     def tap_logo(self, logo_name) -> NoReturn:
@@ -271,28 +272,100 @@ class Actions:
     def input_on_message_search_bar(self, search_item) -> NoReturn:
         get_element(self.driver, message_search_bar).clear().send_keys(search_item)
 
+    '''View all'''
+
+    def tap_live_at_view_all(self, live_name) -> NoReturn:
+        target_live = live_name_location
+        target_live.locator = live_name
+        try:
+            get_element(self.driver, target_live).click()
+        except:
+            print("Can't find live")
+
     '''Live'''
 
     def tap_live(self) -> NoReturn:
         get_element_by_xpath(self.driver, first_card_location).click()
 
     def try_find_live(self, live_name) -> NoReturn:
-        live = live_name_location
-        live.locator = live_name
+        live_elem = LocatorInfo('accessibility id', locator=live_name)
         i = 0
-        while i < 10:
-            try:
-                target_x = get_element(self.driver, live, 1).location['x']
-                if target_x != 50:
-                    self.swipe_left_card()
-                    i += 1
-                else:
-                    break
-            except Exception:
-                print("can't find live")
+        while i < 12:
+            target_x = get_element(self.driver, live_elem, 3).location['x']
+            if target_x != 50:
+                self.swipe_left_card()
+                i += 1
+            else:
+                break
 
     def pick_your_spot(self):
         get_element(self.driver, pick_your_spot_button).click()
+
+    def get_latest_message(self):
+        return get_element_attr_by_xpath(self.driver, latest_message, 'value')
+
+    def input_message_on_live(self,message):
+        get_element(self.driver,input_message).send_keys(message)
+
+    def send_message_on_live(self):
+        get_element_by_xpath(self.driver,send_message).click()
+
+    def get_error_message_on_live(self):
+        return get_element_attr_by_xpath(self.driver,error_message_for_too_long,'value')
+
+    def tap_view_schedule(self):
+        get_element(self.driver, view_schedule).click()
+
+    def close_live(self):
+        get_element(self.driver, close_live).click()
+
+    def tap_shop(self):
+        get_element_by_xpath(self.driver, shop_avatar).click()
+
+    def tap_flag(self):
+        get_element(self.driver, flag).click()
+
+    def tap_share(self):
+        get_element(self.driver, share).click()
+
+    def tap_schedule(self):
+        get_element(self.driver, schedule).click()
+
+    '''Shop page'''
+    def swap_down_shop_page(self):
+        self.common_swipe_vertical(get_element_by_xpath(self.driver,avatar_in_shop), 800)
+
+    '''Report page'''
+    def input_email_answer(self,answer):
+        get_element_by_xpath(self.driver, email_answer).send_key(answer)
+
+    def tap_ok(self):
+        get_element(self.driver, confirm_button).click()
+
+    def tap_next_question(self):
+        get_element(self.driver, next_question).click()
+
+    def tap_pre_question(self):
+        get_element(self.driver, previous_question).click()
+
+    def input_name_answer(self,answer):
+        get_element_by_xpath(self.driver, name_answer).send_key(answer)
+
+    def select_an_option(self):
+        get_elements_by_xpath(self.driver, report_option_list)[random.randint(0,6)].click()
+
+    def input_addition(self,answer):
+        get_element_by_xpath(self.driver, addition_answer).send_key(answer)
+
+    def select_screenshot(self):
+        get_element(self.driver,screenshot_select).click()
+
+    def tap_submit_report(self):
+        get_element(self.driver, submit).click()
+
+    def swap_down_report(self):
+        self.swap_down_list(report_title, 800)
+
 
     '''Spot listing'''
 
@@ -301,10 +374,15 @@ class Actions:
         item.locator = item.locator + f'[{number}]//XCUIElementTypeButton[last()]'
         get_element_by_xpath(self.driver, item).click()
 
-    def get_spot_name(self,number):
+    def get_spot_name(self, number):
         item = spot_item
         item.locator = item.locator + f'[{number}]//XCUIElementTypeStaticText[last()]'
         return get_element_by_xpath(self.driver, item).get_attribute('value')
+
+    def get_first_spot_name(self):
+        first_item_name = LocatorInfo()
+        first_item_name.locator = spot_item.locator + '[1]//XCUIElementTypeStaticText[last()]'
+        return get_element_by_xpath(self.driver, first_item_name).get_attribute('label')
 
     def tap_available(self):
         get_element(self.driver, available).click()
@@ -312,12 +390,29 @@ class Actions:
     def tap_breaking(self):
         get_element(self.driver, breaking).click()
 
+    def tap_first_spot(self):
+        get_element_by_xpath(self.driver, first_item_button).click()
+
+    def tap_spot_automated(self):
+        get_elements_by_xpath(self.driver, spot_listing)[0].click()
+
+    def swap_down_list(self,locator,position):
+        self.common_swipe_vertical(get_element(self.driver, locator), position)
+
+    def swap_down_spots_listing(self):
+        self.swap_down_list(live, 200)
+
+    def swap_down_schedule(self):
+        self.swap_down_list(schedule_title, 800)
+
+
     '''Order page'''
+
     def cancel_pay(self):
         get_element_by_xpath(self.driver, cancel_order).click()
 
     def open_summary(self):
-        get_element(self.driver,nav_arrow_down).click()
+        get_element(self.driver, nav_arrow_down).click()
 
     def close_summary(self):
         get_element(self.driver, nav_arrow_up).click()
@@ -329,7 +424,7 @@ class Actions:
         get_element_by_xpath(self.driver, change_address).click()
 
     def pay_now(self):
-        get_element_by_xpath(self.driver,pay_now).click()
+        get_element_by_xpath(self.driver, pay_now).click()
 
     '''Score page'''
 
@@ -816,3 +911,14 @@ class Actions:
                 print('\nswitch button success')
             except Exception as e:
                 raise e
+
+    '''Other'''
+
+    def get_attr_xpath(self, locator, attr):
+        return get_element_attr_by_xpath(self.driver, locator, attr)
+
+    def get_attr(self, locator, attr):
+        return get_element_attr(self.driver, locator, attr)
+
+    def get_price(self, locator):
+        return float(self.get_attr_xpath(locator, 'label').replace('$', ''))

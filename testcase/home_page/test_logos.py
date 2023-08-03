@@ -2,10 +2,7 @@ import unittest
 import allure
 from config.setup import get_driver
 from data.params import test_account
-from appium.webdriver.common.touch_action import TouchAction
-
-from utils.find_element import get_element
-from utils.locator_info import logo_item, logo_title
+from utils.locator_info import logo_title
 from utils.user_actions import Actions
 
 
@@ -27,11 +24,11 @@ class TestHomeLogos(unittest.TestCase):
         i = 1
         swipe_times = len(do.get_all_logo()) / 2
         while i < swipe_times:
-            do.log_scroll_left()
+            do.logo_scroll_left()
             i += 1
         print(f'\nswipe left logo {swipe_times - 1}')
         while i > 0:
-            do.log_scroll_right()
+            do.logo_scroll_right()
             i -= 1
         print(f'\nswipe right logo {swipe_times - 1}')
 

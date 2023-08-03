@@ -388,13 +388,17 @@ shop_avatar = LocatorInfo(
     locator='//XCUIElementTypeApplication[@name="Fanatics Live Development"]/XCUIElementTypeWindow/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeScrollView/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeButton[2]')
 flag = LocatorInfo('accessibility id', 'flagShadow')
 share = LocatorInfo('accessibility id', 'shareIosShadow')
-shop_alt = LocatorInfo('accessibility id', 'shopAlt')
-chat_channel = LocatorInfo('class name', 'XCUIElementTypeTextField')
+schedule = LocatorInfo('accessibility id', 'shopAlt')
+input_message = LocatorInfo('class name', 'XCUIElementTypeTextField')
 send_message = LocatorInfo(locator='(//XCUIElementTypeButton[@name="ChatChannelView"])[1]')
+latest_message = LocatorInfo(locator='(//XCUIElementTypeOther[@name="MessageContainerView"])[1]//XCUIElementTypeStaticText[last()]')
+error_message_for_too_long = LocatorInfo(locator='(//XCUIElementTypeStaticText[@name="SystemMessageView"])[1]')
 live_name_location = LocatorInfo('accessibility id')
 first_card_location = LocatorInfo(
     locator='//XCUIElementTypeApplication[@name="Fanatics Live Development"]/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeScrollView/XCUIElementTypeOther/XCUIElementTypeImage[1]')
 live = LocatorInfo('accessibility id', 'LIVE')
+
+
 # pick & set price
 pick_your_favorite_team = LocatorInfo('accessibility id', 'Pick your favorite team')
 Price = LocatorInfo('accessibility id', 'Price')
@@ -438,16 +442,28 @@ winner = LocatorInfo(
 # Spot list
 available = LocatorInfo('accessibility id', 'Available')
 breaking = LocatorInfo('accessibility id', 'Breaking')
-spot_listing = LocatorInfo(locator='//XCUIElementTypeApplication[@name="Fanatics Live Development"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeScrollView/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView/XCUIElementTypeCell/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView')
-spots = LocatorInfo(locator='//XCUIElementTypeApplication[@name="Fanatics Live Development"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeScrollView/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView/XCUIElementTypeCell/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView//XCUIElementTypeCell')
-last_spot = LocatorInfo(locator='//XCUIElementTypeApplication[@name="Fanatics Live Development"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeScrollView/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView/XCUIElementTypeCell/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView//XCUIElementTypeCell[last()]//XCUIElementTypeImage[last()]')
+spot_listing = LocatorInfo(
+    locator='//XCUIElementTypeApplication[@name="Fanatics Live Development"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeScrollView/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView/XCUIElementTypeCell/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView')
+spots = LocatorInfo(
+    locator='//XCUIElementTypeApplication[@name="Fanatics Live Development"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeScrollView/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView/XCUIElementTypeCell/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView//XCUIElementTypeCell')
+last_spot = LocatorInfo(
+    locator='//XCUIElementTypeApplication[@name="Fanatics Live Development"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeScrollView/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView/XCUIElementTypeCell/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView//XCUIElementTypeCell[last()]//XCUIElementTypeImage[last()]')
+first_won = LocatorInfo(
+    locator='//XCUIElementTypeApplication[@name="Fanatics Live Development"]/XCUIElementTypeWindow/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeScrollView/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView/XCUIElementTypeCell/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView/XCUIElementTypeCell[1]//XCUIElementTypeStaticText[@name="WON"]')
+first_won_price = LocatorInfo(
+    locator='//XCUIElementTypeApplication[@name="Fanatics Live Development"]/XCUIElementTypeWindow/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeScrollView/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView/XCUIElementTypeCell/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView/XCUIElementTypeCell[1]//XCUIElementTypeStaticText[@name="WON"]/following-sibling::XCUIElementTypeStaticText')
+first_won_name = LocatorInfo(
+    locator='//XCUIElementTypeApplication[@name="Fanatics Live Development"]/XCUIElementTypeWindow/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeScrollView/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView/XCUIElementTypeCell/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView/XCUIElementTypeCell[1]//XCUIElementTypeStaticText[@name="WON"]/preceding-sibling::XCUIElementTypeStaticText')
+first_item_button = LocatorInfo(locator=(spot_item.locator + '[1]//XCUIElementTypeButton[last()]'))
 
 # Order details
 cancel_order = LocatorInfo(locator='//XCUIElementTypeButton[@name="Cancel"]')
 nav_arrow_down = LocatorInfo('accessibility id', 'navArrowDown')
 order_total_price = LocatorInfo(
-    locator='//XCUIElementTypeImage[@name="navArrowDown"]/following-sibling::XCUIElementTypeStaticText')
+    locator='//XCUIElementTypeImage[@name="navArrowUp"]/following-sibling::XCUIElementTypeStaticText')
 nav_arrow_up = LocatorInfo('accessibility id', 'navArrowUp')
+gift_name = LocatorInfo(locator='//XCUIElementTypeImage[@name="Gift"]/following-sibling::*[2]')
+gift_subtotal = LocatorInfo(locator='//XCUIElementTypeImage[@name="Gift"]/following-sibling::*[3]')
 change_card = LocatorInfo(locator='(//XCUIElementTypeButton[@name="Change"])[1]')
 change_address = LocatorInfo(locator='(//XCUIElementTypeButton[@name="Change"])[2]')
 pay_now = LocatorInfo(locator='//XCUIElementTypeStaticText[@name="Pay now"]')
@@ -466,9 +482,9 @@ view_order_details = LocatorInfo('accessibility id', 'View order details')
 # listing sold out
 sold_out = LocatorInfo('accessibility id', 'Sold out')
 next_prompt = LocatorInfo('accessibility id', 'Next listing starting soon')
-view_schedule= LocatorInfo('accessibility id', 'View Schedule')
+view_schedule = LocatorInfo('accessibility id', 'View Schedule')
 
-'''Order details'''
+'''Order details after payment'''
 back_to_score = LocatorInfo(locator='(//XCUIElementTypeButton[@name="Back"])[2]')
 order_details_title = LocatorInfo(locator='//XCUIElementTypeStaticText[@name="Order details"]')
 order_date = LocatorInfo(
@@ -503,3 +519,28 @@ order_tracking_number = LocatorInfo(
 order_billing_method = LocatorInfo(
     locator='//XCUIElementTypeStaticText[@name="Billing method"]/following-sibling::XCUIElementTypeStaticText')
 contact_fanatics_live = LocatorInfo('accessibility id', 'Contact Fanatics Live')
+
+'''Schedule page'''
+schedule_title = LocatorInfo('accessibility id', 'Choose your break')
+listing_list = LocatorInfo(locator='//XCUIElementTypeApplication[@name="Fanatics Live Development"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[3]/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView')
+
+'''Flag page'''
+Report_page = LocatorInfo('accessibility id', 'Report a Problem')
+email_answer = LocatorInfo(locator='//XCUIElementTypeTextField[@name="What is your email address?"]')
+name_answer = LocatorInfo(locator='(//XCUIElementTypeStaticText[@name="Type your answer here..."])[2]')
+report_option_list = LocatorInfo(locator='//XCUIElementTypeOther[@name="Question 3 This question is required."]/XCUIElementTypeOther[4]/XCUIElementTypeOther//XCUIElementTypeOther')
+addition_answer = LocatorInfo(locator='(//XCUIElementTypeStaticText[@name="Type your answer here..."])[2]')
+screenshot_select = LocatorInfo('accessibility id', 'choice 1')
+confirm_button = LocatorInfo('accessibility id', 'OK')
+submit_report = LocatorInfo('accessibility id', 'Submit')
+next_question = LocatorInfo('accessibility id', 'Navigate to next question')
+previous_question = LocatorInfo('accessibility id', 'Navigate to previous question')
+thanks = LocatorInfo('accessibility id','Thank you for your submission. ')
+report_title = LocatorInfo('accessibility id','Fanatics Gradient')
+
+'''Shop page'''
+follow_shop = LocatorInfo('accessibility id', 'Follow')
+return_policy = LocatorInfo(locator='//XCUIElementTypeStaticText[@name="Return policy"]/following-sibling::XCUIElementTypeStaticText')
+Shipping_taxes = LocatorInfo(locator='//XCUIElementTypeStaticText[@name="Shipping & taxes"]/following-sibling::XCUIElementTypeStaticText')
+report_in_shop = LocatorInfo(locator='//XCUIElementTypeButton[@name="Report"]')
+avatar_in_shop = LocatorInfo(locator='//XCUIElementTypeApplication[@name="Fanatics Live Development"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[3]/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeImage')
