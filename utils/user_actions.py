@@ -1,4 +1,5 @@
 import random
+import re
 from time import sleep
 from config.setup import get_app_name
 from data.params import level_params, app_name, Logos, device_type, test_account
@@ -335,9 +336,18 @@ class Actions:
     def swap_down_shop_page(self):
         self.common_swipe_vertical(get_element_by_xpath(self.driver,avatar_in_shop), 800)
 
+    def tap_follow_shop_page(self):
+        get_element(self.driver,follow_shop).click()
+
+    def tap_unfollow_shop_page(self):
+        get_element(self.driver,unfollow_shop).click()
+
+    def tap_report_shop_page(self):
+        get_element_by_xpath(self.driver,report_in_shop).click()
+
     '''Report page'''
     def input_email_answer(self,answer):
-        get_element_by_xpath(self.driver, email_answer).send_key(answer)
+        get_element_by_xpath(self.driver, email_answer).clear().send_keys(answer)
 
     def tap_ok(self):
         get_element(self.driver, confirm_button).click()
@@ -349,13 +359,13 @@ class Actions:
         get_element(self.driver, previous_question).click()
 
     def input_name_answer(self,answer):
-        get_element_by_xpath(self.driver, name_answer).send_key(answer)
+        get_element_by_xpath(self.driver, name_answer).clear().send_keys(answer)
 
     def select_an_option(self):
         get_elements_by_xpath(self.driver, report_option_list)[random.randint(0,6)].click()
 
     def input_addition(self,answer):
-        get_element_by_xpath(self.driver, addition_answer).send_key(answer)
+        get_element_by_xpath(self.driver, addition_answer).clear().send_keys(answer)
 
     def select_screenshot(self):
         get_element(self.driver,screenshot_select).click()
@@ -367,8 +377,7 @@ class Actions:
         self.swap_down_list(report_title, 800)
 
 
-    '''Spot listing'''
-
+    '''Spot listing pick & set price'''
     def pick_a_spot(self, number):
         item = spot_item
         item.locator = item.locator + f'[{number}]//XCUIElementTypeButton[last()]'
@@ -405,6 +414,55 @@ class Actions:
     def swap_down_schedule(self):
         self.swap_down_list(schedule_title, 800)
 
+    '''Spot listing random & set price'''
+    def decrease_spot(self):
+        target = get_element(self.driver,spots_value_button)
+        text_location = target.location
+        text_size = target.size
+        target_y = text_location['y'] + text_size['height'] / 2
+        target_x = text_location['x'] + text_size['width'] / 8
+        touch_action = TouchAction(self.driver)
+        touch_action.tap(x=target_x, y=target_y).perform()
+
+    def increase_spot(self):
+        target = get_element(self.driver,spots_value_button)
+        text_location = target.location
+        text_size = target.size
+        target_y = text_location['y'] + text_size['height'] / 2
+        target_x = text_location['x'] + text_size['width'] * 7 / 8
+        touch_action = TouchAction(self.driver)
+        touch_action.tap(x=target_x, y=target_y).perform()
+
+    def get_single_price(self):
+        string = self.get_attr_xpath(spot_price, 'value')
+        pattern = r'\d+'
+        matches = re.findall(pattern, string)
+        if matches:
+            number = int(''.join(matches))
+            return float('{:.2f}'.format(number))
+
+    def get_buy_spots_num(self):
+        string = self.get_attr_xpath(buy_spots_button,'label')
+        pattern = r'\d+'
+        matches = re.findall(pattern, string)
+        if matches:
+            number = int(matches[0])
+            return number
+
+    def tap_to_buy(self):
+        get_element_by_xpath(self.driver,buy_spots_button).click()
+
+    def get_all_spots_num(self):
+        string = self.get_attr_xpath(spots_remain,'label')
+        pattern = r'\d+'
+        matches = re.findall(pattern, string)
+        if len(matches) >= 2:
+            all_num = int(matches[0])
+            remain_num = int(matches[1])
+            return [all_num, remain_num]
+
+    def get_remaining_spots_num(self):
+        pass
 
     '''Order page'''
 
@@ -412,6 +470,7 @@ class Actions:
         get_element_by_xpath(self.driver, cancel_order).click()
 
     def open_summary(self):
+        sleep(2)
         get_element(self.driver, nav_arrow_down).click()
 
     def close_summary(self):
@@ -912,6 +971,21 @@ class Actions:
             except Exception as e:
                 raise e
 
+    def asser_order_detail(self, spot_name,spot_price) -> NoReturn:
+        self.open_summary()
+        order_price = self.get_price(order_total_price)
+        subtotal_price = self.get_price(subtotal)
+        shipping_price = self.get_price(shipping)
+        tax_price = self.get_price(tax)
+        total_price = self.get_price(total)
+        order_spot_name = self.get_attr_xpath(gift_name, 'label')
+        spot_subtotal = self.get_price(gift_subtotal)
+        assert spot_name == order_spot_name
+        assert order_price == total_price
+        assert spot_subtotal == subtotal_price == spot_price
+        assert total_price == shipping_price + subtotal_price + tax_price
+        self.pay_now()
+
     '''Other'''
 
     def get_attr_xpath(self, locator, attr):
@@ -921,4 +995,5 @@ class Actions:
         return get_element_attr(self.driver, locator, attr)
 
     def get_price(self, locator):
-        return float(self.get_attr_xpath(locator, 'label').replace('$', ''))
+        return float('{:.2f}'.format(float(self.get_attr_xpath(locator, 'label').replace('$', '').replace(',', ''))))
+

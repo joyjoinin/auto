@@ -439,7 +439,7 @@ win_price = LocatorInfo(
 winner = LocatorInfo(
     locator='//XCUIElementTypeApplication[@name="Fanatics Live Development"]/XCUIElementTypeWindow/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeScrollView/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[4]/following-sibling::*[4]')
 
-# Spot list
+# Spot list pick & set price
 available = LocatorInfo('accessibility id', 'Available')
 breaking = LocatorInfo('accessibility id', 'Breaking')
 spot_listing = LocatorInfo(
@@ -527,9 +527,9 @@ listing_list = LocatorInfo(locator='//XCUIElementTypeApplication[@name="Fanatics
 '''Flag page'''
 Report_page = LocatorInfo('accessibility id', 'Report a Problem')
 email_answer = LocatorInfo(locator='//XCUIElementTypeTextField[@name="What is your email address?"]')
-name_answer = LocatorInfo(locator='(//XCUIElementTypeStaticText[@name="Type your answer here..."])[2]')
+name_answer = LocatorInfo(locator='//XCUIElementTypeOther[@name="main"]/XCUIElementTypeOther[3]/XCUIElementTypeOther[1]/XCUIElementTypeTextView[1]')
 report_option_list = LocatorInfo(locator='//XCUIElementTypeOther[@name="Question 3 This question is required."]/XCUIElementTypeOther[4]/XCUIElementTypeOther//XCUIElementTypeOther')
-addition_answer = LocatorInfo(locator='(//XCUIElementTypeStaticText[@name="Type your answer here..."])[2]')
+addition_answer = LocatorInfo(locator='//XCUIElementTypeOther[@name="main"]/XCUIElementTypeOther[3]/XCUIElementTypeOther[1]/XCUIElementTypeTextView[1]')
 screenshot_select = LocatorInfo('accessibility id', 'choice 1')
 confirm_button = LocatorInfo('accessibility id', 'OK')
 submit_report = LocatorInfo('accessibility id', 'Submit')
@@ -540,6 +540,7 @@ report_title = LocatorInfo('accessibility id','Fanatics Gradient')
 
 '''Shop page'''
 follow_shop = LocatorInfo('accessibility id', 'Follow')
+unfollow_shop = LocatorInfo('accessibility id', 'Following')
 return_policy = LocatorInfo(locator='//XCUIElementTypeStaticText[@name="Return policy"]/following-sibling::XCUIElementTypeStaticText')
 Shipping_taxes = LocatorInfo(locator='//XCUIElementTypeStaticText[@name="Shipping & taxes"]/following-sibling::XCUIElementTypeStaticText')
 report_in_shop = LocatorInfo(locator='//XCUIElementTypeButton[@name="Report"]')
