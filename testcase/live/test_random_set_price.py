@@ -2,10 +2,8 @@ import unittest
 import allure
 from config.setup import get_driver
 from data.params import random_spot_name
-from utils.find_element import get_element_by_xpath
-from utils.locator_info import spot_price, spots_randomly, order_total_price, subtotal, shipping, tax, total, gift_name, \
-    gift_subtotal
-from utils.user_actions import Actions
+from utils.mobile_utils.mobile_locator_info import spots_randomly
+from utils.mobile_utils.mobile_user_actions import Actions
 
 
 @allure.severity(allure.severity_level.CRITICAL)

@@ -2,11 +2,9 @@ import unittest
 import allure
 from config.setup import get_driver
 from data.params import won_message
-from utils.find_element import get_element
-from utils.locator_info import live, sold_out, order_total_price, \
-    subtotal, shipping, tax, total, gift_name, gift_subtotal, first_won, first_won_price, \
+from utils.mobile_utils.mobile_locator_info import sold_out, first_won, first_won_price, \
     first_won_name, first_item_button
-from utils.user_actions import Actions
+from utils.mobile_utils.mobile_user_actions import Actions
 
 
 @allure.severity(allure.severity_level.CRITICAL)

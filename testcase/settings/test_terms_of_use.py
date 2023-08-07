@@ -1,9 +1,8 @@
 import unittest
 import allure
 from config.setup import get_driver
-from utils.find_element import get_element_by_xpath
-from utils.locator_info import text_container
-from utils.user_actions import Actions
+from utils.mobile_utils.mobile_locator_info import text_container
+from utils.mobile_utils.mobile_user_actions import Actions
 
 
 @allure.severity(allure.severity_level.CRITICAL)

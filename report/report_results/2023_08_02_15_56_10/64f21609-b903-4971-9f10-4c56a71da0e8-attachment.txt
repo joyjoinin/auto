@@ -1,6 +1,0 @@
-
-success login
-
-get to messages page success
-
-This is empty

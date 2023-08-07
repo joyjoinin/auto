@@ -2,9 +2,9 @@ import unittest
 import allure
 from config.setup import get_driver
 from data.params import return_policy_text, shipping_taxes_text, test_report
-from utils.locator_info import schedule_title, share_frame, confirm_button, \
+from utils.mobile_utils.mobile_locator_info import schedule_title, share_frame, confirm_button, \
     return_policy, Shipping_taxes, previous_question, next_question, thanks
-from utils.user_actions import Actions
+from utils.mobile_utils.mobile_user_actions import Actions
 
 
 @allure.severity(allure.severity_level.CRITICAL)

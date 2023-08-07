@@ -4,10 +4,9 @@ from time import sleep
 from config.setup import get_driver
 from data.params import test_account
 from utils.find_element import get_element
-from utils.locator_info import weak, weak_prompt, complete, fair, good, notification, login, already_in_use, track, home
-from utils.common_functions import save_data, get_new_account
-from utils.user_actions import Actions
-
+from utils.mobile_utils.mobile_locator_info import weak, weak_prompt, complete, fair, good, notification, login, already_in_use, track, home
+from utils.common import get_new_account
+from utils.mobile_utils.mobile_user_actions import Actions
 
 @allure.severity(allure.severity_level.CRITICAL)
 @allure.feature("Account Creation")
@@ -30,6 +29,7 @@ class TestAccountCreation(unittest.TestCase):
         do.input_email(new_account)
         do.input_password(new_account.password)
         do.tap_complete()
+        do.not_now()
         do.input_username(new_account.username)
         sleep(5)
         do.tap_continue()
@@ -92,6 +92,7 @@ class TestAccountCreation(unittest.TestCase):
         do.assert_element_by_attr(complete, 'enabled', 'true', "Can complete with good password")
         do.tap_complete()
         sleep(10)
+        do.not_now()
         do.tap_continue()
         # sleep(3)
         # do.tap_enter_access_code()
@@ -126,3 +127,4 @@ class TestAccountCreation(unittest.TestCase):
         do.input_password(new_account.good_password)
         do.tap_complete()
         do.assert_element(already_in_use, 'create failed by email already took')
+

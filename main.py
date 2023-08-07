@@ -3,7 +3,7 @@ import subprocess
 import time
 import pytest
 from datetime import datetime
-from utils.common_functions import get_file_direction, kill_appium
+from utils.common import get_file_direction, kill_appium
 
 testcase_file = {
     './testcase/account_creation/test_create_account.py': True,
@@ -45,7 +45,7 @@ if __name__ == '__main__':
     os.mkdir(html_summary_folder)
     for case, flag in testcase_file.items():
         if flag:
-            pytest.main([case, '--capture=sys', '-q', '--alluredir', report_summary_folder, '--reruns=3'])
+            pytest.main([case, '--capture=sys', '-q', '--alluredir', report_summary_folder, '--reruns=5'])
         else:
             print('skip test for {}'.format(case))
     result_dir = report_summary_folder
@@ -54,4 +54,3 @@ if __name__ == '__main__':
     cmd = [file_direction, "generate", result_dir, "-o", report_dir, '--clean']
     subprocess.run(cmd, check=True)
     kill_appium()
-

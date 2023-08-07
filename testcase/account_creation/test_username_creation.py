@@ -4,10 +4,10 @@ from time import sleep
 from config.setup import get_driver
 from data.params import test_account
 from utils.find_element import get_element
-from utils.locator_info import join_continue, invalid_username, already_took_username, logo_page, notification, login, \
+from utils.mobile_utils.mobile_locator_info import join_continue, invalid_username, already_took_username, logo_page, notification, \
     track, home
-from utils.common_functions import get_new_account, save_data
-from utils.user_actions import Actions
+from utils.common import get_new_account
+from utils.mobile_utils.mobile_user_actions import Actions
 
 
 @allure.severity(allure.severity_level.MINOR)
@@ -25,6 +25,7 @@ class TestAccountCreation(unittest.TestCase):
         do.input_password(new_account.password)
         do.tap_complete()
         sleep(10)
+        do.not_now()
 
     def tearDown(self):
         self.driver.quit()

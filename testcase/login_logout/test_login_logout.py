@@ -2,8 +2,8 @@ import unittest
 import allure
 from config.setup import get_driver
 from data.params import test_account
-from utils.locator_info import home, login
-from utils.user_actions import Actions
+from utils.mobile_utils.mobile_locator_info import home, login
+from utils.mobile_utils.mobile_user_actions import Actions
 
 
 @allure.severity(allure.severity_level.CRITICAL)
@@ -24,5 +24,6 @@ class TestLoginLogout(unittest.TestCase):
 
     @allure.story("Log out")
     def test2_LogOutUserExisted(self) -> None:
+        do.login_flow(test_account)
         do.logout_flow()
         do.assert_element(login, 'Log out success')

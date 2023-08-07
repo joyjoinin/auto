@@ -4,9 +4,9 @@ from time import sleep
 from config.setup import get_driver
 from data.params import error_password_account, test_account
 from utils.find_element import get_element_by_xpath, get_element
-from utils.locator_info import login_next, password, password_after_input, check_your_email, \
+from utils.mobile_utils.mobile_locator_info import login_next, password, password_after_input, check_your_email, \
     terms_of_use, create_page, create_one_now, privacy_page, terms_of_use_page
-from utils.user_actions import Actions
+from utils.mobile_utils.mobile_user_actions import Actions
 from appium.webdriver.common.touch_action import TouchAction
 
 

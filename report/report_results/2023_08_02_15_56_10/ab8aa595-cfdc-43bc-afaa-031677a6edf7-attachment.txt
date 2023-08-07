@@ -1,7 +1,0 @@
-
-success login
-Delete address success
-
-success log out
-
-Logout success

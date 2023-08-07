@@ -1,0 +1,4 @@
+
+success login
+
+have purchases list

@@ -3,9 +3,9 @@ from time import sleep
 
 import allure
 from config.setup import get_driver
-from data.params import test_account, app_name
-from utils.locator_info import empty_chat_page, message_welcome, new_message_title, message_title, chat_on_homepage
-from utils.user_actions import Actions
+from data.params import test_account
+from utils.mobile_utils.mobile_locator_info import empty_chat_page, new_message_title, message_title
+from utils.mobile_utils.mobile_user_actions import Actions
 
 
 @allure.severity(allure.severity_level.CRITICAL)

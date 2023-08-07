@@ -4,9 +4,9 @@ from time import sleep
 from config.setup import get_driver
 from data.params import card_info, address_info
 from utils.find_element import get_element
-from utils.locator_info import notification, home, login
-from utils.common_functions import save_data, get_new_account
-from utils.user_actions import Actions
+from utils.mobile_utils.mobile_locator_info import notification, home
+from utils.common import get_new_account
+from utils.mobile_utils.mobile_user_actions import Actions
 
 
 @allure.severity(allure.severity_level.CRITICAL)
@@ -28,6 +28,7 @@ class TestCard(unittest.TestCase):
         do.input_email(new_account)
         do.input_password(new_account.password)
         do.tap_complete()
+        do.not_now()
         do.input_username(new_account.username)
         sleep(10)
         do.tap_continue()

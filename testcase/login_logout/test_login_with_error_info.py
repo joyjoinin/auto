@@ -2,8 +2,8 @@ import unittest
 import allure
 from config.setup import get_driver
 from data.params import nonexistent_account, error_password_account
-from utils.locator_info import failed_login_message
-from utils.user_actions import Actions
+from utils.mobile_utils.mobile_locator_info import failed_login_message
+from utils.mobile_utils.mobile_user_actions import Actions
 
 
 @allure.severity(allure.severity_level.MINOR)

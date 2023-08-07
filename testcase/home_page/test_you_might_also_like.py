@@ -2,9 +2,9 @@ import unittest
 import allure
 from config.setup import get_driver
 from data.params import test_account
-from utils.find_element import get_element_by_xpath, get_element
-from utils.locator_info import recommend_location, home_navigation_bar
-from utils.user_actions import Actions
+from utils.find_element import get_element_by_xpath
+from utils.mobile_utils.mobile_locator_info import recommend_location
+from utils.mobile_utils.mobile_user_actions import Actions
 
 
 @allure.severity(allure.severity_level.CRITICAL)

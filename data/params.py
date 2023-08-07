@@ -65,14 +65,16 @@ card_info = Card('4242424242424242', '0130', '111', 'United States', '11111')
 test_live_name = 'joy test 28/7'
 
 app_name = 'live.fanatics.FanaticsLive-Development'
+# app_name = 'live.fanatics.FanaticsLive-QA'
 
+# test_account = Account('joy0101@fanatics.live', 'Joytest159753?')
 test_account = Account('joy999@fanatics.live', 'Joytest159753?')
 
 level_params = ["I'm a Rookie", "I'm a Collector", "I'm a Seasoned Pro"]
 
 nonexistent_account = Account('test@error.com', 'test123456?')
 
-error_password_account = Account('joy009@fanatics.live', 'Joytest159753')
+error_password_account = Account('joy999@fanatics.live', 'Joytest159753')
 
 Logos = ['NFL','NBA','MLB','NHL','FIFA','MLS','WNBA','NCAA','Formula 1','NASCAR','WWE','UFC']
 
