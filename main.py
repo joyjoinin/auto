@@ -11,12 +11,12 @@ testcase_file = {
     './testcase/login_logout/test_login_logout.py': True,
     './testcase/login_logout/test_login_page_functions.py': True,
     './testcase/login_logout/test_login_with_error_info.py': True,
-    './testcase/home_page/test_dm.py': True,
-    './testcase/home_page/test_hero_card.py': True,
-    './testcase/home_page/test_logos.py': False,
-    './testcase/home_page/test_search.py': True,
-    './testcase/home_page/test_view_all.py': True,
-    './testcase/home_page/test_you_might_also_like.py': True,
+    './testcase/home/test_dm.py': True,
+    './testcase/home/test_hero_card.py': True,
+    './testcase/home/test_logos.py': False,
+    './testcase/home/test_search.py': True,
+    './testcase/home/test_view_all.py': True,
+    './testcase/home/test_you_might_also_like.py': True,
     './testcase/profile/test_edit_profile.py': True,
     './testcase/profile/test_favorite_shops.py': False,
     './testcase/profile/test_follow.py': True,
@@ -54,3 +54,4 @@ if __name__ == '__main__':
     cmd = [file_direction, "generate", result_dir, "-o", report_dir, '--clean']
     subprocess.run(cmd, check=True)
     kill_appium()
+

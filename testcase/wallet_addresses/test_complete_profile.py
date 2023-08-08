@@ -4,9 +4,9 @@ from time import sleep
 from config.setup import get_driver
 from data.params import card_info, address_info
 from utils.find_element import get_element
-from utils.mobile_utils.mobile_locator_info import notification, home
+from mobile.mobile_locator_info import notification, home
 from utils.common import get_new_account
-from utils.mobile_utils.mobile_user_actions import Actions
+from mobile.mobile_user_actions import Actions
 
 
 @allure.severity(allure.severity_level.CRITICAL)

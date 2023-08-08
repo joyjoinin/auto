@@ -1,10 +1,10 @@
 import unittest
 import allure
 from config.setup import get_driver
-from utils.mobile_utils.mobile_locator_info import livestreams, marketing_rewards, community, button_new_stream_added, \
+from mobile.mobile_locator_info import livestreams, marketing_rewards, community, button_new_stream_added, \
     button_stream_going_live, button_giveaways, button_suggested_streams, button_push_notifications, button_email, \
     button_breaking_news, button_offers_rewards, button_events, button_direct_messages, button_new_followers
-from utils.mobile_utils.mobile_user_actions import Actions
+from mobile.mobile_user_actions import Actions
 
 
 @allure.severity(allure.severity_level.CRITICAL)

@@ -7,7 +7,7 @@ from utils.find_element import get_element, get_element_by_xpath, get_elements, 
     get_element_attr_by_xpath, get_element_attr
 from typing import NoReturn
 from appium.webdriver.common.touch_action import TouchAction
-from utils.mobile_utils.mobile_locator_info import *
+from mobile.mobile_locator_info import *
 
 
 class Actions:

@@ -221,7 +221,6 @@ empty_followers_list = LocatorInfo('accessibility id', 'Who needs followers?')
 logout_confirm = LocatorInfo('accessibility id', 'Yes, log out')
 my_address = LocatorInfo('accessibility id', 'My Addresses')
 my_wallet = LocatorInfo(locator='//XCUIElementTypeStaticText[@name="My Wallet"]')
-back = LocatorInfo('accessibility id', 'Back')
 purchases = LocatorInfo('accessibility id', 'Purchases')
 notifications = LocatorInfo('accessibility id', 'Notifications')
 become_a_seller = LocatorInfo('accessibility id', 'Become a seller')
@@ -400,6 +399,7 @@ live_name_location = LocatorInfo('accessibility id')
 first_card_location = LocatorInfo(
     locator='//XCUIElementTypeApplication[@name="Fanatics Live Development"]/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeScrollView/XCUIElementTypeOther/XCUIElementTypeImage[1]')
 live = LocatorInfo('accessibility id', 'LIVE')
+back = LocatorInfo('accessibility id', 'Back')
 
 
 # pick & set price
@@ -548,3 +548,4 @@ return_policy = LocatorInfo(locator='//XCUIElementTypeStaticText[@name="Return p
 Shipping_taxes = LocatorInfo(locator='//XCUIElementTypeStaticText[@name="Shipping & taxes"]/following-sibling::XCUIElementTypeStaticText')
 report_in_shop = LocatorInfo(locator='//XCUIElementTypeButton[@name="Report"]')
 avatar_in_shop = LocatorInfo(locator='//XCUIElementTypeApplication[@name="Fanatics Live Development"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[3]/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeImage')
+

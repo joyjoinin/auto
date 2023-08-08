@@ -2,8 +2,8 @@ import unittest
 import allure
 from config.setup import get_driver
 from data.params import random_spot_name
-from utils.mobile_utils.mobile_locator_info import spots_randomly
-from utils.mobile_utils.mobile_user_actions import Actions
+from mobile.mobile_locator_info import spots_randomly
+from mobile.mobile_user_actions import Actions
 
 
 @allure.severity(allure.severity_level.CRITICAL)

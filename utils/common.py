@@ -2,6 +2,10 @@ import random
 import string
 import subprocess
 from data.params import Account
+class LocatorInfo:
+    def __init__(self, by_type=None, locator=None):
+        self.type = by_type
+        self.locator = locator
 
 
 def save_data(email, password, add_payment=False):
@@ -46,6 +50,7 @@ def get_expected_interests(a, b):
 
     return new_list
 
+
 def get_new_account():
     new_account = Account(email=generate_random_string(12) + '@fanatics.live',
                           password='Joytest159753?',
@@ -75,3 +80,9 @@ def kill_appium():
         print('no running Appium process')
 
 
+def get_image_path():
+    import os
+    script_dir = os.path.dirname(os.path.realpath(__file__))
+    new_path = script_dir.replace('utils', 'img.png')
+    print(new_path)
+    return new_path
