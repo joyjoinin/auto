@@ -1,4 +1,4 @@
-from utils.common import LocatorInfo
+from utils.common_mobile import LocatorInfo
 
 purchases_navigation_bar = LocatorInfo('class name', 'XCUIElementTypeNavigationBar')
 empty_purchases_list = LocatorInfo('accessibility id', 'Ready to rip?')

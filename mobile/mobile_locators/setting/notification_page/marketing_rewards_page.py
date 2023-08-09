@@ -1,4 +1,4 @@
-from utils.common import LocatorInfo
+from utils.common_mobile import LocatorInfo
 
 button_breaking_news = LocatorInfo(
     locator='//XCUIElementTypeSwitch[@name="Breaking news, You\'re gonna want to hear this"]/XCUIElementTypeSwitch')

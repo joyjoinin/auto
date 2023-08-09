@@ -2,7 +2,7 @@ import unittest
 import allure
 from time import sleep
 from config.setup import get_driver
-from data.params import address_info
+from data.mobile_params import address_info
 from mobile.mobile_locator_info import login
 from mobile.mobile_user_actions import Actions
 

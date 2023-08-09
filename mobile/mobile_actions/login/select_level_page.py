@@ -1,4 +1,4 @@
-from data.params import level_params
+from data.mobile_params import level_params
 from utils.find_element import get_element
 from mobile.mobile_locators.login.select_level_page import level
 

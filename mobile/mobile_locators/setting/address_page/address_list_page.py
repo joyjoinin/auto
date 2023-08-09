@@ -1,4 +1,4 @@
-from utils.common import LocatorInfo
+from utils.common_mobile import LocatorInfo
 
 add_address = LocatorInfo('accessibility id', 'Add shipping address')
 cancel_add_address = LocatorInfo(locator='//XCUIElementTypeButton[@name="Cancel"]')

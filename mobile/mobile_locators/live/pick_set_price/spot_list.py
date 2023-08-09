@@ -1,4 +1,4 @@
-from utils.common import LocatorInfo
+from utils.common_mobile import LocatorInfo
 
 available = LocatorInfo('accessibility id', 'Available')
 breaking = LocatorInfo('accessibility id', 'Breaking')

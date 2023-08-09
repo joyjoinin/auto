@@ -1,7 +1,7 @@
 import unittest
 import allure
 from config.setup import get_driver
-from data.params import won_message
+from data.mobile_params import won_message
 from mobile.mobile_locator_info import sold_out, first_won, first_won_price, \
     first_won_name, first_item_button
 from mobile.mobile_user_actions import Actions

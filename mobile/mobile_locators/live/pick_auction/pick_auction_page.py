@@ -1,4 +1,4 @@
-from utils.common import LocatorInfo
+from utils.common_mobile import LocatorInfo
 
 auction_type_is_pick = LocatorInfo('accessibility id', 'Pick your favorite team')
 auction_soon = LocatorInfo('accessibility id', 'Auction starting soon')

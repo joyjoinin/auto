@@ -1,4 +1,4 @@
-from utils.common import LocatorInfo
+from utils.common_mobile import LocatorInfo
 
 logout_confirm = LocatorInfo('accessibility id', 'Yes, log out')
 my_address = LocatorInfo('accessibility id', 'My Addresses')

@@ -1,4 +1,4 @@
-from utils.common import LocatorInfo
+from utils.common_mobile import LocatorInfo
 
 add_wallet = LocatorInfo(locator='//XCUIElementTypeButton[@name="+ Add"]')
 wallet_list = LocatorInfo(locator='//XCUIElementTypeApplication[@name="Fanatics Live '

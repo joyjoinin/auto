@@ -1,7 +1,7 @@
 import random
 import string
 import subprocess
-from data.params import Account
+from data.mobile_params import Account
 class LocatorInfo:
     def __init__(self, by_type=None, locator=None):
         self.type = by_type
@@ -80,9 +80,4 @@ def kill_appium():
         print('no running Appium process')
 
 
-def get_image_path():
-    import os
-    script_dir = os.path.dirname(os.path.realpath(__file__))
-    new_path = script_dir.replace('utils', 'img.png')
-    print(new_path)
-    return new_path
+

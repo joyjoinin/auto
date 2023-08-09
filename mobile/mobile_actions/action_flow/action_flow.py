@@ -1,5 +1,5 @@
 from time import sleep
-from data.params import test_account
+from data.mobile_params import test_account
 from typing import NoReturn
 from mobile.mobile_actions.home.home_page import HomeActions
 from mobile.mobile_actions.login.login_home_page import LoginHomeActions

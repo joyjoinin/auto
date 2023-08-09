@@ -1,4 +1,4 @@
-from utils.common import LocatorInfo
+from utils.common_mobile import LocatorInfo
 
 setting = LocatorInfo('name', 'gear')
 edit_profile = LocatorInfo('accessibility id', 'Edit Profile')

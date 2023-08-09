@@ -1,4 +1,4 @@
-from utils.common import LocatorInfo
+from utils.common_mobile import LocatorInfo
 
 Report_page = LocatorInfo('accessibility id', 'Report a Problem')
 email_answer = LocatorInfo(locator='//XCUIElementTypeTextField[@name="What is your email address?"]')

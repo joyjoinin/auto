@@ -1,7 +1,7 @@
 import unittest
 import allure
 from config.setup import get_driver
-from data.params import test_account
+from data.mobile_params import test_account
 from mobile.mobile_locator_info import search_field, popular_streams_title
 from mobile.mobile_user_actions import Actions
 

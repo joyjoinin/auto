@@ -1,4 +1,4 @@
-from utils.common import LocatorInfo
+from utils.common_mobile import LocatorInfo
 
 follow_shop = LocatorInfo('accessibility id', 'Follow')
 unfollow_shop = LocatorInfo('accessibility id', 'Following')

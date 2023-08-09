@@ -1,4 +1,4 @@
-from utils.common import LocatorInfo
+from utils.common_mobile import LocatorInfo
 
 email = LocatorInfo('class name', 'XCUIElementTypeTextField')
 login_next = LocatorInfo('accessibility id', 'Next')

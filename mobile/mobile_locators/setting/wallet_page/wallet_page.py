@@ -1,4 +1,4 @@
-from utils.common import LocatorInfo
+from utils.common_mobile import LocatorInfo
 
 exit_add_payment = LocatorInfo('accessibility id', 'UIButton.Close')
 card_number = LocatorInfo('accessibility id', 'Card number')

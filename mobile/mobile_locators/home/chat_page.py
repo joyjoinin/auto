@@ -1,4 +1,4 @@
-from utils.common import LocatorInfo
+from utils.common_mobile import LocatorInfo
 
 message_title = LocatorInfo('accessibility id', 'Messages')
 add_chat = LocatorInfo(locator='//XCUIElementTypeButton[@name="chatAdd"]')

@@ -1,4 +1,4 @@
-from utils.common import LocatorInfo
+from utils.common_mobile import LocatorInfo
 
 sold_out = LocatorInfo('accessibility id', 'Sold out')
 next_prompt = LocatorInfo('accessibility id', 'Next listing starting soon')

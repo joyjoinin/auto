@@ -1,4 +1,4 @@
-from utils.common import LocatorInfo
+from utils.common_mobile import LocatorInfo
 
 livestreams = LocatorInfo('accessibility id', 'Livestreams')
 marketing_rewards = LocatorInfo('accessibility id', 'Marketing & rewards')

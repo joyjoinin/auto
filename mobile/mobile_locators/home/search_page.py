@@ -1,4 +1,4 @@
-from utils.common import LocatorInfo
+from utils.common_mobile import LocatorInfo
 
 search_field = LocatorInfo(locator='//XCUIElementTypeApplication[@name="Fanatics Live '
                                    'Development"]/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther'

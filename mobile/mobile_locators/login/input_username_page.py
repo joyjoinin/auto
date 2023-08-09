@@ -1,4 +1,4 @@
-from utils.common import LocatorInfo
+from utils.common_mobile import LocatorInfo
 
 username_page = LocatorInfo('accessibility id', "It's name time")
 join_continue = LocatorInfo('accessibility id', 'Continue')

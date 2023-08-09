@@ -1,4 +1,4 @@
-from utils.common import LocatorInfo
+from utils.common_mobile import LocatorInfo
 
 back_to_score = LocatorInfo(locator='(//XCUIElementTypeButton[@name="Back"])[2]')
 order_details_title = LocatorInfo(locator='//XCUIElementTypeStaticText[@name="Order details"]')

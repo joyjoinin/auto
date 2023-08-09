@@ -1,4 +1,4 @@
-from utils.common import LocatorInfo
+from utils.common_mobile import LocatorInfo
 
 camera_add = LocatorInfo('accessibility id', 'cameraAdd')
 add_media_image = LocatorInfo('accessibility id', 'addMediaImage')

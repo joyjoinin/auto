@@ -1,4 +1,4 @@
-from utils.common import LocatorInfo
+from utils.common_mobile import LocatorInfo
 
 button_new_stream_added = LocatorInfo(locator='//XCUIElementTypeSwitch[@name="New stream added, Your favorite channel '
                                               'scheduled something new"]/XCUIElementTypeSwitch')

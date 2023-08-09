@@ -3,9 +3,9 @@ import unittest
 import allure
 from time import sleep
 from config.setup import get_driver
-from data.params import test_account
+from data.mobile_params import test_account
 from utils.find_element import get_element_by_xpath
-from utils.common import get_random_username, get_random_text, get_expected_interests
+from utils.common_mobile import get_random_username, get_random_text, get_expected_interests
 from mobile.mobile_locator_info import save_username, profile_username, profile_self_intro
 from mobile.mobile_user_actions import Actions
 

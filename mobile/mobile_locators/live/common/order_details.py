@@ -1,4 +1,4 @@
-from utils.common import LocatorInfo
+from utils.common_mobile import LocatorInfo
 
 cancel_order = LocatorInfo(locator='//XCUIElementTypeButton[@name="Cancel"]')
 nav_arrow_down = LocatorInfo('accessibility id', 'navArrowDown')

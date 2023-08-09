@@ -1,4 +1,4 @@
-from utils.common import LocatorInfo
+from utils.common_mobile import LocatorInfo
 
 invite_frame = LocatorInfo('accessibility id', 'Gift your friends VIP access')
 send_invite = LocatorInfo('accessibility id', 'Send invite')

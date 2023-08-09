@@ -1,4 +1,4 @@
-from utils.common import LocatorInfo
+from utils.common_mobile import LocatorInfo
 
 edit_avatar = LocatorInfo(locator='//XCUIElementTypeImage[@name="pencil"]')
 edit_username = LocatorInfo(locator='(//XCUIElementTypeButton[@name="pencil"])[1]')

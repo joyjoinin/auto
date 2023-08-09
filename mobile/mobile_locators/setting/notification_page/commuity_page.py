@@ -1,4 +1,4 @@
-from utils.common import LocatorInfo
+from utils.common_mobile import LocatorInfo
 
 button_direct_messages = LocatorInfo(
     locator='//XCUIElementTypeSwitch[@name="Direct Messages, Someone has sent you a message"]/XCUIElementTypeSwitch')

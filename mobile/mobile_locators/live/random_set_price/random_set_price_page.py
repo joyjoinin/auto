@@ -1,4 +1,4 @@
-from utils.common import LocatorInfo
+from utils.common_mobile import LocatorInfo
 
 spots_randomly = LocatorInfo('accessibility id', 'Spots randomly assigned')
 spot_price = LocatorInfo(locator='//XCUIElementTypeStaticText[@name="Price"]/following-sibling::*[2]')

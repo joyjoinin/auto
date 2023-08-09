@@ -1,4 +1,4 @@
-from utils.common import LocatorInfo
+from utils.common_mobile import LocatorInfo
 
 search_glass = LocatorInfo('accessibility id', 'magnifyingGlass')
 following_list_title = LocatorInfo(locator='//XCUIElementTypeStaticText[@name="Following"]')

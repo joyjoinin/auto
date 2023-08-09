@@ -1,4 +1,4 @@
-from utils.common import LocatorInfo
+from utils.common_mobile import LocatorInfo
 
 notification = LocatorInfo('accessibility id', 'Stay up to date')
 notification_allow = LocatorInfo('accessibility id', 'Allow')

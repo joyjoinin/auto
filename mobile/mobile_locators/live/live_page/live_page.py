@@ -1,4 +1,4 @@
-from utils.common import LocatorInfo
+from utils.common_mobile import LocatorInfo
 
 loading_status = LocatorInfo(locator='(//XCUIElementTypeActivityIndicator[@name="In progress"])[1]')
 close_live = LocatorInfo('accessibility id', 'cancelShadow')

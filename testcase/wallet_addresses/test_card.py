@@ -2,7 +2,7 @@ import unittest
 import allure
 from time import sleep
 from config.setup import get_driver
-from data.params import card_info
+from data.mobile_params import card_info
 from mobile.mobile_user_actions import Actions
 
 

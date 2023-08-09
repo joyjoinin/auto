@@ -1,4 +1,4 @@
-from utils.common import LocatorInfo
+from utils.common_mobile import LocatorInfo
 
 auction_type_is_random = LocatorInfo('accessibility id', 'Spots randomly assigned')
 spot_assigned = LocatorInfo(

@@ -1,4 +1,4 @@
-from utils.common import LocatorInfo
+from utils.common_mobile import LocatorInfo
 
 pick_your_favorite_team = LocatorInfo('accessibility id', 'Pick your favorite team')
 Price = LocatorInfo('accessibility id', 'Price')

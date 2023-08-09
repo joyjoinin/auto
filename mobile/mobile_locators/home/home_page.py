@@ -1,4 +1,4 @@
-from utils.common import LocatorInfo
+from utils.common_mobile import LocatorInfo
 
 home_navigation_bar = LocatorInfo(
     locator='//XCUIElementTypeNavigationBar[@name="_TtGC7SwiftUI32NavigationStackHosting"]')

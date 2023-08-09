@@ -1,6 +1,7 @@
 import random
 import subprocess
 
+
 class TestAccount:
     def __init__(self, email=None, password=None):
         self.email = email
@@ -41,9 +42,9 @@ class Account:
                  invalid_name='?test',
                  already_took_username='joy001',
                  access_code='test',
-                 logo_select=random.randint(1,12),
+                 logo_select=random.randint(1, 12),
                  follow_count=1,
-                 level_index=random.randint(1,3)):
+                 level_index=random.randint(1, 3)):
         self.email = email
         self.password = password
         self.weak_password = weak_password
@@ -68,7 +69,7 @@ app_name = 'live.fanatics.FanaticsLive-Development'
 # app_name = 'live.fanatics.FanaticsLive-QA'
 
 # test_account = Account('joy0101@fanatics.live', 'Joytest159753?')
-test_account = Account('joy999@fanatics.live', 'Joytest159753?')
+test_account = Account('joy0101@fanatics.live', 'Joytest159753?')
 
 level_params = ["I'm a Rookie", "I'm a Collector", "I'm a Seasoned Pro"]
 
@@ -76,15 +77,15 @@ nonexistent_account = Account('test@error.com', 'test123456?')
 
 error_password_account = Account('joy999@fanatics.live', 'Joytest159753')
 
-Logos = ['NFL','NBA','MLB','NHL','FIFA','MLS','WNBA','NCAA','Formula 1','NASCAR','WWE','UFC']
+Logos = ['NFL', 'NBA', 'MLB', 'NHL', 'FIFA', 'MLS', 'WNBA', 'NCAA', 'Formula 1', 'NASCAR', 'WWE', 'UFC']
 
 app_environment = 'Dev'  # QA / Pro
 
-device_type = 'Simulator'   # 'Real'
+device_type = 'Simulator'  # 'Real'
 
 simulator_device_udid = '93C67BC8-E00B-42DA-B10C-D6C7418E5547'
 
-test_report = {'email':'this is test email','user': 'this is test user', 'add': 'this is test add'}
+test_report = {'email': 'this is test email', 'user': 'this is test user', 'add': 'this is test add'}
 
 '''system messages'''
 test_message_on_live = 'this is test message'

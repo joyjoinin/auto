@@ -1,7 +1,7 @@
 import unittest
 import allure
 from config.setup import get_driver
-from data.params import test_account
+from data.mobile_params import test_account
 from utils.find_element import get_element_by_xpath
 from mobile.mobile_locator_info import recommend_location
 from mobile.mobile_user_actions import Actions

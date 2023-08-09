@@ -1,6 +1,6 @@
 import random
 from time import sleep
-from data.params import Logos
+from data.mobile_params import Logos
 from utils.find_element import get_element
 from mobile.mobile_locators.login.collect_page import logo
 

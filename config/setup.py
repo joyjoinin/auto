@@ -1,8 +1,8 @@
 import subprocess
 import plistlib
 from appium import webdriver
-from data.params import app_environment, device_type, simulator_device_udid, app_name
-from utils.common import get_file_direction
+from data.mobile_params import app_environment, device_type, simulator_device_udid, app_name
+from utils.common_mobile import get_file_direction
 
 
 def get_driver_on_real_device(no_rest):

@@ -1,4 +1,4 @@
-from utils.common import LocatorInfo
+from utils.common_mobile import LocatorInfo
 
 logo_scroll_view = LocatorInfo(locator='//XCUIElementTypeAny[@name="Fanatics Live '
                                        'Development"]/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther'

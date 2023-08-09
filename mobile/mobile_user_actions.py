@@ -2,7 +2,7 @@ import random
 import re
 from time import sleep
 from config.setup import get_app_name
-from data.params import level_params, app_name, Logos, device_type, test_account
+from data.mobile_params import level_params, app_name, Logos, device_type, test_account
 from utils.find_element import get_element, get_element_by_xpath, get_elements, get_elements_by_xpath, \
     get_element_attr_by_xpath, get_element_attr
 from typing import NoReturn
@@ -284,7 +284,7 @@ class Actions:
         target_live = live_name_location
         target_live.locator = live_name
         try:
-            get_element(self.driver, target_live).click()
+            get_element(self.driver, target_live,1).click()
         except:
             print("Can't find live")
 

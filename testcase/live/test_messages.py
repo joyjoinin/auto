@@ -1,7 +1,7 @@
 import unittest
 import allure
 from config.setup import get_driver
-from data.params import test_message_on_live, long_message_on_live, system_message_for_long_message
+from data.mobile_params import test_message_on_live, long_message_on_live, system_message_for_long_message
 from mobile.mobile_user_actions import Actions
 
 

@@ -3,7 +3,7 @@ import subprocess
 import time
 import pytest
 from datetime import datetime
-from utils.common import get_file_direction, kill_appium
+from utils.common_mobile import get_file_direction, kill_appium
 
 testcase_file = {
     './testcase/account_creation/test_create_account.py': True,

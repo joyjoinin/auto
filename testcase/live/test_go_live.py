@@ -1,7 +1,7 @@
 import unittest
 import allure
 from config.setup import get_driver
-from data.params import test_account, test_live_name
+from data.mobile_params import test_account, test_live_name
 from mobile.mobile_locator_info import input_message
 from mobile.mobile_user_actions import Actions
 
@@ -31,9 +31,14 @@ class TestGOLive(unittest.TestCase):
 
     @allure.story("Go live by view all")
     def test2_go_live_by_View_all(self) -> None:
-        try:
-            do.tap_view_all()
-            do.tap_live_at_view_all(test_live_name)
-            do.assert_element(input_message, 'get in live success')
-        except:
-            print('No view all')
+        do.tap_view_all()
+        is_find = False
+        while is_find is False:
+            try:
+                do.tap_live_at_view_all(test_live_name)
+                do.assert_element(input_message, 'get in live success')
+                is_find = True
+                break
+            except:
+                do.swipe_up()
+
