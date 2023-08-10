@@ -36,9 +36,9 @@ def get_args_list():
     if len(sys.argv) != 6:
         return [1, 1, 1, 1, 1]
     else:
-        run_time = int(sys.argv[1])
-        pick_set_listings = int(sys.argv[2])
-        pick_auction_listings = int(sys.argv[3])
-        random_set_listings = int(sys.argv[4])
-        random_auction_listings = int(sys.argv[5])
-        return [run_time, pick_set_listings, pick_auction_listings, random_set_listings, random_auction_listings]
+        run_round = int(sys.argv[1])
+        pick_set_listing_round = int(sys.argv[2])
+        pick_auction_listings_round = int(sys.argv[3])
+        random_set_listings_round = int(sys.argv[4])
+        random_auction_listings_round = int(sys.argv[5])
+        return [run_round, pick_set_listing_round, pick_auction_listings_round, random_set_listings_round, random_auction_listings_round]

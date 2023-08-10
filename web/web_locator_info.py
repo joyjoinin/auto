@@ -40,7 +40,7 @@ price_per_spot = LocatorInfo('id', 'create-listing-form_price_in_cents')
 set_price = LocatorInfo(locator="//*[@class='row'][2]/fieldset[2]/div/label[1]")
 auction = LocatorInfo(locator="//*[@class='row'][2]/fieldset[2]/div/label[2]")
 assign_price = LocatorInfo('id', 'open-assign-price-modal')
-save_listing = LocatorInfo(locator="//*[@class='flex justify-end mt-4']/button")
+save_listing = LocatorInfo(locator="//*[contains(text(), ' Save listing and add another')]")
 assign_list = LocatorInfo(locator="//*[@class='dollar-input']/input")
 assign_prices = LocatorInfo('id', 'assign-prices-button')
 close_assign_prices = LocatorInfo('id', 'close-spot-pricing-modal')
@@ -54,3 +54,19 @@ audio = LocatorInfo('id', 'audioSourceInputListIVS')
 go_live = LocatorInfo(locator="//*[contains(text(), 'Go live')]")
 end_stream = LocatorInfo(locator="//*[contains(text(), 'End show')]")
 listings_list = LocatorInfo(locator="//*[@class='listing']")
+create_listing = LocatorInfo(locator="//*[contains(text(), 'Create new listing')]")
+start_ripping = LocatorInfo(locator="//*[contains(text(), 'Start ripping')]")
+overlays = LocatorInfo(locator="//*[contains(text(), 'Overlays')]")
+fire = LocatorInfo(locator="//*[contains(text(), 'Fire')]")
+to_the_moon = LocatorInfo(locator="//*[contains(text(), 'To the moon')]")
+confetti = LocatorInfo(locator="//*[contains(text(), 'Confetti')]")
+
+'''create listing'''
+close_create = LocatorInfo(locator="//*[contains(text(), 'Create a listing')]/button")
+
+'''random set price'''
+randomize_all_spot = LocatorInfo(locator="//*[@class='break-details']/div/button")
+start_next_listing = LocatorInfo(locator="//*[contains(text(), 'Start next listing')]")
+end_listing = LocatorInfo(locator="//*[contains(text(), 'End listing')]")
+
+

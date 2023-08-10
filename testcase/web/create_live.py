@@ -10,7 +10,7 @@ class TestLiveStream(unittest.TestCase):
         chrome_options = Options()
         chrome_options.add_argument("--use-fake-ui-for-media-stream")
         chrome_options.add_argument("--use-fake-device-for-media-stream")
-        # chrome_options.add_argument("--headless")
+        chrome_options.add_argument("--headless")
         self.driver = webdriver.Chrome(options=chrome_options)
         global do
         do = WebActions(self.driver)

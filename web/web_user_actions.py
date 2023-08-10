@@ -1,4 +1,5 @@
-import random
+import schedule
+import threading
 from time import sleep
 from selenium.webdriver.support.ui import Select
 from data.web_params import *
@@ -9,7 +10,6 @@ from web.web_locator_info import *
 new_title = get_title()
 args_list = get_args_list()
 
-
 class WebActions:
 
     def __init__(self, driver) -> None:
@@ -18,14 +18,13 @@ class WebActions:
     def login(self):
         self.driver.get(login_url)
         self.driver.maximize_window()
-        sleep(2)
+        sleep(1)
 
     def sign_in(self):
         get_element(self.driver, login).click()
         get_element(self.driver, username).send_keys(account)
         get_element(self.driver, user_password).send_keys(password)
         get_element(self.driver, sign_in).click()
-        sleep(2)
         self.driver.get(manage_url)
 
     def schedule_a_show(self):
@@ -50,16 +49,16 @@ class WebActions:
         get_element_by_xpath(self.driver, add_listing).click()
 
     def common_create_steps(self, listing):
-        sleep(2)
+        sleep(0.5)
         get_element(self.driver, listing_title).send_keys(listing.title)
-        sleep(1)
+        sleep(0.5)
         option_dropdown = get_element(self.driver, select_an_option)
-        option_dropdown.click()
+        # option_dropdown.click()
         select = Select(option_dropdown)
         select.select_by_visible_text(listing.option)
-        sleep(1)
+        sleep(0.5)
         get_element_by_xpath(self.driver, listing.assign_type).click()
-        sleep(1)
+        sleep(0.5)
         get_element_by_xpath(self.driver, listing.sell_type).click()
         if listing.min_bid is not None:
             get_element(self.driver, min_bid).send_keys(listing.min_bid)
@@ -100,32 +99,28 @@ class WebActions:
     def create_pick_spot_set_price(self, num=1):
         i = 0
         while i < num:
-            listing = Listing(title='pick set price', assign_type=pick_your_spot, sell_type=set_price, assign_price=100)
+            listing = Listing(title='pick set price', assign_type=pick_your_spot, sell_type=set_price, assign_price=1000)
             self.common_create_steps(listing)
             i += 1
 
     def publish(self):
-        sleep(1)
         get_element_by_xpath(self.driver, publish).click()
 
     def search(self):
-        sleep(1)
         get_element_by_xpath(self.driver, search_streams).send_keys(new_title)
         sleep(1)
 
     def edit(self):
         get_element_by_xpath(self.driver, edit_show).click()
-        sleep(3)
 
     def show_detail(self):
         show_detail = LocatorInfo(locator=f"//*[contains(text(), '{new_title}')]/../../footer//*[@title='Details']")
         get_element_by_xpath(self.driver, show_detail).click()
-        sleep(10)
 
     def set_media(self, item, option):
-        sleep(1)
-        option_dropdown = get_element(self.driver, item)
-        option_dropdown.click()
+        # sleep(1)
+        option_dropdown = get_element(self.driver, item,15)
+        # option_dropdown.click()
         select = Select(option_dropdown)
         select.select_by_visible_text(option)
 
@@ -136,7 +131,7 @@ class WebActions:
         self.set_media(audio, fake_audio)
 
     def go_live(self):
-        sleep(1)
+        sleep(0.5)
         on_live = False
         get_element_by_xpath(self.driver, go_live).click()
         while on_live is False:
@@ -147,16 +142,64 @@ class WebActions:
             except:
                 sleep(0.5)
 
+    def end_stream(self):
+        get_element_by_xpath(self.driver,end_stream).click()
+
     def add_listings(self):
         i = 0
-        while i < args_list[0]:
+        if len(args_list) != 5:
+            while i < args_list[0]:
+                sleep(1)
+                self.create_pick_spot_set_price(args_list[1])
+                self.create_pick_spot_auction(args_list[2])
+                self.create_random_set_price_listing(args_list[3])
+                self.create_random_auction(args_list[4])
+                i += 1
+        else:
             sleep(1)
-            # self.create_pick_spot_set_price(args_list[1])
-            # self.create_pick_spot_auction(args_list[2])
-            self.create_random_set_price_listing(args_list[3])
-            # self.create_random_auction(args_list[4])
-            i += 1
+            # self.create_pick_spot_set_price()
+            # self.create_pick_spot_auction()
+            self.create_random_set_price_listing()
+            # self.create_random_auction()
+
 
     def run_a_listing(self):
         sleep(1)
         get_elements_by_xpath(self.driver, listings_list)[0].click()
+
+    def create_listing(self):
+        get_element_by_xpath(self.driver, create_listing).click()
+
+    def close_create(self):
+        get_element_by_xpath(self.driver,close_create).click()
+
+    def start_next_listing(self):
+        get_element_by_xpath(self.driver,start_next_listing).click()
+
+    def tap_start_ripping(self):
+        get_element_by_xpath(self.driver,start_ripping).click()
+        self.start_next_listing()
+
+    def randomize_listing(self):
+        sleep(5)
+        get_element_by_xpath(self.driver,randomize_all_spot,5).click()
+
+    def run_overlays(self):
+        try:
+            get_element_by_xpath(self.driver,overlays).click()
+            get_element_by_xpath(self.driver,fire).click()
+            sleep(5)
+            get_element_by_xpath(self.driver,to_the_moon).click()
+            sleep(5)
+            get_element_by_xpath(self.driver,confetti).click()
+        except:
+            pass
+
+    def overlay_thread(self):
+        while True:
+            self.run_overlays()
+            time.sleep(30)
+
+    def run_overlays_thread(self):
+        thread = threading.Thread(target=self.overlay_thread)
+        thread.start()

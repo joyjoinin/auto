@@ -41,7 +41,7 @@ class TestLiveStream(unittest.TestCase):
                 is_find = True
                 break
             except:
-                do.swipe_up(-240)
+                do.swipe_up(-800)
         buy_spot_num = do.get_buy_spots_num()
         single_spot_price = do.get_single_price()
         while buy_spot_num != 1:
