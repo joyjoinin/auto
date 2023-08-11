@@ -26,7 +26,7 @@ def get_title():
 
 
 def save_data(show_name):
-    with open('../../data/created_show.py', 'w') as output_file:
+    with open('data/created_show.py', 'w') as output_file:
         output_file.write(f"show_name = '{show_name}' \n")
     output_file.close()
 

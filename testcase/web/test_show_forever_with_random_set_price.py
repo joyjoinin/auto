@@ -1,4 +1,6 @@
 import unittest
+from time import sleep
+
 from web.web_user_actions import WebActions
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -31,6 +33,9 @@ class TestLiveStream(unittest.TestCase):
         do.set_inputs()
         do.run_a_listing()
         do.go_live()
+        do.run_giveaway_thread()
+        sleep(10)
+        do.run_overlays_thread()
         is_forever = True
         while is_forever:
             current_time = datetime.now()
@@ -49,5 +54,4 @@ class TestLiveStream(unittest.TestCase):
                     raise
             except:
                 print('Listing not sold out yet')
-            do.run_overlays_thread()
 

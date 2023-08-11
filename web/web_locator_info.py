@@ -34,7 +34,7 @@ save_draft = LocatorInfo(locator='//*[@id="phx-F3kPodRmbxV3l21B"]/div/header/div
 publish = LocatorInfo(locator='//header/div/button')
 listing_title = LocatorInfo('id', 'create-listing-form_title')
 select_an_option = LocatorInfo('id', 'create-listing-form_break_template_id')
-random = LocatorInfo(locator="//*[@class='row'][2]/fieldset[1]/div/label[1]")
+random_spot = LocatorInfo(locator="//*[@class='row'][2]/fieldset[1]/div/label[1]")
 pick_your_spot = LocatorInfo(locator="//*[@class='row'][2]/fieldset/div/label[2]")
 price_per_spot = LocatorInfo('id', 'create-listing-form_price_in_cents')
 set_price = LocatorInfo(locator="//*[@class='row'][2]/fieldset[2]/div/label[1]")
@@ -60,6 +60,9 @@ overlays = LocatorInfo(locator="//*[contains(text(), 'Overlays')]")
 fire = LocatorInfo(locator="//*[contains(text(), 'Fire')]")
 to_the_moon = LocatorInfo(locator="//*[contains(text(), 'To the moon')]")
 confetti = LocatorInfo(locator="//*[contains(text(), 'Confetti')]")
+giveaway = LocatorInfo(locator="//*[contains(text(), 'Giveaway')]")
+randomize = LocatorInfo(locator="//*[contains(text(), 'Randomize')]")
+one_up_auction = LocatorInfo(locator="//*[@class='card']/button//*[contains(text(), 'Auction')]")
 
 '''create listing'''
 close_create = LocatorInfo(locator="//*[contains(text(), 'Create a listing')]/button")
@@ -69,4 +72,8 @@ randomize_all_spot = LocatorInfo(locator="//*[@class='break-details']/div/button
 start_next_listing = LocatorInfo(locator="//*[contains(text(), 'Start next listing')]")
 end_listing = LocatorInfo(locator="//*[contains(text(), 'End listing')]")
 
-
+'''giveaway'''
+giveaway_title = LocatorInfo('id', 'giveaway-form_title')
+all_viewers = LocatorInfo(locator="//*[@id='giveaway-form']//fieldset[2]/div/label[1]")
+followers_only = LocatorInfo(locator="//*[@id='giveaway-form']//fieldset[2]/div/label[2]")
+launch_giveaway = LocatorInfo(locator="//*[@id='giveaway-form']//*[contains(text(), 'Launch')]")

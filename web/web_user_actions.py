@@ -1,4 +1,4 @@
-import schedule
+import random
 import threading
 from time import sleep
 from selenium.webdriver.support.ui import Select
@@ -49,16 +49,16 @@ class WebActions:
         get_element_by_xpath(self.driver, add_listing).click()
 
     def common_create_steps(self, listing):
-        sleep(0.5)
+        sleep(1)
         get_element(self.driver, listing_title).send_keys(listing.title)
-        sleep(0.5)
+        sleep(2)
         option_dropdown = get_element(self.driver, select_an_option)
         # option_dropdown.click()
         select = Select(option_dropdown)
         select.select_by_visible_text(listing.option)
-        sleep(0.5)
+        sleep(2)
         get_element_by_xpath(self.driver, listing.assign_type).click()
-        sleep(0.5)
+        sleep(2)
         get_element_by_xpath(self.driver, listing.sell_type).click()
         if listing.min_bid is not None:
             get_element(self.driver, min_bid).send_keys(listing.min_bid)
@@ -68,24 +68,24 @@ class WebActions:
             spots = get_elements_by_xpath(self.driver, assign_list)
             for spot in spots:
                 spot.send_keys(listing.assign_price)
-                sleep(0.5)
+                sleep(1)
             get_element(self.driver, assign_prices).click()
         elif listing.price_per_spot is not None:
             get_element(self.driver, price_per_spot).send_keys(listing.price_per_spot)
-        sleep(1)
+        sleep(2)
         get_element_by_xpath(self.driver, save_listing).click()
 
     def create_random_set_price_listing(self, num=1):
         i = 0
         while i < num:
-            listing = Listing(title='random set price', assign_type=random, sell_type=set_price, price_per_spot=10000)
+            listing = Listing(title='random set price', assign_type=random_spot, sell_type=set_price, price_per_spot=10000)
             self.common_create_steps(listing)
             i += 1
 
     def create_random_auction(self, num=1):
         i = 0
         while i < num:
-            listing = Listing(title='random auction', assign_type=random, sell_type=auction, min_bid=1000)
+            listing = Listing(title='random auction', assign_type=random_spot, sell_type=auction, min_bid=1000)
             self.common_create_steps(listing)
             i += 1
 
@@ -99,7 +99,8 @@ class WebActions:
     def create_pick_spot_set_price(self, num=1):
         i = 0
         while i < num:
-            listing = Listing(title='pick set price', assign_type=pick_your_spot, sell_type=set_price, assign_price=1000)
+            listing = Listing(title='pick set price', assign_type=pick_your_spot, sell_type=set_price,
+                              assign_price=1000)
             self.common_create_steps(listing)
             i += 1
 
@@ -119,12 +120,13 @@ class WebActions:
 
     def set_media(self, item, option):
         # sleep(1)
-        option_dropdown = get_element(self.driver, item,15)
+        option_dropdown = get_element(self.driver, item, 15)
         # option_dropdown.click()
         select = Select(option_dropdown)
         select.select_by_visible_text(option)
 
     def set_inputs(self):
+        sleep(5)
         self.set_media(camera_1, fake_device)
         self.set_media(camera_2, fake_device)
         self.set_media(camera_3, fake_device)
@@ -143,7 +145,7 @@ class WebActions:
                 sleep(0.5)
 
     def end_stream(self):
-        get_element_by_xpath(self.driver,end_stream).click()
+        get_element_by_xpath(self.driver, end_stream).click()
 
     def add_listings(self):
         i = 0
@@ -162,7 +164,6 @@ class WebActions:
             self.create_random_set_price_listing()
             # self.create_random_auction()
 
-
     def run_a_listing(self):
         sleep(1)
         get_elements_by_xpath(self.driver, listings_list)[0].click()
@@ -171,35 +172,89 @@ class WebActions:
         get_element_by_xpath(self.driver, create_listing).click()
 
     def close_create(self):
-        get_element_by_xpath(self.driver,close_create).click()
+        get_element_by_xpath(self.driver, close_create).click()
 
     def start_next_listing(self):
-        get_element_by_xpath(self.driver,start_next_listing).click()
+        get_element_by_xpath(self.driver, start_next_listing).click()
 
     def tap_start_ripping(self):
-        get_element_by_xpath(self.driver,start_ripping).click()
+        get_element_by_xpath(self.driver, start_ripping).click()
         self.start_next_listing()
 
     def randomize_listing(self):
         sleep(5)
-        get_element_by_xpath(self.driver,randomize_all_spot,5).click()
+        get_element_by_xpath(self.driver, randomize_all_spot, 5).click()
 
     def run_overlays(self):
+        i = random.randint(1, 3)
         try:
-            get_element_by_xpath(self.driver,overlays).click()
-            get_element_by_xpath(self.driver,fire).click()
-            sleep(5)
-            get_element_by_xpath(self.driver,to_the_moon).click()
-            sleep(5)
-            get_element_by_xpath(self.driver,confetti).click()
+            get_element_by_xpath(self.driver, overlays).click()
+            sleep(2)
+            if i == 1:
+                get_element_by_xpath(self.driver, fire).click()
+            elif i == 2:
+                get_element_by_xpath(self.driver, to_the_moon).click()
+            else:
+                get_element_by_xpath(self.driver, confetti).click()
         except:
-            pass
+            sleep(30)
 
     def overlay_thread(self):
         while True:
             self.run_overlays()
-            time.sleep(30)
+            sleep(30)
+
 
     def run_overlays_thread(self):
         thread = threading.Thread(target=self.overlay_thread)
+        thread.start()
+
+    def run_giveaway(self):
+        try:
+            get_element_by_xpath(self.driver, giveaway).click()
+            get_element(self.driver, giveaway_title).send_keys("This is a test")
+            sleep(2)
+            get_element_by_xpath(self.driver, all_viewers).click()
+            sleep(2)
+            get_element_by_xpath(self.driver, launch_giveaway).click()
+            sleep(300)
+        except:
+            sleep(10)
+
+    def giveaway_thread(self):
+        while True:
+            self.run_giveaway()
+
+    def run_giveaway_thread(self):
+        thread = threading.Thread(target=self.giveaway_thread)
+        thread.start()
+
+    def threads_flow(self):
+        event1 = threading.Event()
+        def thread1_func():
+            self.run_giveaway()
+            event1.set()
+
+        def thread2_func():
+            event1.wait()
+            i = 0
+            while i < 10:
+                self.run_overlays()
+                i += 1
+
+        thread1 = threading.Thread(target=thread1_func)
+        thread2 = threading.Thread(target=thread2_func)
+
+        thread1.start()
+        thread2.start()
+        thread1.join()
+        thread2.join()
+
+    def all_threads_flow(self):
+        while True:
+            self.threads_flow()
+
+    def run_threads_flow(self):
+        thread = threading.Thread(target=self.all_threads_flow)
+        thread.setDaemon(True)
         thread.start()
