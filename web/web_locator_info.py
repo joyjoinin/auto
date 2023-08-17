@@ -77,3 +77,7 @@ giveaway_title = LocatorInfo('id', 'giveaway-form_title')
 all_viewers = LocatorInfo(locator="//*[@id='giveaway-form']//fieldset[2]/div/label[1]")
 followers_only = LocatorInfo(locator="//*[@id='giveaway-form']//fieldset[2]/div/label[2]")
 launch_giveaway = LocatorInfo(locator="//*[@id='giveaway-form']//*[contains(text(), 'Launch')]")
+
+'''random auction'''
+begin_auction = LocatorInfo(locator="//*[@id='auction-details']/div/button")
+auction_failed = LocatorInfo(locator="//*[@id='break-status']/p/text()[2]")

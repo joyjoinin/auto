@@ -1,6 +1,5 @@
 import unittest
 from time import sleep
-
 from web.web_user_actions import WebActions
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -26,7 +25,7 @@ class TestLiveStream(unittest.TestCase):
         do.login()
         do.sign_in()
         do.schedule_a_show()
-        do.create_random_set_price_listing()
+        do.create_pick_spot_set_price()
         do.publish()
         do.search()
         do.show_detail()
@@ -43,9 +42,9 @@ class TestLiveStream(unittest.TestCase):
                 do.end_stream()
                 break
             try:
-                do.randomize_listing()
+                do.tap_start_ripping()
                 do.create_listing()
-                do.create_random_set_price_listing()
+                do.create_pick_spot_set_price()
                 do.close_create()
                 do.start_next_listing()
                 try:

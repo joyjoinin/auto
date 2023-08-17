@@ -26,19 +26,19 @@ def get_title():
 
 
 def save_data(show_name):
-    with open('data/created_show.py', 'w') as output_file:
+    with open('../../data/created_show.py', 'w') as output_file:
         output_file.write(f"show_name = '{show_name}' \n")
     output_file.close()
 
 
-def get_args_list():
-    import sys
-    if len(sys.argv) != 6:
-        return [1, 1, 1, 1, 1]
-    else:
-        run_round = int(sys.argv[1])
-        pick_set_listing_round = int(sys.argv[2])
-        pick_auction_listings_round = int(sys.argv[3])
-        random_set_listings_round = int(sys.argv[4])
-        random_auction_listings_round = int(sys.argv[5])
-        return [run_round, pick_set_listing_round, pick_auction_listings_round, random_set_listings_round, random_auction_listings_round]
+# def get_args_list():
+#     import sys
+#     if len(sys.argv) != 6:
+#         return [1, 1, 1, 1, 1]
+#     else:
+#         run_round = int(sys.argv[1])
+#         pick_set_listing_round = int(sys.argv[2])
+#         pick_auction_listings_round = int(sys.argv[3])
+#         random_set_listings_round = int(sys.argv[4])
+#         random_auction_listings_round = int(sys.argv[5])
+#         return [run_round, pick_set_listing_round, pick_auction_listings_round, random_set_listings_round, random_auction_listings_round]

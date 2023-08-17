@@ -3,12 +3,11 @@ import threading
 from time import sleep
 from selenium.webdriver.support.ui import Select
 from data.web_params import *
-from utils.common_web import get_image_path, get_date, get_time, get_title, save_data, get_args_list
+from utils.common_web import get_image_path, get_date, get_time, get_title, save_data
 from utils.find_element import get_element, get_element_by_xpath, get_elements_by_xpath
 from web.web_locator_info import *
 
 new_title = get_title()
-args_list = get_args_list()
 
 class WebActions:
 
@@ -67,7 +66,8 @@ class WebActions:
             sleep(1)
             spots = get_elements_by_xpath(self.driver, assign_list)
             for spot in spots:
-                spot.send_keys(listing.assign_price)
+                # spot.send_keys(listing.assign_price)
+                spot.send_keys(random.randint(1, 99999))
                 sleep(1)
             get_element(self.driver, assign_prices).click()
         elif listing.price_per_spot is not None:
@@ -148,21 +148,11 @@ class WebActions:
         get_element_by_xpath(self.driver, end_stream).click()
 
     def add_listings(self):
-        i = 0
-        if len(args_list) != 5:
-            while i < args_list[0]:
-                sleep(1)
-                self.create_pick_spot_set_price(args_list[1])
-                self.create_pick_spot_auction(args_list[2])
-                self.create_random_set_price_listing(args_list[3])
-                self.create_random_auction(args_list[4])
-                i += 1
-        else:
-            sleep(1)
-            # self.create_pick_spot_set_price()
-            # self.create_pick_spot_auction()
-            self.create_random_set_price_listing()
-            # self.create_random_auction()
+        sleep(1)
+        self.create_pick_spot_set_price()
+        self.create_pick_spot_auction()
+        self.create_random_set_price_listing()
+        self.create_random_auction()
 
     def run_a_listing(self):
         sleep(1)
@@ -177,9 +167,18 @@ class WebActions:
     def start_next_listing(self):
         get_element_by_xpath(self.driver, start_next_listing).click()
 
+    def start_auction(self):
+        get_element_by_xpath(self.driver, begin_auction, 30).click()
+
     def tap_start_ripping(self):
         get_element_by_xpath(self.driver, start_ripping).click()
-        self.start_next_listing()
+
+    def find_ripping(self):
+        try:
+            get_element_by_xpath(self.driver, start_ripping, 1)
+            return True
+        except:
+            return False
 
     def randomize_listing(self):
         sleep(5)
@@ -207,6 +206,7 @@ class WebActions:
 
     def run_overlays_thread(self):
         thread = threading.Thread(target=self.overlay_thread)
+        thread.setDaemon(True)
         thread.start()
 
     def run_giveaway(self):
@@ -227,6 +227,7 @@ class WebActions:
 
     def run_giveaway_thread(self):
         thread = threading.Thread(target=self.giveaway_thread)
+        thread.setDaemon(True)
         thread.start()
 
     def threads_flow(self):
@@ -244,7 +245,6 @@ class WebActions:
 
         thread1 = threading.Thread(target=thread1_func)
         thread2 = threading.Thread(target=thread2_func)
-
         thread1.start()
         thread2.start()
         thread1.join()
