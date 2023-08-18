@@ -1,11 +1,4 @@
-# coding = utf-8
+from web.run_threads import run_threads_flow
 
-import pytest
-
-testcase_file = {
-    './testcase/web/create_live.py': True,
-}
 if __name__ == '__main__':
-    for case, flag in testcase_file.items():
-        if flag:
-            pytest.main([case])
+    run_threads_flow()
