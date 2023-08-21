@@ -1,6 +1,0 @@
-
-success login
-
-get to new message page success
-
-cancel success

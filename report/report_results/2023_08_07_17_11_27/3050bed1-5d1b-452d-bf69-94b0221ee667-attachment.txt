@@ -1,4 +1,0 @@
-
-Can't continue with username invalid
-
-This username is invalid

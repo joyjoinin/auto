@@ -4,9 +4,9 @@ import pytest
 
 from config.setup import get_driver
 from data.mobile_params import test_account
-from mobile.mobile_locator_info import following_list_title, followers_list_title, \
+from utils.mobile.locator_info import following_list_title, followers_list_title, \
     empty_followers_list, empty_following_list
-from mobile.mobile_user_actions import Actions
+from utils.mobile.user_actions import Actions
 
 
 @allure.severity(allure.severity_level.CRITICAL)

@@ -1,6 +1,6 @@
 import unittest
-from utils.common_web import get_title
-from web.web_user_actions import WebActions
+from utils.web.common import get_title
+from utils.web.user_actions import WebActions
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 

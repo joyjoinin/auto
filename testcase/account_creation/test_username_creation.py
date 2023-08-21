@@ -4,10 +4,10 @@ from time import sleep
 from config.setup import get_driver
 from data.mobile_params import test_account
 from utils.find_element import get_element
-from mobile.mobile_locator_info import join_continue, invalid_username, already_took_username, logo_page, notification, \
+from utils.mobile.locator_info import join_continue, invalid_username, already_took_username, logo_page, notification, \
     track, home
-from utils.common_mobile import get_new_account
-from mobile.mobile_user_actions import Actions
+from utils.mobile.common import get_new_account
+from utils.mobile.user_actions import Actions
 
 
 @allure.severity(allure.severity_level.MINOR)

@@ -2,8 +2,8 @@ import unittest
 import allure
 from config.setup import get_driver
 from data.mobile_params import test_account, test_live_name
-from mobile.mobile_locator_info import input_message
-from mobile.mobile_user_actions import Actions
+from utils.mobile.locator_info import input_message
+from utils.mobile.user_actions import Actions
 
 
 @allure.severity(allure.severity_level.CRITICAL)

@@ -1,6 +1,0 @@
-
-success login
-
-get search field
-
-get popular streams

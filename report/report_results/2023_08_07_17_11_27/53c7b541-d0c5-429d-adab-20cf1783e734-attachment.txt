@@ -1,6 +1,0 @@
-
-success login
-
-success log out
-
-Log out success

@@ -1,4 +1,0 @@
-
-success login
-
-get to popular page success

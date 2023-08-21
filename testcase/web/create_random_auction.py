@@ -1,7 +1,7 @@
 import unittest
 
-from utils.common_web import get_title, get_driver
-from web.web_user_actions import WebActions
+from utils.web.common import get_title, get_driver
+from utils.web.user_actions import WebActions
 from datetime import datetime, timedelta
 
 

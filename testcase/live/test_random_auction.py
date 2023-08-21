@@ -1,7 +1,7 @@
 import unittest
 import allure
 from config.setup import get_driver
-from mobile.mobile_user_actions import Actions
+from utils.mobile.user_actions import Actions
 
 
 @allure.severity(allure.severity_level.CRITICAL)

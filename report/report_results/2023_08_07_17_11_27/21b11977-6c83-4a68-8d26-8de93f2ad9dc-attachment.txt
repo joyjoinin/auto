@@ -1,5 +1,0 @@
-
-success login
-
-get to messages page success
-List is not empty

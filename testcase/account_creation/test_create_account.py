@@ -3,10 +3,10 @@ import unittest
 from time import sleep
 from config.setup import get_driver
 from data.mobile_params import test_account
-from mobile.mobile_user_actions import Actions
+from utils.mobile.user_actions import Actions
 from utils.find_element import get_element
-from mobile.mobile_locator_info import weak, weak_prompt, complete, fair, good, notification, login, already_in_use, track, home
-from utils.common_mobile import get_new_account
+from utils.mobile.locator_info import weak, weak_prompt, complete, fair, good, notification, login, already_in_use, track, home
+from utils.mobile.common import get_new_account
 
 @allure.severity(allure.severity_level.CRITICAL)
 @allure.feature("Account Creation")

@@ -3,8 +3,8 @@ import allure
 from time import sleep
 from config.setup import get_driver
 from data.mobile_params import address_info
-from mobile.mobile_locator_info import login
-from mobile.mobile_user_actions import Actions
+from utils.mobile.locator_info import login
+from utils.mobile.user_actions import Actions
 
 
 @allure.severity(allure.severity_level.CRITICAL)

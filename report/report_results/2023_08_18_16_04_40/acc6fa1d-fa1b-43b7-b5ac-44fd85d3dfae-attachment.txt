@@ -1,6 +1,0 @@
-
-This is weak password
-
-Show prompt success
-
-Can't complete with weak password
