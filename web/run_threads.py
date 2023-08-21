@@ -1,16 +1,25 @@
 import threading
-from testcase.web.create_pick_auction import create_pick_auction
-from testcase.web.create_pick_set_price import create_pick_set_price
-from testcase.web.create_random_auction import create_random_auction
-from testcase.web.create_random_set_price import create_random_set_price
+import pytest
 
+def create_pa():
+    pytest.main(['./testcase/web/create_pick_auction.py', '--capture=sys', '-q'])
+
+def create_ps():
+    pytest.main(['./testcase/web/create_pick_set_price.py', '--capture=sys', '-q'])
+
+def create_ra():
+    pytest.main(['./testcase/web/create_random_auction.py', '--capture=sys', '-q'])
+
+def create_rs():
+    pytest.main(['./testcase/web/create_random_set_price.py', '--capture=sys', '-q'])
 
 def threads_flow():
     threads = [
-        # threading.Thread(target=create_pick_auction),
-        # threading.Thread(target=create_pick_set_price),
-        # threading.Thread(target=create_random_auction),
-        threading.Thread(target=create_random_set_price)]
+        threading.Thread(target=create_pa),
+        threading.Thread(target=create_ps),
+        threading.Thread(target=create_ra),
+        threading.Thread(target=create_rs)
+    ]
 
     for thread in threads:
         thread.start()

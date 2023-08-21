@@ -258,14 +258,26 @@ class WebActions:
         thread = threading.Thread(target=self.all_threads_flow)
         thread.start()
 
-    def login_flow(self, show_title):
+    def login_flow(self, show_title, listing_type):
         self.login()
         self.sign_in()
         self.schedule_a_show(show_title)
-        self.create_pick_spot_auction()
+        if listing_type == 'rs':
+            self.create_random_set_price_listing()
+        elif listing_type == 'ra':
+            self.create_random_auction()
+        elif listing_type == 'ps':
+            self.create_pick_spot_set_price()
+        else:
+            self.create_pick_spot_auction()
         self.publish()
         self.search(show_title)
         self.show_detail(show_title)
+        try:
+            get_element_by_xpath(self.driver,go_live,5)
+        except:
+            self.driver.quit()
+            raise
         self.set_inputs()
         self.run_a_listing()
         self.go_live()
