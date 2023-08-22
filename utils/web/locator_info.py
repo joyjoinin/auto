@@ -45,7 +45,10 @@ assign_list = LocatorInfo(locator="//*[@class='dollar-input']/input")
 assign_prices = LocatorInfo('id', 'assign-prices-button')
 close_assign_prices = LocatorInfo('id', 'close-spot-pricing-modal')
 min_bid = LocatorInfo('id', 'create-listing-form_minimum_bid_in_cents')
-
+break_extras = LocatorInfo(locator="//*[contains(text(),'Break extras')]")
+stash_or_pass = LocatorInfo(locator="//input[@id='create-listing-form_break_mechanic_type_stash_or_pass']")
+minimum_required = LocatorInfo(locator="//input[@id='create-listing-form_break_mechanic_threshold_in_cents']")
+save_button = LocatorInfo(locator="//*[@class='fake-select-content']/button")
 '''Detail page'''
 camera_1 = LocatorInfo('id', 'primarySourceInputListIVS')
 camera_2 = LocatorInfo('id', 'secondarySourceInputListIVS')

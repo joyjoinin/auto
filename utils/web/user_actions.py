@@ -31,7 +31,7 @@ class WebActions:
         get_element(self.driver, schedule_a_show).click()
         get_element(self.driver, title).send_keys(new_show.title)
         # save_data(new_show.title)
-        sleep(5)
+        sleep(3)
         upload_file = get_element(self.driver, upload)
         upload_file.send_keys(new_show.cover_image)
         sleep(2)
@@ -60,7 +60,15 @@ class WebActions:
         sleep(2)
         get_element_by_xpath(self.driver, listing.sell_type).click()
         if listing.min_bid is not None:
+            get_element_by_xpath(self.driver, break_extras).click()
+            get_element_by_xpath(self.driver, stash_or_pass).click()
+            sleep(3)
+            get_element_by_xpath(self.driver, minimum_required).send_keys(listing.min_bid)
+            sleep(3)
+            get_element_by_xpath(self.driver, save_button).click()
+            sleep(3)
             get_element(self.driver, min_bid).send_keys(listing.min_bid)
+            get_element_by_xpath(self.driver, save_listing).click()
         elif listing.assign_price is not None:
             get_element(self.driver, assign_price).click()
             sleep(1)
@@ -129,9 +137,9 @@ class WebActions:
     def set_inputs(self):
         sleep(5)
         self.set_media(camera_1, fake_device)
-        self.set_media(camera_2, fake_device)
-        self.set_media(camera_3, fake_device)
-        self.set_media(audio, fake_audio)
+        # self.set_media(camera_2, fake_device)
+        # self.set_media(camera_3, fake_device)
+        # self.set_media(audio, fake_audio)
 
     def go_live(self):
         sleep(0.5)
@@ -170,7 +178,8 @@ class WebActions:
         get_element_by_xpath(self.driver, start_next_listing).click()
 
     def start_auction(self):
-        get_element_by_xpath(self.driver, begin_auction, 30).click()
+        sleep(30)
+        get_element_by_xpath(self.driver, begin_auction,30).click()
 
     def tap_start_ripping(self):
         get_element_by_xpath(self.driver, start_ripping).click()
