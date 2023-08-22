@@ -69,7 +69,7 @@ app_name = 'live.fanatics.FanaticsLive-Development'
 # app_name = 'live.fanatics.FanaticsLive-QA'
 
 # test_account = Account('joy0101@fanatics.live', 'Joytest159753?')
-test_account = Account('joy0101@fanatics.live', 'Joytest159753?')
+test_account = Account('joy0102@fanatics.live', 'Joytest159753?')
 
 level_params = ["I'm a Rookie", "I'm a Collector", "I'm a Seasoned Pro"]
 

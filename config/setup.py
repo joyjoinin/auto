@@ -17,7 +17,7 @@ def get_driver_on_real_device(no_rest):
     return driver
 
 
-def get_device_on_simulator(no_rest):
+def get_device_on_simulator(no_rest=False):
     caps = webdriver.webdriver.AppiumOptions()
     caps.set_capability("platformName", "iOS")
     caps.set_capability("appium:automationName", "XCUITest")

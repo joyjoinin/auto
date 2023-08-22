@@ -13,7 +13,7 @@ class Show:
 
 class Listing:
 
-    def __init__(self, title=None, option='books', assign_type=None, sell_type=None, assign_price=None,
+    def __init__(self, title=None, option='NBA 30 Team', assign_type=None, sell_type=None, assign_price=None,
                  min_bid=None, price_per_spot=None):
         self.title = title
         self.option = option

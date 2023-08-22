@@ -2,3 +2,7 @@ email: wcoa8N1a6Eqh@fanatics.live, password: Joytest159753?, add_payment: Falsee
  email: test,, password: test, add_payment: False 
 
  email: test,, password: test, add_payment: False 
+
+ email: xjZ5wRPYGNH9@fanatics.live, password: Joytest159753?, add_payment: False 
+
+ email: kJnq41hD2U3q@fanatics.live, password: Joytest159753?, add_payment: False 

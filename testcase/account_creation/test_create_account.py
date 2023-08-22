@@ -6,7 +6,8 @@ from data.mobile_params import test_account
 from utils.mobile.user_actions import Actions
 from utils.find_element import get_element
 from utils.mobile.locator_info import weak, weak_prompt, complete, fair, good, notification, login, already_in_use, track, home
-from utils.mobile.common import get_new_account
+from utils.mobile.common import get_new_account, save_data
+
 
 @allure.severity(allure.severity_level.CRITICAL)
 @allure.feature("Account Creation")
@@ -38,11 +39,12 @@ class TestAccountCreation(unittest.TestCase):
         # do.input_code(new_account.access_code)
         # do.tap_submit()
         do.tap_logos(new_account.logo_select)
+        save_data(new_account.email,new_account.password)
         do.tap_continue()
         do.tap_follow(new_account.follow_count)
         do.tap_continue()
         try:
-            get_element(self.driver, notification, 3)
+            # get_element(self.driver, notification, 3)
             do.set_notification_later()
         except Exception:
             print('already set notification')
@@ -104,7 +106,7 @@ class TestAccountCreation(unittest.TestCase):
         do.tap_follow(new_account.follow_count)
         do.tap_continue()
         try:
-            get_element(self.driver, notification)
+            # get_element(self.driver, notification)
             do.set_notification_later()
         except Exception:
             print('already set notification')

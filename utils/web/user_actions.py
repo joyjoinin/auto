@@ -31,7 +31,7 @@ class WebActions:
         get_element(self.driver, schedule_a_show).click()
         get_element(self.driver, title).send_keys(new_show.title)
         # save_data(new_show.title)
-        sleep(2)
+        sleep(5)
         upload_file = get_element(self.driver, upload)
         upload_file.send_keys(new_show.cover_image)
         sleep(2)

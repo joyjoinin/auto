@@ -18,7 +18,7 @@ def get_time():
 
 def get_image_path():
     script_dir = os.path.dirname(os.path.realpath(__file__))
-    new_path = script_dir.replace('utils', 'img.png')
+    new_path = script_dir.replace('utils/web', 'img.png')
     return new_path
 
 
