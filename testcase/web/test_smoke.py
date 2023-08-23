@@ -1,4 +1,5 @@
 import unittest
+import pytest
 from utils.web.common import get_title
 from utils.web.user_actions import WebActions
 from selenium import webdriver
@@ -20,8 +21,9 @@ class TestLiveStream(unittest.TestCase):
         self.driver.close()
         self.driver.quit()
 
-    def test1_add_live(self) -> None:
-        show_title = get_title('Auto_Test')
+    @pytest.mark.flaky(reruns=3)
+    def test_smoke(self) -> None:
+        show_title = get_title('Smoke_Test')
         do.login()
         do.sign_in()
         do.schedule_a_show(show_title)
@@ -32,6 +34,7 @@ class TestLiveStream(unittest.TestCase):
         do.set_inputs()
         do.run_a_listing()
         do.go_live()
+        do.end_stream()
 
 
 

@@ -18,7 +18,7 @@ class TestCard(unittest.TestCase):
     def tearDown(self):
         self.driver.quit()
 
-    @allure.story("Add card")
+    @allure.story("Add a card")
     def test1_add_card(self) -> None:
         sleep(2)
         do.tap_my_wallet()
@@ -34,7 +34,7 @@ class TestCard(unittest.TestCase):
         except Exception:
             raise
 
-    @allure.story("Delete card")
+    @allure.story("Delete a card")
     def test2_delete_card(self) -> None:
         sleep(2)
         do.tap_my_wallet()

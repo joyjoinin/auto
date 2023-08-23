@@ -50,6 +50,15 @@ def get_driver():
     chrome_options.add_argument("no-sandbox")
     chrome_options.add_argument("--use-fake-ui-for-media-stream")
     chrome_options.add_argument("--use-fake-device-for-media-stream")
-    # chrome_options.add_argument("--headless")
+    chrome_options.add_argument("--headless")
     driver = webdriver.Chrome(options=chrome_options)
     return driver
+
+
+def get_log(show_title):
+    import logging
+    logger = logging.getLogger(__name__)
+    logger.setLevel(logging.DEBUG)
+    console_handler = logging.StreamHandler()
+    logger.addHandler(console_handler)
+    logger.info(f'{show_title} create success')

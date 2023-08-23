@@ -37,7 +37,7 @@ class TestPickSetPrice(unittest.TestCase):
         assert won_spot_name == spot_name
 
     @allure.story("Buy spots")
-    def test1_buy_spots(self) -> None:
+    def test2_buy_spots(self) -> None:
         listing_sold_out = False
         first_page_sold_out = False
         do.pick_your_spot()

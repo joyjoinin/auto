@@ -2,7 +2,7 @@ import random
 import threading
 from selenium.webdriver.support.ui import Select
 from data.web_params import *
-from utils.web.common import get_image_path, get_date, get_time
+from utils.web.common import get_image_path, get_date, get_time, get_log
 from utils.find_element import get_element, get_element_by_xpath, get_elements_by_xpath
 from utils.web.locator_info import *
 from time import sleep
@@ -216,6 +216,7 @@ class WebActions:
 
     def run_overlays_thread(self):
         thread = threading.Thread(target=self.overlay_thread)
+        thread.daemon = True
         thread.start()
 
     def run_giveaway(self):
@@ -236,6 +237,7 @@ class WebActions:
 
     def run_giveaway_thread(self):
         thread = threading.Thread(target=self.giveaway_thread)
+        thread.daemon = True
         thread.start()
 
     def threads_flow(self):
@@ -290,6 +292,7 @@ class WebActions:
         self.set_inputs()
         self.run_a_listing()
         self.go_live()
+        get_log(show_title)
         self.run_giveaway_thread()
         sleep(10)
         self.run_overlays_thread()

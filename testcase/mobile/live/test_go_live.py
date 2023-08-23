@@ -18,8 +18,8 @@ class TestGOLive(unittest.TestCase):
     def tearDown(self):
         self.driver.quit()
 
-    @allure.story("Go live from hero card")
-    def test1_go_live_from_hero_card(self) -> None:
+    @allure.story("Go live by hero card")
+    def test1_go_live_by_hero_card(self) -> None:
         try:
             do.login_flow(test_account)
             do.try_find_live(test_live_name)
